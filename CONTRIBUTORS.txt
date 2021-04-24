@@ -9,3 +9,5 @@
 # they accept any liabilities with respect to them.
 
 - Rafael Corchuelo (corchu@us.es)
+- Alvaro Sevilla Desing-testing (alvsevcab@alum.us.es)
+- Yesica Garate Desing-testing (yesgarfue@alum.us.es)
