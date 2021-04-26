@@ -17,6 +17,39 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<import resource="classpath:/WEB-INF/population/conversion-service.xml"/>	
+	<import resource="classpath:/WEB-INF/population/conversion-service.xml"/>
+	
+		<bean name="task1" class="acme.entities.task.Task">
+			<property name="title" value="task1" />
+			<property name="creation" value="2030/12/11 23:59" />
+			<property name="finish" value="2030/12/11 23:59" />
+			<property name="workload" value= "23.12"/>
+			<property name="description" value="esto es una descripción"/>
+			<property name="link" value="http://www.example.com"/>
+			<property name="publico" value="true"/>	
+			<property name="finished" value="true"/>	
+		</bean>	
+		
+		<bean name="task2" class="acme.entities.task.Task">
+			<property name="title" value="task2" />
+			<property name="creation" value="2030/12/11 23:59" />
+			<property name="finish" value="2030/12/11 23:59" />
+			<property name="workload" value= "23.12"/>
+			<property name="description" value="esto es una descripción"/>
+			<property name="link" value="http://www.example.com"/>
+			<property name="publico" value="true"/>	
+			<property name="finished" value="false"/>	
+		</bean>	
+		
+		<bean name="task3" class="acme.entities.task.Task">
+			<property name="title" value="task3" />
+			<property name="creation" value="2030/12/13 23:59" />
+			<property name="finish" value="2030/12/14 23:59" />
+			<property name="workload" value= "23.12"/>
+			<property name="description" value="esto es una descripción"/>
+			<property name="link" value="http://www.example.com"/>
+			<property name="publico" value="true"/>	
+			<property name="finished" value="false"/>	
+		</bean>	
 
 </beans>
