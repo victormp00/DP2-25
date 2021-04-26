@@ -1,0 +1,6 @@
+task.title = Task:
+task.executionPeriod = Execution Period:
+task.workload = Workload
+task.description = Description
+task.link = Link
+task.button.create=create task
