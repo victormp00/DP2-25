@@ -1,0 +1,12 @@
+dashboard.publicTasks = Tareas publicas
+dashboard.privateTasks= Tareas privadas
+dashboard.ongoingTasks= Tareas inacabadas
+dashboard.finishedTasks= Tareas acabadas
+dashboard.averageExecTime= Tiempo medio de ejecucion
+dashboard.deviationExecTime= Desviacion estandar del tiempo de ejecucion
+dashboard.maxExecTime= Tiempo de ejecucion maximo
+dashboard.minExecTime= Tiempo de ejecucion minimo
+dashboard.averageWorkload= Carga de trabajo media
+dashboard.deviationWorkload= Desviacion estandar de la carga de trabajo
+dashboard.maxWorkload= Maxima carga de trabajo
+dashboard.minWorkload= Minima carga de trabajo

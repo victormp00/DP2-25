@@ -1,0 +1,12 @@
+dashboard.publicTasks = Public tasks
+dashboard.privateTasks= Private tasks
+dashboard.ongoingTasks= Non-finished tasks
+dashboard.finishedTasks= Finished tasks
+dashboard.averageExecTime= Average execution time
+dashboard.deviationExecTime= Deviation execution time
+dashboard.maxExecTime= Maximum execution time
+dashboard.minExecTime=Minimum execution time
+dashboard.averageWorkload= Average workload
+dashboard.deviationWorkload= Deviation workload
+dashboard.maxWorkload= Maximum workload
+dashboard.minWorkload= Minimum workload

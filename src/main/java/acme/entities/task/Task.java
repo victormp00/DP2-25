@@ -1,3 +1,4 @@
+
 package acme.entities.task;
 
 import java.util.Date;
@@ -15,7 +16,6 @@ import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Entity
 @Getter
 @Setter
@@ -24,33 +24,42 @@ public class Task extends DomainEntity {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	
-	
-	
+	private static final long	serialVersionUID	= 1L;
+
 	@NotBlank
-	@Length(min=1,max=60)
-	private String title;
-	
+	@Length(min = 1, max = 60)
+	private String				title;
+
 	//sino funciona, probar con localdatetieme
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date creation;
-	
+	private Date				creation;
+
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date finish;
-	
+	private Date				finish;
+
 	@Digits(fraction = 2, integer = 2)
-	private Double workload;
-	
+	private Double				workload;
+
 	@NotBlank
-	@Length(min=1,max=500)
-	private String description;
+	@Length(min = 1, max = 500)
+	private String				description;
 
 	@URL
-	private String link;
-	
+	private String				link;
+
 	//misc
-	private Boolean publico; 
-	
-	private Boolean finished;
+	private Boolean				publico;
+
+	private Boolean				finished;
+
+	// Derived attributes -----------------------------------------------------
+
+
+	public Double getExecutionTime() {
+		final Task task = new Task();
+		final Date start = task.getCreation();
+		final Date end = task.getFinish();
+		final Long ms = end.getTime() - start.getTime();
+		return (ms / 36*(Math.pow(10, 7)));
+	}
 }
