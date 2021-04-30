@@ -5,8 +5,8 @@
 	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-	<definition name="administrator/dashboard/list" extends= "master">
-		<put-attribute name="body" type="template" value="../administrator/dashboard/list.jsp"></put-attribute>
+	<definition name="administrator/dashboard/form" extends= "master">
+		<put-attribute name="body" type="template" value="../administrator/dashboard/form.jsp"></put-attribute>
 	</definition>
 
 </tiles-definitions>

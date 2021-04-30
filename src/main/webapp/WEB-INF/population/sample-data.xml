@@ -51,5 +51,15 @@
 			<property name="publico" value="true"/>	
 			<property name="finished" value="false"/>	
 		</bean>	
+		<bean name="task4" class="acme.entities.task.Task">
+			<property name="title" value="task4" />
+			<property name="creation" value="2030/12/13 23:59" />
+			<property name="finish" value="2030/12/14 20:59" />
+			<property name="workload" value= "2.0"/>
+			<property name="description" value="esto es una descripción"/>
+			<property name="link" value="http://www.example.com"/>
+			<property name="publico" value="false"/>	
+			<property name="finished" value="false"/>	
+		</bean>	
 
 </beans>

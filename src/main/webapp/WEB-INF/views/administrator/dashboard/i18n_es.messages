@@ -1,12 +1,17 @@
-dashboard.publicTasks = Tareas publicas
-dashboard.privateTasks= Tareas privadas
-dashboard.ongoingTasks= Tareas inacabadas
-dashboard.finishedTasks= Tareas acabadas
-dashboard.averageExecTime= Tiempo medio de ejecucion
-dashboard.deviationExecTime= Desviacion estandar del tiempo de ejecucion
-dashboard.maxExecTime= Tiempo de ejecucion maximo
-dashboard.minExecTime= Tiempo de ejecucion minimo
-dashboard.averageWorkload= Carga de trabajo media
-dashboard.deviationWorkload= Desviacion estandar de la carga de trabajo
-dashboard.maxWorkload= Maxima carga de trabajo
-dashboard.minWorkload= Minima carga de trabajo
+administrator.dashboard.form.title.show = Dashboard
+administrator.dashboard.form.title.general-indicators = Indicadores generales
+
+administrator.dashboard.publicTasks = Tareas publicas
+administrator.dashboard.privateTasks= Tareas privadas
+administrator.dashboard.ongoingTasks= Tareas inacabadas
+administrator.dashboard.finishedTasks= Tareas acabadas
+administrator.dashboard.averageExecTime= Tiempo medio de ejecucion
+administrator.dashboard.deviationExecTime= Desviacion estandar del tiempo de ejecucion
+administrator.dashboard.maxExecTime= Tiempo de ejecucion maximo
+administrator.dashboard.minExecTime= Tiempo de ejecucion minimo
+administrator.dashboard.averageWorkload= Carga de trabajo media
+administrator.dashboard.deviationWorkload= Desviacion estandar de la carga de trabajo
+administrator.dashboard.maxWorkload= Maxima carga de trabajo
+administrator.dashboard.minWorkload= Minima carga de trabajo
+
+administrator.dashboard.form.title.application-statuses = Estados de la aplicacion

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import acme.entities.dashboard.Dashboard;
+import acme.forms.Dashboard;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Administrator;
@@ -25,8 +25,5 @@ public class AdministratorDashboardController extends AbstractController<Adminis
 		super.addBasicCommand(BasicCommand.SHOW, this.dashboardService);
 		
 	}
-	
-	
-	
-	
+
 }

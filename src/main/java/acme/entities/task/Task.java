@@ -53,13 +53,15 @@ public class Task extends DomainEntity {
 	private Boolean				finished;
 
 	// Derived attributes -----------------------------------------------------
-
+	public Double				executionTime;
 
 	public Double getExecutionTime() {
 		final Task task = new Task();
 		final Date start = task.getCreation();
 		final Date end = task.getFinish();
 		final Long ms = end.getTime() - start.getTime();
-		return (ms / 36*(Math.pow(10, 7)));
+		final Integer n = ms.intValue();
+		final Double d = n.doubleValue();
+		return (d / 36*(Math.pow(10, 7)));
 	}
 }
