@@ -42,7 +42,15 @@
 		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">
 			<acme:menu-suboption code="master.menu.manager.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
+		
+		<!-- Parte de tasks -->
+		
+		<acme:menu-option code="master.menu.anonymous.publictask" action="/anonymous/task/list" access="isAnonymous()"/>
+		<acme:menu-option code="master.menu.user-account.publictask" action="/authenticated/task/list" access="isAuthenticated()"/>
+		<acme:menu-option code="master.menu.manager.task" action="/manager/task/list" access="hasRole('Manager')"/>
 	</acme:menu-left>
+	
+	
 
 	<acme:menu-right>
 		<acme:menu-option code="master.menu.sign-up" action="/anonymous/user-account/create" access="isAnonymous()"/>

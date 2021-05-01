@@ -59,9 +59,7 @@ import acme.framework.services.AbstractDeleteService;
 		public Task findOne(final Request<Task> request) {
 			assert request != null;
 			Task result;
-			Principal principal;
 			int id;
-			principal = request.getPrincipal();
 			id=request.getModel().getInteger("id");
 			result= this.repository.findOneTaskById(id);
 

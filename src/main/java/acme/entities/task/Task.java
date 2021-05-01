@@ -29,30 +29,41 @@ public class Task extends DomainEntity {
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne
-	private Manager manager;
+	protected Manager manager;
 	
 	@NotBlank
 	@Length(min=1,max=60)
-	private String title;
+	protected String title;
 	
 	//sino funciona, probar con localdatetieme
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date creation;
+	protected Date creation;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date finish;
+	protected Date finish;
 	
 	@Digits(fraction = 2, integer = 2)
-	private Double workload;
+	protected Double workload;
 	
 	@NotBlank
 	@Length(min=1,max=500)
-	private String description;
+	protected String description;
 
 	@URL
-	private String link;
+	protected String link;
 	
-	private Boolean publico; 
+	protected Boolean publico; 
 	
-	private Boolean finished;
+	protected Boolean finished;
+	
+	public Double getWorkloadDerived() {
+		Double dif = (double)this.finish.getTime()-(double) this.creation.getTime();
+		dif=dif / (1000.00 * 60.00 * 60.00);
+		final String str=String.format("%.2f", dif);
+		final String e []=str.split(",");
+		final Integer decimal=Integer.valueOf(e[1]);
+		final Integer decRes=decimal*60/100;		
+		final String numFin = e[0]+"."+decRes;
+		return 	Double.valueOf(numFin);
+	}
 }

@@ -78,6 +78,12 @@ master.footer.title.languages = Languages
 master.footer.label.english = English
 master.footer.label.spanish = Spanish
 
+# master.tasks ############
+
+master.menu.manager.task= Manager tasks
+master.menu.user-account.publictask=Public tasks
+master.menu.anonymous.publictask=Anonymous Tasks
+
 # master.company ##############################################################
 
 master.company.title = The company

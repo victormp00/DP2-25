@@ -66,6 +66,12 @@ master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.manager = Datos de mánager
 master.menu.user-account.become-manager = Hazte mánager
 
+# master.tasks ############
+
+master.menu.manager.task= Tareas de manager
+master.menu.user-account.publictask=Tareas públicas
+master.menu.anonymous.publictask=Tareas anónimas
+
 ﻿# master.footer ###############################################################
 
 master.footer.title.about = Nosotros
