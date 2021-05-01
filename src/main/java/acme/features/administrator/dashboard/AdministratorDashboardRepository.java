@@ -1,13 +1,20 @@
 
 package acme.features.administrator.dashboard;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.task.Task;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
 public interface AdministratorDashboardRepository extends AbstractRepository {
+	
+	@Query("SELECT t FROM Task t")
+	List<Task> findAllTasks();
+	
 	@Query("select count(t.publico) from Task t where t.publico = TRUE")
 	Integer publicTasks();
 
@@ -20,7 +27,7 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select count(t.finished) from Task t where t.finished = TRUE")
 	Integer finishedTasks();
 
-	@Query("select avg(select TIMEDIFF(t.finish, t.creation) from Task t) from Task t")
+	@Query("select avg(t.executionTime) from Task t")
 	Double averageExecTime();
 
 	@Query("select stddev(t.executionTime) from Task t")

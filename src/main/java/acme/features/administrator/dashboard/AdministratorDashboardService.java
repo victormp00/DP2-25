@@ -1,9 +1,12 @@
 
 package acme.features.administrator.dashboard;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.task.Task;
 import acme.forms.Dashboard;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -38,7 +41,6 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 	@Override
 	public Dashboard findOne(final Request<Dashboard> request) {
 		assert request != null;
-
 		Dashboard result;
 		Integer publicTasks;
 		Integer privateTasks;
@@ -52,6 +54,7 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 		Double deviationWorkload;
 		Double maxWorkload;
 		Double minWorkload;
+		List<Task> tasks;
 
 		publicTasks = this.repository.publicTasks();
 		privateTasks = this.repository.privateTasks();
@@ -65,6 +68,10 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 		deviationWorkload = this.repository.deviationWorkload();
 		maxWorkload = this.repository.maxWorkload();
 		minWorkload = this.repository.minWorkload();
+		tasks = this.repository.findAllTasks();
+		for (final Task t : tasks) {
+			t.setExecutionTime(t.getExecutionTime());
+		}
 
 		result = new Dashboard();
 		result.setPublicTasks(publicTasks);
@@ -79,7 +86,7 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 		result.setDeviationWorkload(deviationWorkload);
 		result.setMaxWorkload(maxWorkload);
 		result.setMinWorkload(minWorkload);
-
 		return result;
 	}
+
 }
