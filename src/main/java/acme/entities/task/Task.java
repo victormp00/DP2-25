@@ -3,6 +3,7 @@ package acme.entities.task;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Digits;
@@ -11,6 +12,7 @@ import javax.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.roles.Manager;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,7 +28,8 @@ public class Task extends DomainEntity {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	
+	@ManyToOne
+	private Manager manager;
 	
 	@NotBlank
 	@Length(min=1,max=60)
@@ -49,7 +52,6 @@ public class Task extends DomainEntity {
 	@URL
 	private String link;
 	
-	//misc
 	private Boolean publico; 
 	
 	private Boolean finished;

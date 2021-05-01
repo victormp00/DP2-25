@@ -1,0 +1,10 @@
+task.title = Task:
+task.creation = creation date
+task.finish = finish date
+task.workload = Workload
+task.description = Description
+task.link = Link
+task.button.create=create task
+anonymous.task.form.button.return=return
+authenticated.manager.manager.task.form.button.create= Create
+authenticated.manager.manager.task.form.button.delete= Delete
