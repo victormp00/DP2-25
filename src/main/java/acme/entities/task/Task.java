@@ -1,5 +1,6 @@
 package acme.entities.task;
 
+import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -56,14 +57,12 @@ public class Task extends DomainEntity {
 	
 	protected Boolean finished;
 	
-	public Double getWorkloadDerived() {
-		Double dif = (double)this.finish.getTime()-(double) this.creation.getTime();
-		dif=dif / (1000.00 * 60.00 * 60.00);
-		final String str=String.format("%.2f", dif);
-		final String e []=str.split(",");
-		final Integer decimal=Integer.valueOf(e[1]);
-		final Integer decRes=decimal*60/100;		
-		final String numFin = e[0]+"."+decRes;
-		return 	Double.valueOf(numFin);
+	public Boolean isFit() {
+		final Duration duration= Duration.between(this.creation.toInstant(), this.finish.toInstant()); 
+		final long diff = Math.abs(duration.toHours());
+		final long diff1 = Math.abs(duration.toMinutes());
+		final Double d1=Double.valueOf(diff);
+		final Double d2=Double.valueOf(diff1);
+		return true;
 	}
 }

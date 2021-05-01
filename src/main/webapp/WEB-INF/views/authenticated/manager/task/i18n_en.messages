@@ -16,3 +16,4 @@ authenticated.manager.form.finish=finish
 authenticated.manager.form.workload=workload
 authenticated.manager.task.form.link=link
 authenticated.manager.task.form.publico=Do you want your task to be public?
+authenticated.manager.manager.task.form.button.finish= finish task

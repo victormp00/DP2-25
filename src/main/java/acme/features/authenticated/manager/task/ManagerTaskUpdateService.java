@@ -81,6 +81,12 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		assert request != null;
 		assert entity != null;
 
+		if(!entity.getFinish().equals(null)) {
+			
+			final Double workload=entity.getWorkload();
+			entity.setWorkload(workload);
+			
+		}
 		this.repository.save(entity);
 	}
 	@Override

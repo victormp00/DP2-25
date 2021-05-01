@@ -81,14 +81,16 @@ public class ManagerTaskFinishService implements AbstractUpdateService<Manager, 
 	public void update(final Request<Task> request, final Task entity) {
 		assert request != null;
 		assert entity != null;
-		
+		Double workload;
 		Date finish;
 		//finalizar tarea
 		finish =new Date();
-		entity.setWorkload(entity.getWorkloadDerived());
 		entity.setFinish(finish);
+		workload=entity.getWorkload();
+		entity.setWorkload(workload);
 		entity.setFinished(true);
 		this.repository.save(entity);
+		
 	}
 	@Override
 	public void onSuccess(final Request<Task> request, final Response<Task> response) {
@@ -99,7 +101,7 @@ public class ManagerTaskFinishService implements AbstractUpdateService<Manager, 
 			PrincipalHelper.handleUpdate();
 		}
 	}
-	
+
 	
 }
 
