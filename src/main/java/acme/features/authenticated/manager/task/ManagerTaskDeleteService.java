@@ -23,8 +23,18 @@ import acme.framework.services.AbstractDeleteService;
 		public boolean authorise(final Request<Task> request) {
 			assert request != null;
 			
+			Task result;
+			Principal principal;
+			int id;
+			Manager manager;
+			boolean puedeborrar;
 			
-			return true;
+			principal = request.getPrincipal();
+			id =  request.getModel().getInteger("id");
+			result= this.repository.findOneTaskById(id);
+			manager= result.getManager();
+			puedeborrar=manager.getUserAccount().getId() == principal.getAccountId();
+			return puedeborrar;
 		}
 
 		@Override
