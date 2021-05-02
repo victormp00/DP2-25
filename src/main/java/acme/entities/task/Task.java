@@ -1,3 +1,4 @@
+
 package acme.entities.task;
 
 import java.time.Duration;
@@ -17,9 +18,9 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.entities.roles.Manager;
 import acme.framework.entities.DomainEntity;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
-
 
 @Entity
 @Getter
@@ -29,6 +30,7 @@ public class Task extends DomainEntity {
 	/**
 	 * 
 	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne
@@ -41,6 +43,7 @@ public class Task extends DomainEntity {
 	//sino funciona, probar con localdatetieme
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
+
 	protected Date creation;
 	
 	@NotNull
@@ -62,7 +65,12 @@ public class Task extends DomainEntity {
 	protected Boolean publico; 
 	
 	protected Boolean finished;
-	
+
+  @Getter(AccessLevel.NONE) private Double			executionTime;
+
+	public Double getExecutionTime() {
+		return ((this.finish.getTime() - this.creation.getTime()) / (36 * (Math.pow(10, 5))));
+    
 	public Boolean isFit() {
 		boolean resultado= true;
 		final Duration duration= Duration.between(this.creation.toInstant(), this.finish.toInstant()); 
@@ -83,5 +91,6 @@ public class Task extends DomainEntity {
 			resultado= false;
 		}
 		return resultado;
+
 	}
 }

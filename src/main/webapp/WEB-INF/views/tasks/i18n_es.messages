@@ -1,6 +1,8 @@
 task.title = Tarea
-task.executionPeriod = Periodo de ejecuci\u00f3n
+task.creation = fecha de creaci\u00d3n
+task.finish= fecha de finalizaci\u00d3n
 task.workload = Carga de trabajo (workload)
 task.description = Descripci\u00f3n
 task.link = Link
 task.button.create=crear tarea
+anonymous.task.form.button.return=volver
