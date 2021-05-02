@@ -19,7 +19,73 @@
 
 	<import resource="classpath:/WEB-INF/population/conversion-service.xml"/>
 	
+	<!-- admin -->
+		<bean name="administratorUserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="admin1" />
+		<property name="password" value="admin1" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Admin" />
+				<property name="surname" value="One" />
+				<property name="email" value="admin@mail.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="administratorAdministrator" />
+				<ref bean="administratorAuthenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="administratorAdministrator" class="acme.framework.entities.Administrator">
+		<property name="userAccount" ref="administratorUserAccount" />
+	</bean>
+	
+	<bean name="administratorAuthenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="administratorUserAccount" />
+	</bean>
+	
+	<!-- Manager -->
+	<bean name="manager1UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="manager1"/>
+		<property name="password" value="manager1"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Employer"/>
+				<property name="surname" value="One"/>
+				<property name="email" value="manager1@mail.com"/>
+			</bean>
+		</property>
+		<property name="enabled" value="true"/>		
+		<property name="roles">
+			<list>
+				<ref bean="manager1Manager"/>
+				<ref bean="manager1Authenticated"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="manager1Manager" class="acme.entities.roles.Manager">
+		<property name="tasks">
+			<list>
+				<ref bean="task1"/>
+				<ref bean="task2"/>
+			</list>
+		</property>
+		<property name="company" value="manager 1, Inc."/>
+		<property name="sector" value="Sector 1"/>
+		<property name="userAccount" ref="manager1UserAccount"/>
+	</bean>
+
+	<bean name="manager1Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="manager1UserAccount"/>
+	</bean>
+	
+	
 		<bean name="task1" class="acme.entities.task.Task">
+			<property name="manager" ref="manager1Manager" />
 			<property name="title" value="task1" />
 			<property name="creation" value="2030/12/11 23:59" />
 			<property name="finish" value="2030/12/11 23:59" />
@@ -31,6 +97,7 @@
 		</bean>	
 		
 		<bean name="task2" class="acme.entities.task.Task">
+			<property name="manager" ref="manager1Manager" />
 			<property name="title" value="task2" />
 			<property name="creation" value="2030/12/11 23:59" />
 			<property name="finish" value="2030/12/11 23:59" />
@@ -51,5 +118,35 @@
 			<property name="publico" value="true"/>	
 			<property name="finished" value="false"/>	
 		</bean>	
+		
+		<bean name="spamword1" class="acme.entities.spam.Spam">
+			<property name="spamEn" value="sex"/>
+			<property name="spamEs" value="sexo" />
+		</bean>	
+		<bean name="spamword2" class="acme.entities.spam.Spam">
+			<property name="spamEn" value="hardcore"/>
+			<property name="spamEs" value="duro" />
+		</bean>	
+		<bean name="spamword3" class="acme.entities.spam.Spam">
+			<property name="spamEn" value="viagra"/>
+			<property name="spamEs" value="viagra" />
+		</bean>	
+		<bean name="spamword4" class="acme.entities.spam.Spam">
+			<property name="spamEn" value="cialis"/>
+			<property name="spamEs" value="cialis" />
+		</bean>	
+		<bean name="spamword5" class="acme.entities.spam.Spam">
+			<property name="spamEn" value="nigeria"/>
+			<property name="spamEs" value="nigeria" />
+		</bean>	
+		<bean name="spamword6" class="acme.entities.spam.Spam">
+			<property name="spamEn" value="you’ve won"/>
+			<property name="spamEs" value="has ganado" />
+		</bean>	
+		<bean name="spamword7" class="acme.entities.spam.Spam">
+			<property name="spamEn" value="million dollar"/>
+			<property name="spamEs" value="millón dollar" />
+		</bean>	
+		
 
 </beans>

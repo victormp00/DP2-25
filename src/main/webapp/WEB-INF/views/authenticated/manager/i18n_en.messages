@@ -7,3 +7,5 @@ authenticated.manager.manager.form.label.sector = Sector
 authenticated.manager.manager.form.button.create = Register
 authenticated.manager.manager.form.button.update = Update
 authenticated.manager.manager.form.button.return = Return
+
+authenticated.manager.manager.task.form.button.update= Update
