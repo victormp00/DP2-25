@@ -75,6 +75,11 @@ public class ManagerTaskFinishService implements AbstractUpdateService<Manager, 
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		if(entity.getWorkload() !=null && entity.getCreation()!=null ) {
+			if(Boolean.FALSE.equals(entity.isFit())) {
+				errors.add("workload", "workload does not fit");
+			}
+		}
 	}
 
 	@Override

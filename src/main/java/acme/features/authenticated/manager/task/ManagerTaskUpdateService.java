@@ -74,6 +74,17 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		
+		if(entity.getWorkload() !=null && entity.getCreation()!=null ) {
+			if(Boolean.FALSE.equals(entity.isFit())) {
+				errors.add("workload", "workload does not fit");
+			}
+		}
+		if(entity.getFinish() !=null && entity.getCreation()!=null ) {
+			if(Boolean.FALSE.equals(entity.datefit())) {
+				errors.add("creation", "creation is after finish");
+			}
+		}
 	}
 
 	@Override
@@ -81,12 +92,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		assert request != null;
 		assert entity != null;
 
-		if(!entity.getFinish().equals(null)) {
-			
-			final Double workload=entity.getWorkload();
-			entity.setWorkload(workload);
-			
-		}
+
 		this.repository.save(entity);
 	}
 	@Override

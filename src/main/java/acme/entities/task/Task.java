@@ -8,7 +8,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -37,12 +39,16 @@ public class Task extends DomainEntity {
 	protected String title;
 	
 	//sino funciona, probar con localdatetieme
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date creation;
 	
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date finish;
 	
+	@NotNull
+	@Min(0)
 	@Digits(fraction = 2, integer = 2)
 	protected Double workload;
 	
@@ -58,11 +64,24 @@ public class Task extends DomainEntity {
 	protected Boolean finished;
 	
 	public Boolean isFit() {
+		boolean resultado= true;
 		final Duration duration= Duration.between(this.creation.toInstant(), this.finish.toInstant()); 
 		final long diff = Math.abs(duration.toHours());
 		final long diff1 = Math.abs(duration.toMinutes());
 		final Double d1=Double.valueOf(diff);
 		final Double d2=Double.valueOf(diff1);
-		return true;
+		final double numerodeminutosquesobrandelashoras = (d2%60)/100;
+		final double tiempoEnMedio=d1+numerodeminutosquesobrandelashoras;
+		if(this.workload>tiempoEnMedio) {
+			resultado=false;
+		}
+		return resultado;
+	}
+	public Boolean datefit() {
+		boolean resultado= true;
+		if(this.creation.after(this.finish)) {
+			resultado= false;
+		}
+		return resultado;
 	}
 }

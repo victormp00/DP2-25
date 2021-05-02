@@ -78,7 +78,18 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager,Task> {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
+		
+		
+		if(entity.getFinish() !=null && entity.getCreation()!=null ) {
+			if(Boolean.FALSE.equals(entity.datefit())) {
+				errors.add("creation", "creation is after finish");
+			}
+			}
+		if(entity.getWorkload() !=null && entity.getCreation()!=null ) {
+			if(Boolean.FALSE.equals(entity.isFit())) {
+				errors.add("workload", "workload does not fit");
+			}
+			}
 		
 	}
 
