@@ -34,24 +34,24 @@
 		<td><acme:print value="${finishedTasks}" /></td>
 	</tr>
 	<tr>
-		<th scope="row"><acme:message
+		<th scope="row"><acme:message 
 				code="administrator.dashboard.averageExecTime" /></th>
-		<td><acme:print value="${averageExecTime}" /></td>
+		<td><acme:print value="${averageExecTime}" />h</td>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
 				code="administrator.dashboard.deviationExecTime" /></th>
-		<td><acme:print value="${deviationExecTime}" /></td>
+		<td><acme:print value="${deviationExecTime}" />h</td>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
 				code="administrator.dashboard.maxExecTime" /></th>
-		<td><acme:print value="${maxExecTime}" /></td>
+		<td><acme:print value="${maxExecTime}" />h</td>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
 				code="administrator.dashboard.minExecTime" /></th>
-		<td><acme:print value="${minExecTime}" /></td>
+		<td><acme:print value="${minExecTime}" />h</td>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message

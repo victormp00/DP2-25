@@ -1,6 +1,7 @@
 
 package acme.features.administrator.dashboard;
 
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,10 +47,10 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 		Integer privateTasks;
 		Integer ongoingTasks;
 		Integer finishedTasks;
-		Double averageExecTime;
-		Double deviationExecTime;
-		Double maxExecTime;
-		Double minExecTime;
+		final Double averageExecTime;
+		final Double deviationExecTime;
+		final Double maxExecTime;
+		final Double minExecTime;
 		Double averageWorkload;
 		Double deviationWorkload;
 		Double maxWorkload;
@@ -60,18 +61,16 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 		privateTasks = this.repository.privateTasks();
 		ongoingTasks = this.repository.ongoingTasks();
 		finishedTasks = this.repository.finishedTasks();
-		averageExecTime = this.repository.averageExecTime();
-		deviationExecTime = this.repository.deviationExecTime();
-		maxExecTime = this.repository.maxExecTime();
-		minExecTime = this.repository.minExecTime();
 		averageWorkload = this.repository.averageWorkload();
 		deviationWorkload = this.repository.deviationWorkload();
 		maxWorkload = this.repository.maxWorkload();
 		minWorkload = this.repository.minWorkload();
 		tasks = this.repository.findAllTasks();
-		for (final Task t : tasks) {
-			t.setExecutionTime(t.getExecutionTime());
-		}
+		final Comparator<Task> cmp = Comparator.comparing(Task::getExecutionTime);
+		maxExecTime = tasks.stream().max(cmp).get().getExecutionTime();
+		minExecTime = tasks.stream().min(cmp).get().getExecutionTime();
+		averageExecTime = tasks.stream().mapToDouble(Task::getExecutionTime).average().getAsDouble();
+		deviationExecTime = Math.sqrt(tasks.stream().mapToDouble(Task::getExecutionTime).map(i -> (i - averageExecTime)).map(i -> i * i).average().getAsDouble());
 
 		result = new Dashboard();
 		result.setPublicTasks(publicTasks);

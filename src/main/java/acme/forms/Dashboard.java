@@ -41,6 +41,4 @@ public class Dashboard implements Serializable {
 
 	Double						minWorkload;
 
-	// Derived attributes -----------------------------------------------------
-
 }

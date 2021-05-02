@@ -27,18 +27,6 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select count(t.finished) from Task t where t.finished = TRUE")
 	Integer finishedTasks();
 
-	@Query("select avg(t.executionTime) from Task t")
-	Double averageExecTime();
-
-	@Query("select stddev(t.executionTime) from Task t")
-	Double deviationExecTime();
-
-	@Query("select max(t.executionTime) from Task t")
-	Double maxExecTime();
-
-	@Query("select min(t.executionTime) from Task t")
-	Double minExecTime();
-
 	@Query("select avg(t.workload) from Task t")
 	Double averageWorkload();
 

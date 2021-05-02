@@ -13,6 +13,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.entities.DomainEntity;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -53,14 +54,9 @@ public class Task extends DomainEntity {
 	private Boolean				finished;
 
 	// Derived attributes -----------------------------------------------------
-	private Double			executionTime;
+	@Getter(AccessLevel.NONE) private Double			executionTime;
 
-	public void setExecutionTime(final Double executionTime) {
-		System.out.println("HOLI HE ENTRADO");
-		System.out.println("FINAL: "+this.finish.getTime());
-		System.out.println("CREATION: "+this.creation.getTime());
-		final Long ms = this.finish.getTime() - this.creation.getTime();
-		this.executionTime = (ms.doubleValue() / (36 * (Math.pow(10, 5))));
-		System.out.println(this.executionTime);
+	public Double getExecutionTime() {
+		return ((this.finish.getTime() - this.creation.getTime()) / (36 * (Math.pow(10, 5))));
 	}
 }

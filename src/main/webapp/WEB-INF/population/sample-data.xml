@@ -61,5 +61,45 @@
 			<property name="publico" value="false"/>	
 			<property name="finished" value="false"/>	
 		</bean>	
+		<bean name="task5" class="acme.entities.task.Task">
+			<property name="title" value="task5" />
+			<property name="creation" value="2030/12/13 23:59" />
+			<property name="finish" value="2030/12/16 20:59" />
+			<property name="workload" value= "8.0"/>
+			<property name="description" value="esto es una descripción"/>
+			<property name="link" value="http://www.example.com"/>
+			<property name="publico" value="false"/>	
+			<property name="finished" value="true"/>	
+		</bean>	
+		<bean name="task6" class="acme.entities.task.Task">
+			<property name="title" value="task6" />
+			<property name="creation" value="2030/12/13 23:59" />
+			<property name="finish" value="2030/12/15 20:59" />
+			<property name="workload" value= "2.0"/>
+			<property name="description" value="esto es una descripción"/>
+			<property name="link" value="http://www.example.com"/>
+			<property name="publico" value="false"/>	
+			<property name="finished" value="false"/>	
+		</bean>	
+		<bean name="task7" class="acme.entities.task.Task">
+			<property name="title" value="task7" />
+			<property name="creation" value="2030/12/10 23:59" />
+			<property name="finish" value="2030/12/14 20:59" />
+			<property name="workload" value= "55.0"/>
+			<property name="description" value="esto es una descripción"/>
+			<property name="link" value="http://www.example.com"/>
+			<property name="publico" value="false"/>	
+			<property name="finished" value="true"/>	
+		</bean>	
+		<bean name="task8" class="acme.entities.task.Task">
+			<property name="title" value="task8" />
+			<property name="creation" value="2030/12/13 23:59" />
+			<property name="finish" value="2030/12/19 20:59" />
+			<property name="workload" value= "1.0"/>
+			<property name="description" value="esto es una descripción"/>
+			<property name="link" value="http://www.example.com"/>
+			<property name="publico" value="true"/>	
+			<property name="finished" value="false"/>	
+		</bean>	
 
 </beans>
