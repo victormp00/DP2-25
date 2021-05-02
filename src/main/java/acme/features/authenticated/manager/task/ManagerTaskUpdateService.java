@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.roles.Manager;
 import acme.entities.spam.Spam;
 import acme.entities.task.Task;
+import acme.features.administrator.spam.AdminSpamCreateService;
 import acme.features.administrator.spam.AdminSpamRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
@@ -26,6 +27,9 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 	protected ManagerTaskRepository repository;
 	@Autowired
 	private AdminSpamRepository spamRepository;
+	@Autowired
+	protected AdminSpamCreateService	spamService;
+
 	
 	@Override
 	public boolean authorise(final Request<Task> request) {
@@ -81,12 +85,12 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		assert entity != null;
 		assert errors != null;
 		final List<Spam> spam= (List<Spam>) this.spamRepository.findSpam();
-		final boolean censuraDescr=Spam.censura(entity.getDescription(),spam,10);
-		final boolean censuratitle=Spam.censura(entity.getTitle(),spam,10);
-		if(censuraDescr) {
+		final Boolean censuraDescr = this.spamService.censura(entity.getDescription(), spam);
+		final Boolean censuratitle = this.spamService.censura(entity.getTitle(), spam);
+		if(Boolean.TRUE.equals(censuraDescr)) {
 			errors.add("description", "this description is spam");
 		}
-		if(censuratitle) {
+		if(Boolean.TRUE.equals(censuratitle)) {
 			errors.add("title", "this title is spam");
 		}
 		

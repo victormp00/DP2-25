@@ -37,7 +37,7 @@ public class AdminSpamDeleteService implements AbstractDeleteService<Administrat
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model,"spamEn", "spamEs");
+		request.unbind(entity, model,"spamEn", "spamEs", "threshold");
 	}
 
 	@Override

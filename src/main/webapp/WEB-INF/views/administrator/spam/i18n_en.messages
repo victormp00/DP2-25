@@ -10,6 +10,7 @@
 
 administrator.spam.en=english spam word
 administrator.spam.es=spanish spam word
+administrator.spam.threshold =  threshold
 administrator.spam.button.return = Return
 
 administrator.spam.button.create=create

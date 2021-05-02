@@ -24,7 +24,9 @@ public class Spam extends DomainEntity {
 	
 	protected String spamEs; 
 	
-	public static Boolean censura(final String campo, final List<Spam> spam, final int treshold) {
+	protected Double threshold;
+
+	public Boolean censura(final String campo, final List<Spam> spam) {
 		Boolean res= false;
 		final String[] palabras=campo.split(" ");
 		final List<String> palabrasSep = Arrays.asList(palabras);
@@ -45,10 +47,11 @@ public class Spam extends DomainEntity {
 				}
 			}
 		}
-		if(treshold<((double)i/palabras.length)*100) {
+		if(this.threshold <((double)i/palabras.length)*100) {
 			res=true;
 		}
 		return res;
 	}
+
 
 }

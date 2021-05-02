@@ -11,6 +11,7 @@
 
 administrator.spam.en=palabra de spam en ingles
 administrator.spam.es=palabra de spam en español
+administrator.spam.threshold = umbral
 administrator.spam.button.return = volver
 
 administrator.spam.button.create=crear
