@@ -1,5 +1,5 @@
-package acme.features.authenticated.manager.task;
 
+package acme.features.authenticated.manager.task;
 
 import java.util.Date;
 import java.util.List;
@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.roles.Manager;
 import acme.entities.spam.Spam;
 import acme.entities.task.Task;
+import acme.features.administrator.spam.AdminSpamCreateService;
 import acme.features.administrator.spam.AdminSpamRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
@@ -18,13 +19,19 @@ import acme.framework.components.Request;
 import acme.framework.components.Response;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractCreateService;
+
 @Service
-public class ManagerTaskCreate implements AbstractCreateService<Manager,Task> {
+public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
+
 	@Autowired
-	protected ManagerTaskRepository repository;
+	protected ManagerTaskRepository	repository;
+
+	@Autowired
+	protected AdminSpamRepository	spamRepository;
 	
 	@Autowired
-	protected AdminSpamRepository spamRepository;
+	protected AdminSpamCreateService	spamService;
+
 
 	@Override
 	public boolean authorise(final Request<Task> request) {
@@ -48,25 +55,23 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager,Task> {
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model,"title", "creation", "finish", "workload", "description", "link", "publico");
+		request.unbind(entity, model, "title", "creation", "finish", "workload", "description", "link", "publico");
 		model.setAttribute("taskId", entity.getId());
 	}
 
 	@Override
 	public Task instantiate(final Request<Task> request) {
 		assert request != null;
-		
-		
+
 		Task result;
 		Manager manager;
 		Date creation;
 		String username;
-		
-		username= request.getPrincipal().getUsername();
+
+		username = request.getPrincipal().getUsername();
 		manager = this.repository.findManager(username);
-		creation= new Date();
-		
-		
+		creation = new Date();
+
 		result = new Task();
 		result.setManager(manager);
 		result.setCreation(creation);
@@ -84,37 +89,37 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager,Task> {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		final List<Spam> spam= (List<Spam>) this.spamRepository.findSpam();
-		final boolean censuraDescr=Spam.censura(entity.getDescription(),spam,10);
-		final boolean censuratitle=Spam.censura(entity.getTitle(),spam,10);
-		if(censuraDescr) {
+		final List<Spam> spam = (List<Spam>) this.spamRepository.findSpam();
+		final Boolean censuraDescr = this.spamService.censura(entity.getDescription(), spam);
+		final Boolean censuratitle = this.spamService.censura(entity.getTitle(), spam);
+		if (Boolean.TRUE.equals(censuraDescr)) {
 			errors.add("description", "this description is spam");
 		}
-		if(censuratitle) {
+		if (Boolean.TRUE.equals(censuratitle)) {
 			errors.add("title", "this title is spam");
 		}
-		if(entity.getFinish() !=null && entity.getCreation()!=null ) {
-			if(Boolean.FALSE.equals(entity.datefit())) {
+		if (entity.getFinish() != null && entity.getCreation() != null) {
+			if (Boolean.FALSE.equals(entity.datefit())) {
 				errors.add("creation", "creation is after finish");
-				}
 			}
-		if(entity.getWorkload() !=null && entity.getCreation()!=null ) {
-			if(Boolean.FALSE.equals(entity.isFit())) {
+		}
+		if (entity.getWorkload() != null && entity.getCreation() != null) {
+			if (Boolean.FALSE.equals(entity.isFit())) {
 				errors.add("workload", "workload does not fit");
 			}
-			}
-		
+		}
+
 	}
 
 	@Override
 	public void create(final Request<Task> request, final Task entity) {
 		assert request != null;
 		assert entity != null;
-		
+
 		Date creation;
-		
-		creation= new Date();
-		
+
+		creation = new Date();
+
 		entity.setCreation(creation);
 		this.repository.save(entity);
 	}
@@ -127,6 +132,5 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager,Task> {
 			PrincipalHelper.handleUpdate();
 		}
 	}
-
 
 }

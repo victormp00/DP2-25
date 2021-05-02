@@ -1,4 +1,8 @@
+
 package acme.features.administrator.spam;
+
+import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,9 +18,11 @@ import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractCreateService;
 
 @Service
-public class AdminSpamCreateService implements AbstractCreateService<Administrator,Spam> {
+public class AdminSpamCreateService implements AbstractCreateService<Administrator, Spam> {
+
 	@Autowired
 	protected AdminSpamRepository repository;
+
 
 	@Override
 	public boolean authorise(final Request<Spam> request) {
@@ -40,20 +46,20 @@ public class AdminSpamCreateService implements AbstractCreateService<Administrat
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model,"spamEs", "spamEn");
+		request.unbind(entity, model, "spamEs", "spamEn", "threshold");
 		model.setAttribute("spamId", entity.getId());
 	}
 
 	@Override
 	public Spam instantiate(final Request<Spam> request) {
 		assert request != null;
-		
-		
+
 		Spam result;
 
 		result = new Spam();
 		result.setSpamEn("Spam en ");
-		result.setSpamEn("Spam es");
+		result.setSpamEs("Spam es ");
+		result.setThreshold(10.0);
 		return result;
 	}
 
@@ -62,7 +68,7 @@ public class AdminSpamCreateService implements AbstractCreateService<Administrat
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
+
 	}
 
 	@Override
@@ -71,7 +77,7 @@ public class AdminSpamCreateService implements AbstractCreateService<Administrat
 		assert entity != null;
 		this.repository.save(entity);
 	}
-	
+
 	@Override
 	public void onSuccess(final Request<Spam> request, final Response<Spam> response) {
 		assert request != null;
@@ -82,5 +88,33 @@ public class AdminSpamCreateService implements AbstractCreateService<Administrat
 		}
 	}
 
+	public Boolean censura(final String campo, final List<Spam> spam) {
+		Boolean res = false;
+		final String[] palabras = campo.split(" ");
+		final List<String> palabrasSep = Arrays.asList(palabras);
+		int i = 0;
+		for (final String p : palabrasSep) {
+			for (final Spam s : spam) {
+				if (s.getSpamEn().equals(s.getSpamEs())) {
+					if (p.equals(s.getSpamEs())) {
+						i++;
+					}
+				} else {
+					if (p.equals(s.getSpamEn())) {
+						i++;
+					}
+					if (p.equals(s.getSpamEs())) {
+						i++;
+					}
+				}
+				if (s.getThreshold() < ((double) i / palabras.length) * 100) {
+					res = true;
+				}
+
+			}
+		}
+
+		return res;
+	}
 
 }

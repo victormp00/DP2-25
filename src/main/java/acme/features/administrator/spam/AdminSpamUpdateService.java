@@ -43,7 +43,7 @@ public class AdminSpamUpdateService implements AbstractUpdateService<Administrat
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model,"spamEn", "spamEs");
+		request.unbind(entity, model,"spamEn", "spamEs", "threshold");
 		
 	}
 
@@ -69,7 +69,6 @@ public class AdminSpamUpdateService implements AbstractUpdateService<Administrat
 	public void update(final Request<Spam> request, final Spam entity) {
 		assert request != null;
 		assert entity != null;
-
 
 		this.repository.save(entity);
 	}

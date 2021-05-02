@@ -11,18 +11,39 @@
 --%>
 
 <%@page language="java"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="administrator.spam.es" path="spamEn"/>
-	<acme:form-textbox code="administrator.spam.en" path="spamEs"/>
-		
+	<c:if test="${command == 'show'}">
+	<acme:form-textbox code="administrator.spam.en" path="spamEn"/>
+	<acme:form-textbox code="administrator.spam.es" path="spamEs"/>
+	<acme:form-textbox code="administrator.spam.threshold" path="threshold"/>
 	<acme:form-submit test="${command == 'show'}" code="administrator.spam.button.update" action="/administrator/spam/update"/>
 	<acme:form-submit test="${command == 'show'}" code="administrator.spam.button.delete" action="/administrator/spam/delete"/>
-	<acme:form-submit test="${command == 'create'}" code="administrator.spam.button.create" action="/administrator/spam/create"/>
+	</c:if>
+	
+	<c:if test="${command == 'update'}">
+	<acme:form-textbox code="administrator.spam.en" path="spamEn"/>
+	<acme:form-textbox code="administrator.spam.es" path="spamEs"/>
+	<acme:form-textbox code="administrator.spam.threshold" path="threshold"/>
 	<acme:form-submit test="${command == 'update'}" code="administrator.spam.button.update" action="/administrator/spam/update"/>
-	<acme:form-submit test="${command == 'delete'}" code="administrator.spam.button.delete" action="/administrator/spam/delete"/>	
+	</c:if>
+	
+	<c:if test="${command == 'delete'}">
+	<acme:form-textbox code="administrator.spam.en" path="spamEn"/>
+	<acme:form-textbox code="administrator.spam.es" path="spamEs"/>
+	<acme:form-textbox code="administrator.spam.threshold" path="threshold"/>
+	<acme:form-submit test="${command == 'delete'}" code="administrator.spam.button.update" action="/administrator/spam/update"/>
+	</c:if>
+	
+	<c:if test="${command == 'create'}">
+	<acme:form-textbox code="administrator.spam.en" path="spamEn"/>
+	<acme:form-textbox code="administrator.spam.es" path="spamEs"/>
+	<input type="hidden" name="threshold" value="10.0"/>
+	<acme:form-submit test="${command == 'create'}" code="administrator.spam.button.create" action="/administrator/spam/create"/>
+  	</c:if>
+  	
   	<acme:form-return code="administrator.spam.button.return"/>
 </acme:form>
