@@ -70,6 +70,7 @@ public class Task extends DomainEntity {
 
 	public Double getExecutionTime() {
 		return ((this.finish.getTime() - this.creation.getTime()) / (36 * (Math.pow(10, 5))));
+	}
     
 	public Boolean isFit() {
 		boolean resultado= true;
