@@ -19,6 +19,34 @@
 
 	<import resource="classpath:/WEB-INF/population/conversion-service.xml"/>
 	
+	<!-- admin -->
+		<bean name="administratorUserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="admin1" />
+		<property name="password" value="admin1" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Admin" />
+				<property name="surname" value="One" />
+				<property name="email" value="admin@mail.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="administratorAdministrator" />
+				<ref bean="administratorAuthenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="administratorAdministrator" class="acme.framework.entities.Administrator">
+		<property name="userAccount" ref="administratorUserAccount" />
+	</bean>
+	
+	<bean name="administratorAuthenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="administratorUserAccount" />
+	</bean>
+	
 	<!-- Manager -->
 	<bean name="manager1UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="manager1"/>

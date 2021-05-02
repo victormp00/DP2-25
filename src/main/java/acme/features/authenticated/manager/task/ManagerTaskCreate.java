@@ -2,12 +2,15 @@ package acme.features.authenticated.manager.task;
 
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.roles.Manager;
+import acme.entities.spam.Spam;
 import acme.entities.task.Task;
+import acme.features.administrator.spam.AdminSpamRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
@@ -19,6 +22,9 @@ import acme.framework.services.AbstractCreateService;
 public class ManagerTaskCreate implements AbstractCreateService<Manager,Task> {
 	@Autowired
 	protected ManagerTaskRepository repository;
+	
+	@Autowired
+	protected AdminSpamRepository spamRepository;
 
 	@Override
 	public boolean authorise(final Request<Task> request) {
@@ -78,12 +84,19 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager,Task> {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
-		
+		final List<Spam> spam= (List<Spam>) this.spamRepository.findSpam();
+		final boolean censuraDescr=Spam.censura(entity.getDescription(),spam,10);
+		final boolean censuratitle=Spam.censura(entity.getTitle(),spam,10);
+		if(censuraDescr) {
+			errors.add("description", "this description is spam");
+		}
+		if(censuratitle) {
+			errors.add("title", "this title is spam");
+		}
 		if(entity.getFinish() !=null && entity.getCreation()!=null ) {
 			if(Boolean.FALSE.equals(entity.datefit())) {
 				errors.add("creation", "creation is after finish");
-			}
+				}
 			}
 		if(entity.getWorkload() !=null && entity.getCreation()!=null ) {
 			if(Boolean.FALSE.equals(entity.isFit())) {
