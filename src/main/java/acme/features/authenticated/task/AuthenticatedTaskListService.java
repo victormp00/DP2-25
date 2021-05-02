@@ -34,7 +34,7 @@ public class AuthenticatedTaskListService implements AbstractListService<Authent
 
 	@Override
 	public Collection<Task> findMany(final Request<Task> request) {
-		//misc ordenar
+
 		assert request !=null ;
 		
 		Collection<Task> result;

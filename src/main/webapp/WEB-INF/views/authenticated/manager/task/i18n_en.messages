@@ -1,0 +1,20 @@
+task.title = Task:
+task.creation = creation date
+task.finish = finish date
+task.workload = Workload
+task.description = Description
+task.link = Link
+task.button.create=create task
+anonymous.task.form.button.return=return
+authenticated.manager.manager.task.form.button.create= Create
+authenticated.manager.manager.task.form.button.delete= Delete
+
+authenticated.manager.task.form.title=Title
+authenticated.manager.task.form.description=Description
+authenticated.manager.form.creation=creation
+authenticated.manager.form.finish=finish
+authenticated.manager.form.workload=workload
+authenticated.manager.task.form.link=link
+authenticated.manager.task.form.publico=Do you want your task to be public?
+authenticated.manager.manager.task.form.button.finish= finish task
+manager.task.form.error.workloaderror=workload does not fit in execution period
