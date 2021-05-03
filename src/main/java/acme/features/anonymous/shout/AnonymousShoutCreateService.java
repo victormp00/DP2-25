@@ -102,45 +102,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		if(Boolean.TRUE.equals(censuraText) || textLength >= 100) {
 			errors.add("text", "this text is spam or wrong length");
 		}
-
-		/*
-		@Override
-		public void validate(final Request<Task> request, final Task entity, final Errors errors) {
-			assert request != null;
-			assert entity != null;
-			assert errors != null;
-			final List<Spam> spam= (List<Spam>) this.spamRepository.findSpam();
-			final Boolean censuraDescr = this.spamService.censura(entity.getDescription(), spam);
-			final Boolean censuratitle = this.spamService.censura(entity.getTitle(), spam);
-			if(Boolean.TRUE.equals(censuraDescr)) {
-				errors.add("description", "this description is spam");
-			}
-			if(Boolean.TRUE.equals(censuratitle)) {
-				errors.add("title", "this title is spam");
-			}
-			
-			if(entity.getWorkload() !=null && entity.getCreation()!=null ) {
-				if(Boolean.FALSE.equals(entity.isFit())) {
-					errors.add("workload", "workload does not fit");
-				}
-			}
-			if(entity.getFinish() !=null && entity.getCreation()!=null ) {
-				if(Boolean.FALSE.equals(entity.datefit())) {
-					errors.add("creation", "creation is after finish");
-				}
-			}
-		}
-		
-		*/
-		
-		
-		
-		
-		
-		
-
 	}
-	
+		
 	@Override
 	
 	public void create(final Request<Shout> request, final Shout entity) {

@@ -208,6 +208,26 @@
 			<property name="threshold" value="10.0" />
 		</bean>	
 		
+		<bean id= "shout01" class="acme.entities.shouts.Shout">
+			<property name="moment" value="2021/02/11 19:39"/>
+			<property name="author" value="Mika"/>
+			<property name="text" value="National Singer"/>
+			<property name="info"><null/></property>
+		</bean>
+		
+		<bean id= "shout02" class="acme.entities.shouts.Shout">
+			<property name="moment" value="2021/02/20 21:39"/>
+			<property name="author" value="Rajov"/>
+			<property name="text" value="President de Spain"/>
+			<property name="info"><null/></property>
+		</bean>
+		
+		<bean id= "shout02" class="acme.entities.shouts.Shout">
+			<property name="moment" value="2021/02/20 11:39"/>
+			<property name="author" value="Princess Catalina"/>
+			<property name="text" value="England"/>
+			<property name="info"><null/></property>
+		</bean>
 
 
 </beans>
