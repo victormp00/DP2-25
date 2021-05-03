@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+- list.jsp
+- Copyright (C) 2012-2021 Rafael Corchuelo.
+-->
+<!-- PAGINA MAESTRA -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+	
+<tiles-definitions>
+	<!--  Introducir el formulario dentro de la pagina maestra  -->
+	<definition name="anonymous/shout/form" extends="master">
+		<put-attribute name="body" type="template" value="../anonymous/shout/form.jsp" />
+	</definition>
+
+	<!-- Defino una vista que extiende del master, lo que cambia es el cuerpo y lo reemplazamos
+	con el contenido de este archivo list.jsp -->
+	<definition name="anonymous/shout/list" extends="master">
+		<put-attribute name="body" type="template" value="../anonymous/shout/list.jsp"/>
+	</definition>
+</tiles-definitions>
