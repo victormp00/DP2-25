@@ -15,4 +15,8 @@ projects.
 
 In this project, we have added the possibility for an authenticated user to be a manager, the system can store shouts, it can also store tasks, and an administrator has a dashboard of system data.
 
+For the project, we have decided to create branches in github for each task that we expose in the tasks section of the project, we have decided to work in pairs, so we have divided those tasks in those subgroups and we have worked on them.
+
 Link to github repository: https://github.com/victormp00/DP2-25/ 
+
+the final branch for deliveries will be master, and it will be 1.0.0.
