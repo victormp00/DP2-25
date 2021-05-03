@@ -36,6 +36,8 @@ master.menu.anonymous.favourite-link = Favourite link
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
+master.menu.administrator.spam.list = Spam word list
+master.menu.administrator.spam.form = Create Spam
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shutdown = Shut down
@@ -50,6 +52,11 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
+# master.menu.manager ##########################################################
+
+master.menu.manager = Manager
+master.menu.manager.favourite-link = Favourite link
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
@@ -58,6 +65,8 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.manager = Manager data
+master.menu.user-account.become-manager = Become a manager
 
 # master.footer ###############################################################
 
@@ -70,6 +79,12 @@ master.footer.label.twitter = Twitter
 master.footer.title.languages = Languages
 master.footer.label.english = English
 master.footer.label.spanish = Spanish
+
+# master.tasks ############
+
+master.menu.manager.task= Manager tasks
+master.menu.user-account.publictask=Public tasks
+master.menu.anonymous.publictask=Anonymous Tasks
 
 # master.company ##############################################################
 

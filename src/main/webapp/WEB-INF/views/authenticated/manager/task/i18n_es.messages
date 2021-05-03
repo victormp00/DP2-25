@@ -1,0 +1,20 @@
+task.title = Tarea
+task.creation = fecha de creaci\u00d3n
+task.finish= fecha de finalizaci\u00d3n
+task.workload = Carga de trabajo (workload)
+task.description = Descripci\u00f3n
+task.link = Link
+task.button.create=crear tarea
+anonymous.task.form.button.return=volver
+authenticated.manager.manager.task.form.button.create=crear
+authenticated.manager.manager.task.form.button.delete= Borrar
+
+authenticated.manager.task.form.title=Título
+authenticated.manager.task.form.description=Descripción
+authenticated.manager.form.creation=Creación
+authenticated.manager.form.finish=Finalización
+authenticated.manager.form.workload=carga de trabajo(workload)
+authenticated.manager.task.form.link=link
+authenticated.manager.task.form.publico=¿Quieres que tu tarea sea pública?
+authenticated.manager.manager.task.form.button.finish=finalizar tarea
+manager.task.form.error.workloaderror=El workload no encaja con el periodo de ejecucion

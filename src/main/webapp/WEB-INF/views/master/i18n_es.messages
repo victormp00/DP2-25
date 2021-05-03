@@ -36,6 +36,8 @@ master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
+master.menu.administrator.spam.list = Lista de palabras spam
+master.menu.administrator.spam.form = Crear spam
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shutdown = Parar el sistema
@@ -50,6 +52,11 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+# master.menu.manager ##########################################################
+
+master.menu.manager = Mánager
+master.menu.manager.favourite-link = Enlace favorito
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
@@ -58,6 +65,14 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.manager = Datos de mánager
+master.menu.user-account.become-manager = Hazte mánager
+
+# master.tasks ############
+
+master.menu.manager.task= Tareas de manager
+master.menu.user-account.publictask=Tareas públicas
+master.menu.anonymous.publictask=Tareas anónimas
 
 ﻿# master.footer ###############################################################
 

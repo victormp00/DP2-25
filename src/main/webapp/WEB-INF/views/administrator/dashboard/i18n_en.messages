@@ -1,0 +1,17 @@
+administrator.dashboard.form.title.show = Dashboard
+administrator.dashboard.form.title.general-indicators = General indicators
+
+administrator.dashboard.publicTasks = Public tasks
+administrator.dashboard.privateTasks= Private tasks
+administrator.dashboard.ongoingTasks= Non-finished tasks
+administrator.dashboard.finishedTasks= Finished tasks
+administrator.dashboard.averageExecTime= Average execution time
+administrator.dashboard.deviationExecTime= Deviation execution time
+administrator.dashboard.maxExecTime= Maximum execution time
+administrator.dashboard.minExecTime=Minimum execution time
+administrator.dashboard.averageWorkload= Average workload
+administrator.dashboard.deviationWorkload= Deviation workload
+administrator.dashboard.maxWorkload= Maximum workload
+administrator.dashboard.minWorkload= Minimum workload
+
+administrator.dashboard.form.title.application-statuses = Application statuses
