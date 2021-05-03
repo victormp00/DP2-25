@@ -82,6 +82,7 @@ INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdmi
 INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
 INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
 WARN [org.hibernate.orm.connections.pooling] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+
 INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on DESKTOP-I0NS17G with PID 5000 (C:\Users\Usuario\git\DP2-25\target\classes started by Usuario in C:\Users\Usuario\git\DP2-25)
 INFO [acme.Launcher] The following profiles are active: development,populator
 INFO [acme.Launcher] Started Launcher in 8.039 seconds (JVM running for 8.772)
@@ -5685,3 +5686,4 @@ INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.handleNoMatch(RequestMappingInfoHandlerMapping.java:250): Request method 'POST' not supported
+

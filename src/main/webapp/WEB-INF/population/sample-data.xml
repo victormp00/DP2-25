@@ -210,4 +210,39 @@
 		
 
 
+
+	<!-- Shouts -->
+	
+	<bean id="shout01" class = "acme.entities.shouts.Shout">
+		<property name="moment" value="2021/02/13 19:39"/>
+		<property name="author" value="Jhon Doe"/>
+		<property name="text" value="I'm depressed"/>
+		<property name="info"><null/></property>
+	</bean>
+	
+	<bean id="shout02" class = "acme.entities.shouts.Shout">
+		<property name="moment" value="2021/02/13 19:39"/>
+		<property name="author" value="Jhon Doe"/>
+		<property name="text" value="Dios Ajusticia a los no natos"/>
+		<property name="info" value= "http://www.example.org"/>
+	</bean>
+
+	<bean id="shout03" class = "acme.entities.shouts.Shout">
+		<property name="moment" value="2020/09/06 00:00"/>
+		<property name="author" value="Foo Bar"/>
+		<property name="text" value="Just turning 50!"/>
+		<property name="info" value= "http://www.example.org"/>
+	</bean>
+
+
+
+
+
+
+
+
+
+
+
+
 </beans>
