@@ -84,33 +84,6 @@ public class AdminSpamCreateService implements AbstractCreateService<Administrat
 		}
 	}
 
-//	public Boolean censura(final String campo, final List<Spam> spam) {
-//		Boolean res = false;
-//		final String[] palabras = campo.split(" ");
-//		final List<String> palabrasSep = Arrays.asList(palabras);
-//		int i = 0;
-//		for (final String p : palabrasSep) {
-//			for (final Spam s : spam) {
-//				if (s.getSpamEn().equals(s.getSpamEs())) {
-//					if (p.equals(s.getSpamEs())) {
-//						i++;
-//					}
-//				} else {
-//					if (p.equals(s.getSpamEn())) {
-//						i++;
-//					}
-//					if (p.equals(s.getSpamEs())) {
-//						i++;
-//					}
-//				}
-//				if (s.getThreshold() < ((double) i / palabras.length) * 100) {
-//					res = true;
-//				}
-//
-//			}
-//		}
-//
-//		return res;
-//	}
+
 
 }
