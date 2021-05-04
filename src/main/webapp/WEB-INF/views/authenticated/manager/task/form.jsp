@@ -25,10 +25,8 @@
 
 	<acme:form-submit test="${command == 'show'}" code="authenticated.manager.manager.task.form.button.update" action="/manager/task/update"/>
 	<acme:form-submit test="${command == 'show'}" code="authenticated.manager.manager.task.form.button.delete" action="/manager/task/delete"/>
-	<acme:form-submit test="${command == 'show'}" code="authenticated.manager.manager.task.form.button.finish" action="/manager/task/finish"/>
 	<acme:form-submit test="${command == 'create'}" code="authenticated.manager.manager.task.form.button.create" action="/manager/task/create"/>
 	<acme:form-submit test="${command == 'update'}" code="authenticated.manager.manager.task.form.button.update" action="/manager/task/update"/>
-	<acme:form-submit test="${command == 'finish'}" code="authenticated.manager.manager.task.form.button.finish" action="/manager/task/finish"/>
 	<acme:form-submit test="${command == 'delete'}" code="authenticated.manager.manager.task.form.button.delete" action="/manager/task/delete"/>		
 	<acme:form-return code="anonymous.task.form.button.return"/>
 
