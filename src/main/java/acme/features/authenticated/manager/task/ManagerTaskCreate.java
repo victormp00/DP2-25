@@ -9,9 +9,10 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.roles.Manager;
 import acme.entities.spam.Spam;
+import acme.entities.spam.Threshold;
 import acme.entities.task.Task;
-import acme.features.administrator.spam.AdminSpamCreateService;
 import acme.features.administrator.spam.AdminSpamRepository;
+import acme.features.administrator.threshold.ThresholdRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
@@ -30,7 +31,7 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
 	protected AdminSpamRepository	spamRepository;
 	
 	@Autowired
-	protected AdminSpamCreateService	spamService;
+	protected ThresholdRepository	thresholdRepository;
 
 
 	@Override
@@ -90,8 +91,9 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
 		assert entity != null;
 		assert errors != null;
 		final List<Spam> spam = (List<Spam>) this.spamRepository.findSpam();
-		final Boolean censuraDescr = this.spamService.censura(entity.getDescription(), spam);
-		final Boolean censuratitle = this.spamService.censura(entity.getTitle(), spam);
+		final Threshold threshold=this.thresholdRepository.findSpamEntity(30);
+		final Boolean censuraDescr = Threshold.censura(entity.getDescription(), spam, threshold.getThreshold());
+		final Boolean censuratitle = Threshold.censura(entity.getTitle(), spam, threshold.getThreshold());
 		if (Boolean.TRUE.equals(censuraDescr)) {
 			errors.add("description", "this description is spam");
 		}

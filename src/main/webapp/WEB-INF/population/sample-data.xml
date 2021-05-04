@@ -188,38 +188,31 @@
 		<bean name="spamword1" class="acme.entities.spam.Spam">
 			<property name="spamEn" value="sex"/>
 			<property name="spamEs" value="sexo" />
-			<property name="threshold" value="10.0" />
 			
 		</bean>	
 		<bean name="spamword2" class="acme.entities.spam.Spam">
 			<property name="spamEn" value="hardcore"/>
 			<property name="spamEs" value="duro" />
-			<property name="threshold" value="10.0" />
 		</bean>	
 		<bean name="spamword3" class="acme.entities.spam.Spam">
 			<property name="spamEn" value="viagra"/>
 			<property name="spamEs" value="viagra" />
-			<property name="threshold" value="10.0" />
 		</bean>	
 		<bean name="spamword4" class="acme.entities.spam.Spam">
 			<property name="spamEn" value="cialis"/>
 			<property name="spamEs" value="cialis" />
-			<property name="threshold" value="10.0" />
 		</bean>	
 		<bean name="spamword5" class="acme.entities.spam.Spam">
 			<property name="spamEn" value="nigeria"/>
 			<property name="spamEs" value="nigeria" />
-			<property name="threshold" value="10.0" />
 		</bean>	
 		<bean name="spamword6" class="acme.entities.spam.Spam">
 			<property name="spamEn" value="you’ve won"/>
 			<property name="spamEs" value="has ganado" />
-			<property name="threshold" value="10.0" />
 		</bean>	
 		<bean name="spamword7" class="acme.entities.spam.Spam">
 			<property name="spamEn" value="million dollar"/>
 			<property name="spamEs" value="millón dollar" />
-			<property name="threshold" value="10.0" />
 		</bean>	
 		
 
@@ -277,12 +270,20 @@
 			<property name="info"><null/></property>
 		</bean>
 
+
+	<!-- Treshold por defecto de spam -->
+	
+	<bean id="spamEntity" class = "acme.entities.spam.Threshold">
+		<property name="threshold" value="10"/>
+	</bean>
+
 		<bean id= "shout08" class="acme.entities.shouts.Shout">
 			<property name="moment" value="2021/02/20 11:39"/>
 			<property name="author" value="Princess Catalina"/>
 			<property name="text" value="England"/>
 			<property name="info"><null/></property>
 		</bean>
+
 
 
 </beans>
