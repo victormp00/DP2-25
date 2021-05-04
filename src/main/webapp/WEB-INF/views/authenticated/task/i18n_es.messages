@@ -6,3 +6,10 @@ task.description = Descripci\u00f3n
 task.link = Link
 task.button.create=crear tarea
 anonymous.task.form.button.return=volver
+
+anonymous.task.form.title = Tarea
+anonymous.task.form.description = Descripci\u00f3n
+anonymous.task.form.creation = Fecha de creaci\u00d3n
+anonymous.task.form.finish = Fecha de finalizaci\u00d3n
+anonymous.task.form.workload  = Carga de trabajo (workload)
+anonymous.task.form.link = Link

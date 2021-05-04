@@ -18,3 +18,8 @@ authenticated.manager.task.form.link=link
 authenticated.manager.task.form.publico=¿Quieres que tu tarea sea pública?
 authenticated.manager.manager.task.form.button.finish=finalizar tarea
 manager.task.form.error.workloaderror=El workload no encaja con el periodo de ejecucion
+
+
+
+master.menu.manager.list-task= Lista tareas
+master.menu.manager.create-task = Crear tarea

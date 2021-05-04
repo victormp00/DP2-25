@@ -169,6 +169,20 @@
 			<property name="publico" value="true"/>	
 			<property name="finished" value="false"/>	
 		</bean>	
+		
+		
+		<bean name="task9" class="acme.entities.task.Task">
+			<property name="manager" ref="manager1Manager" />
+			<property name="title" value="task9" />
+			<property name="creation" value="2030/12/11 23:59" />
+			<property name="finish" value="2030/12/11 23:59" />
+			<property name="workload" value= "23.12"/>
+			<property name="description" value="1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"/>
+			<property name="link" value="http://www.example.com"/>
+			<property name="publico" value="true"/>	
+			<property name="finished" value="true"/>	
+		</bean>	
+		
 
 		
 		<bean name="spamword1" class="acme.entities.spam.Spam">
