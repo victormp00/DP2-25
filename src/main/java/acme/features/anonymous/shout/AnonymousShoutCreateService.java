@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.shouts.Shout;
 import acme.entities.spam.Spam;
+import acme.entities.spam.Threshold;
 import acme.features.administrator.spam.AdminSpamCreateService;
 import acme.features.administrator.spam.AdminSpamRepository;
+import acme.features.administrator.threshold.ThresholdRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -30,7 +32,9 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 	
 	@Autowired
 	protected AdminSpamCreateService spamService;
-		
+	
+	@Autowired
+	protected ThresholdRepository	thresholdRepository;
 	// AbstractCreateService<Administrator, Shout> interface --------------------------------------------------------
 		
 		
@@ -94,15 +98,16 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		
 		
 		final List<Spam> spam= (List<Spam>) this.spamRepository.findSpam();
-		final Boolean censuraAuthor = this.spamService.censura(entity.getAuthor(), spam);
-		final Boolean censuraText = this.spamService.censura(entity.getText(), spam);
-		final Boolean censuraInfo = this.spamService.censura(entity.getInfo(), spam);
+		final Threshold threshold=this.thresholdRepository.findSpamEntity(35);
+		final Boolean censuraAuthor = Threshold.censura(entity.getAuthor(), spam, threshold.getThreshold());
+		final Boolean censuraText = Threshold.censura(entity.getText(), spam, threshold.getThreshold());
 		
-		if(Boolean.TRUE.equals(censuraAuthor)  || authorLength <= 5 || authorLength >= 25) {
-			errors.add("author", "this is spam or wrong length");
+		
+		if(censuraAuthor ) {
+			errors.add("author", "this text is spam ");
 		}
-		if(Boolean.TRUE.equals(censuraText) || textLength >= 100) {
-			errors.add("text", "this text is spam or wrong length");
+		if(censuraText) {
+			errors.add("text", "this text is spam ");
 		}
 
 	}
