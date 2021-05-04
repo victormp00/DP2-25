@@ -103,9 +103,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		final Boolean censuraText = Threshold.censura(entity.getText(), spam, threshold.getThreshold());
 		
 		
-		if(censuraAuthor ) {
-			errors.add("author", "this text is spam ");
-		}
+
 		if(censuraText) {
 			errors.add("text", "this text is spam ");
 		}
