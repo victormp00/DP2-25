@@ -8,13 +8,18 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+anonymous.shout.list.view = Lista de gritos
 
-annonymous.shout.form.label.author = Autor:
-annonymous.shout.form.label.text = Texto:
-annonymous.shout.form.button.create = Gritar
-annonymous.shout.form.button.return = Volver
+anonymous.shout.form.label.author = Autor
+anonymous.shout.form.label.text = Texto
+anonymous.shout.form.label.info  = Informacion opcional
+anonymous.shout.form.button.create = Gritar
+anonymous.shout.form.button.return = Volver
 
 
 annonymous.shot.list.label.moment = Momento
 anonymous.shout.list.label.author = Autor
-anonymous.shout.list.label.author = Texto
+anonymous.shout.list.label.text = Texto
+
+
+anonymous.shout.form.button.crea = Crear Grito

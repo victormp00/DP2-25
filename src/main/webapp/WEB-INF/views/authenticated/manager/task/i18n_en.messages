@@ -18,3 +18,7 @@ authenticated.manager.task.form.link=link
 authenticated.manager.task.form.publico=Do you want your task to be public?
 authenticated.manager.manager.task.form.button.finish= finish task
 manager.task.form.error.workloaderror=workload does not fit in execution period
+
+
+master.menu.manager.list-task = Tasks list
+master.menu.manager.create-task = Create a task

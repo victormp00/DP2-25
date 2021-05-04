@@ -18,9 +18,13 @@
 
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
+	
+	
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
+			<acme:menu-suboption code="anonymous.shout.list.view" action="/anonymous/shout/list"/>
+			<acme:menu-suboption code="anonymous.shout.form.button.create" action="/anonymous/shout/create"/>
 		</acme:menu-option>
+
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard/show"/>
@@ -35,23 +39,29 @@
 			<acme:menu-suboption code="master.menu.administrator.shutdown" action="/master/shutdown"/>
 		</acme:menu-option>
 
+
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
+
 
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 		
+		
 		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">
-			<acme:menu-suboption code="master.menu.manager.favourite-link" action="http://www.example.com/"/>
+			<acme:menu-suboption code="master.menu.manager.create-task" action="/manager/task/create"/>
 		</acme:menu-option>
+		
 		
 		<!-- Parte de tasks -->
 		
 		<acme:menu-option code="master.menu.anonymous.publictask" action="/anonymous/task/list" access="isAnonymous()"/>
 		<acme:menu-option code="master.menu.user-account.publictask" action="/authenticated/task/list" access="isAuthenticated()"/>
+		
 		<acme:menu-option code="master.menu.manager.task" action="/manager/task/list" access="hasRole('Manager')"/>
+		
 	</acme:menu-left>
 	
 	

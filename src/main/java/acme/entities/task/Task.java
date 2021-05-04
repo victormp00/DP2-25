@@ -4,6 +4,7 @@ package acme.entities.task;
 import java.time.Duration;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -57,6 +58,7 @@ public class Task extends DomainEntity {
 	
 	@NotBlank
 	@Length(min=1,max=500)
+	@Column(length = 500)
 	protected String description;
 
 	@URL
