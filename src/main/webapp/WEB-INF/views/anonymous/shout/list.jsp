@@ -21,6 +21,4 @@
 	<acme:list-column code="anonymous.shout.list.label.author" path="author" width="20%"/>
 	<acme:list-column code="anonymous.shout.list.label.text" path="text" width="60%"/>
 </acme:list>
-<acme:form>
-	<acme:form-submit code="anonymous.shout.form.button.create" action="/anonymous/shout/create"/>
-</acme:form>
+
