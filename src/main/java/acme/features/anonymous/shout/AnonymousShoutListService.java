@@ -46,6 +46,9 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 		Collection<Shout> result;
 		
 		result= this.repository.findMany();
+		// -- Añadir aqui: La coleccion devuelta tiene que estar compuesta por solo los Shouts que tienen <=1 meses de vida
+		
+		
 		
 		return result;
 	}

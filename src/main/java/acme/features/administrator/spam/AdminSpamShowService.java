@@ -28,7 +28,7 @@ public class AdminSpamShowService implements AbstractShowService<Administrator, 
 		assert request!=null;
 		assert entity!=null;
 		assert model!=null;
-		request.unbind(entity, model, "spamEn", "spamEs", "threshold");
+		request.unbind(entity, model, "spamEn", "spamEs");
 		
 		
 	}
