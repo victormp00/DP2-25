@@ -41,6 +41,7 @@ master.menu.administrator.spam.form = Create Spam
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shutdown = Shut down
+master.menu.administrator.spam.show = Show threshold
 
 # master.menu.provider ########################################################
 
