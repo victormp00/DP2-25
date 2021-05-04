@@ -20,6 +20,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.URL;
 
@@ -44,9 +45,12 @@ public class Shout extends DomainEntity {
 	protected Date moment;
 	
 	@NotBlank
+	@Size(min=5, max = 25)
+	@NotNull
 	protected String author;
 	
 	@NotBlank
+	@Size(max = 100)
 	protected String text;
 	
 	@URL
