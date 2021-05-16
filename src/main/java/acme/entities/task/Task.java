@@ -44,7 +44,6 @@ public class Task extends DomainEntity {
 	//sino funciona, probar con localdatetieme
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-
 	protected Date creation;
 	
 	@NotNull

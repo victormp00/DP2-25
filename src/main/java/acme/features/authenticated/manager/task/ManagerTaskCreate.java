@@ -105,7 +105,7 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
 				errors.add("creation", "creation is after finish");
 			}
 		}
-		if (entity.getWorkload() != null && entity.getCreation() != null) {
+		if (entity.getWorkload() != null && entity.getCreation() != null && entity.getFinish() != null) {
 			if (Boolean.FALSE.equals(entity.isFit())) {
 				errors.add("workload", "workload does not fit");
 			}
