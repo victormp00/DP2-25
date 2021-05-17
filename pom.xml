@@ -18,10 +18,10 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	
-	<name>Starter Project</name>
-	<description>This is the Starter Project for the students of Design &amp; Testing.</description>
+	<name>DP2-25</name>
+	<description>This is the DP2-25 for the students of Design &amp; Testing.</description>
 
-	<artifactId>Starter-Project</artifactId>
+	<artifactId>DP2-25</artifactId>
 	<version>21.2</version>
 	<packaging>war</packaging>
 

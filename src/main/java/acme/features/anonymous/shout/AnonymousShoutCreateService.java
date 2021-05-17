@@ -89,20 +89,14 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert entity !=null;
 		assert errors != null;
 		
-		int textLength;
-		textLength = request.getModel().getString("text").length();
-
-		int authorLength;
-		authorLength = request.getModel().getString("author").length();
-		
-		
-		
 		final List<Spam> spam= (List<Spam>) this.spamRepository.findSpam();
 		final Threshold threshold=this.thresholdRepository.findSpamEntity(35);
-		final Boolean censuraAuthor = Threshold.censura(entity.getAuthor(), spam, threshold.getThreshold());
-		final Boolean censuraText = Threshold.censura(entity.getText(), spam, threshold.getThreshold());
+		final boolean censuraAuthor = Threshold.censura(entity.getAuthor(), spam, threshold.getThreshold());
+		final boolean censuraText = Threshold.censura(entity.getText(), spam, threshold.getThreshold());
 		
-		
+		if(censuraAuthor) {
+			errors.add("author", "this author is spam ");
+		}
 
 		if(censuraText) {
 			errors.add("text", "this text is spam ");
