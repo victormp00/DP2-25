@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
@@ -20,7 +22,8 @@ public class Threshold extends DomainEntity {
 	private static final long serialVersionUID = 1L;
 	@OneToMany
 	protected List<Spam> spamWords;
-	
+	@Min(0)
+	@Max(100)
 	protected Double threshold;
 	
 	public static Boolean censura(final String txt,final List<Spam> spamWords,final Double threshold) {
