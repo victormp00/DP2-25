@@ -50,7 +50,7 @@ public class ManagerTaskUpdateTest extends DP2Test{
 		super.clickOnLink("Manager tasks");
 		
 		super.checkColumnHasValue(recordIndex, 0, title);
-	//	super.checkColumnHasValue(recordIndex, 1, creation);
+		super.checkColumnHasValue(recordIndex, 1, creation);
 		super.checkColumnHasValue(recordIndex, 2, finish);
 		super.checkColumnHasValue(recordIndex, 3, workload);
 		
@@ -58,7 +58,7 @@ public class ManagerTaskUpdateTest extends DP2Test{
 		super.clickOnListingRecord(recordIndex);
 		super.checkInputBoxHasValue("title", title);
 		super.checkInputBoxHasValue("description", description);
-	//	super.checkInputBoxHasValue("creation", creation);
+		super.checkInputBoxHasValue("creation", creation);
 		super.checkInputBoxHasValue("finish", finish);
 		super.checkInputBoxHasValue("workload", workload);
 		super.checkInputBoxHasValue("link", link);
