@@ -338,8 +338,8 @@ Shout
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Spam
 --
-+ spamEn: string 
-+ spamEs: string 
++ spamEn: string {NotBlank} 
++ spamEs: string {NotBlank}
 
 
 

@@ -11,7 +11,7 @@ public class ThresholdUpdateTest extends DP2Test{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/admin/threshold/update-threshold-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
-	public void updateManagerNegative (final int recordIndex, final String threshold) {
+	public void updateThresholdNegative (final int recordIndex, final String threshold) {
 		super.signIn("administrator", "administrator");
 		super.clickOnMenu("Administrator", "Show threshold");
 		super.fillInputBoxIn("threshold", threshold);
@@ -24,7 +24,7 @@ public class ThresholdUpdateTest extends DP2Test{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/admin/threshold/update-threshold-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void updateManagerPositive (final int recordIndex, final String threshold) {
+	public void updateThresholdPositive (final int recordIndex, final String threshold) {
 		super.signIn("administrator", "administrator");
 		super.clickOnMenu("Administrator", "Show threshold");
 		super.fillInputBoxIn("threshold", threshold);

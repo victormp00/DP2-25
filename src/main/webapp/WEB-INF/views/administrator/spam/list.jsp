@@ -17,9 +17,8 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="administrator.spam.en" path="spamEn" width="20%"/>
-	<acme:list-column code="administrator.spam.es" path="spamEs" width="40%"/>		
-	<acme:list-column code="administrator.spam.threshold" path="threshold" width="40%"/>		
+	<acme:list-column code="administrator.spam.en" path="spamEn" width="40%"/>
+	<acme:list-column code="administrator.spam.es" path="spamEs" width="40%"/>	
 </acme:list>
 
 
