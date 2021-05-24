@@ -1,4 +1,3 @@
-
 package acme.testing;
 
 import org.hibernate.internal.util.StringHelper;
@@ -17,20 +16,20 @@ public abstract class DP2Test extends AcmeTest {
 
 		super.setBaseCamp("http", "localhost", "8080", "/DP2-25", "/master/welcome", "?language=en&debug=true");
 		super.setAutoPausing(false);
-
+		
 		this.navigateHome();
 		this.signIn("administrator", "administrator");
 		super.clickOnMenu("Administrator", "Populate DB (samples)");
-		super.checkAlertExists(true);
+		super.checkAlertExists(true);		
 		this.signOut();
 	}
 
 	// Business methods -------------------------------------------------------
-
+	
 	protected void signIn(final String username, final String password) {
 		assert !StringHelper.isBlank(username);
 		assert !StringHelper.isBlank(password);
-
+		
 		super.navigateHome();
 		super.clickOnMenu("Sign in", null);
 		super.fillInputBoxIn("username", username);
@@ -56,7 +55,7 @@ public abstract class DP2Test extends AcmeTest {
 		// phone is nullable
 
 		super.navigateHome();
-		super.clickOnMenu("Sign up", null);
+		super.clickOnMenu("Sign up", null);	
 		super.fillInputBoxIn("username", username);
 		super.fillInputBoxIn("password", password);
 		super.fillInputBoxIn("confirmation", password);
@@ -67,5 +66,6 @@ public abstract class DP2Test extends AcmeTest {
 		super.clickOnSubmitButton("Sign up");
 		super.checkSimplePath("/master/welcome");
 	}
+	
 
 }
