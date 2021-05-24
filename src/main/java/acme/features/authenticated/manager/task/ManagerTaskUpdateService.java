@@ -65,7 +65,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model,"title", "creation", "finish", "workload", "description", "link", "publico");
+		request.unbind(entity, model,"title", "creation", "finish", "workload", "description", "link", "publico", "finished");
 		
 	}
 

@@ -102,6 +102,7 @@ public class AuthenticatedManagerCreateService implements AbstractCreateService<
 
 		result = new Manager();
 		result.setUserAccount(userAccount);
+		
 
 		return result;
 	}
@@ -110,7 +111,7 @@ public class AuthenticatedManagerCreateService implements AbstractCreateService<
 	public void create(final Request<Manager> request, final Manager entity) {
 		assert request != null;
 		assert entity != null;
-
+		
 		this.repository.save(entity);
 	}
 

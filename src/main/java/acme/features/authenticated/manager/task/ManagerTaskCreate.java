@@ -67,10 +67,8 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
 		Task result;
 		Manager manager;
 		Date creation;
-		String username;
 
-		username = request.getPrincipal().getUsername();
-		manager = this.repository.findManager(username);
+		manager = this.repository.findManyManagerById(request.getPrincipal().getActiveRoleId());
 		creation = new Date();
 
 		result = new Task();

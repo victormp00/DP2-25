@@ -1,8 +1,7 @@
+
 package acme.features.authenticated.task;
 
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,9 +14,10 @@ import acme.framework.services.AbstractListService;
 
 @Service
 public class AuthenticatedTaskListService implements AbstractListService<Authenticated, Task> {
-	
+
 	@Autowired
 	protected AuthenticatedTaskRepository repository;
+
 
 	@Override
 	public boolean authorise(final Request<Task> request) {
@@ -27,31 +27,23 @@ public class AuthenticatedTaskListService implements AbstractListService<Authent
 
 	@Override
 	public void unbind(final Request<Task> request, final Task entity, final Model model) {
-		assert request!=null;
-		assert entity!=null;
-		assert model!=null;
+		assert request != null;
+		assert entity != null;
+		assert model != null;
 		request.unbind(entity, model, "title", "creation", "finish", "workload", "description", "link", "publico");
-		
+
 	}
 
 	@Override
 	public Collection<Task> findMany(final Request<Task> request) {
 
-		assert request !=null ;
-		
-		Collection<Task> result;
-		Collection<Task> result2;
-		final Set<Task> tareasFiltradas = new HashSet<>();
-		
-		result = this.repository.findAuthentificatedTasks();
-		result2 = this.repository.findAnonymousTasks();
-		
-		tareasFiltradas.addAll(result);
-		tareasFiltradas.addAll(result2);
-	
-		return tareasFiltradas;
-	}
-	
+		assert request != null;
 
+		Collection<Task> result;
+
+		result = this.repository.findAuthentificatedTasks();
+
+		return result;
+	}
 
 }
