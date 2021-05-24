@@ -100,12 +100,16 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
 		}
 		if (entity.getFinish() != null && entity.getCreation() != null 
 			&& Boolean.FALSE.equals(entity.datefit())) {
-				errors.add("creation", "creation is after finish");
-			
+				errors.add("creation", "finish should be after creation");
+				errors.add("finish", "finish should be after creation");
 		}
 		if (entity.getWorkload() != null && entity.getCreation() != null && entity.getFinish() 
 			!= null && Boolean.FALSE.equals(entity.isFit())) {
 				errors.add("workload", "workload does not fit");
+			}
+		
+		if (entity.getWorkload() != null &&Boolean.FALSE.equals(Task.workloadOK(entity.getWorkload()))) {
+				errors.add("workload", "decimals in workload should not be higher than 60");
 			}
 		}
 
