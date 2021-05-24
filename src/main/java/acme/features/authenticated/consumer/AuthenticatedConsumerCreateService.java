@@ -12,10 +12,17 @@
 
 package acme.features.authenticated.consumer;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.roles.Consumer;
+import acme.entities.spam.Spam;
+import acme.entities.spam.Threshold;
+import acme.features.administrator.spam.AdminSpamCreateService;
+import acme.features.administrator.spam.AdminSpamRepository;
+import acme.features.administrator.threshold.ThresholdRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
@@ -34,6 +41,15 @@ public class AuthenticatedConsumerCreateService implements AbstractCreateService
 
 	@Autowired
 	protected AuthenticatedConsumerRepository repository;
+	
+	@Autowired
+	private AdminSpamRepository spamRepository;
+	
+	@Autowired
+	protected AdminSpamCreateService spamService;
+	
+	@Autowired
+	protected ThresholdRepository	thresholdRepository;
 
 	// AbstractCreateService<Authenticated, Consumer> ---------------------------
 
@@ -50,7 +66,21 @@ public class AuthenticatedConsumerCreateService implements AbstractCreateService
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		
+		final List<Spam> spam= (List<Spam>) this.spamRepository.findSpam();
+		final Threshold threshold=this.thresholdRepository.findSpamEntity(35);
+		final boolean censuraCompany = Threshold.censura(entity.getCompany(), spam, threshold.getThreshold());
+		final boolean censuraSector = Threshold.censura(entity.getSector(), spam, threshold.getThreshold());
+		
+		if(censuraCompany) {
+			errors.add("company", "this company is spam ");
+		}
+
+		if(censuraSector) {
+			errors.add("sector", "this sector is spam ");
+		}
 	}
+	
 
 	@Override
 	public void bind(final Request<Consumer> request, final Consumer entity, final Errors errors) {

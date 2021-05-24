@@ -1,5 +1,5 @@
 
-package admin;
+package acme.testing.admin;
 
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;

@@ -9,14 +9,14 @@ import acme.testing.DP2Test;
 public class ConsumerUpdateTest extends DP2Test{
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/authenticated/consumer/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/authenticated/consumer/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void createManagerNegative (final int recordIndex, final String company, final String sector) {
-		super.signIn("normal1", "normal1");
-		super.clickOnMenu("Account", "Become a consumer");
+	public void updateConsumerNegative (final int recordIndex, final String company, final String sector) {
+		super.signIn("consumer1", "consumer1");
+		super.clickOnMenu("Account", "Consumer data");
 		super.fillInputBoxIn("company", company);
 		super.fillInputBoxIn("sector", sector);
-		super.clickOnSubmitButton("Register");
+		super.clickOnSubmitButton("Update");
 		
 		super.checkErrorsExist();
 		
@@ -24,18 +24,15 @@ public class ConsumerUpdateTest extends DP2Test{
 	}
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/authenticated/consumer/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/authenticated/consumer/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
-	public void createManagerPositive (final int recordIndex, final String company, final String sector) {
-		super.signIn("normal1", "normal1");
-		super.clickOnMenu("Account", "Become a consumer");
+	public void updateConsumerPositive (final int recordIndex, final String company, final String sector) {
+		super.signIn("consumer1", "consumer1");
+		super.clickOnMenu("Account", "Consumer data");		
 		super.fillInputBoxIn("company", company);
-		super.fillInputBoxIn("sector", sector);
-		super.clickOnSubmitButton("Register");
-		
-		super.clickOnMenu("Account", "Consumer data");
-		super.checkInputBoxHasValue("company",company);
-		super.checkInputBoxHasValue("sector",sector);
+        super.fillInputBoxIn("sector", sector);
+        super.clickOnSubmitButton("Update");
+
 		this.signOut();
 
 	}

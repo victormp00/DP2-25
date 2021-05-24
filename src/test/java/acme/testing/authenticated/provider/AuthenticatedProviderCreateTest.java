@@ -1,4 +1,4 @@
-package authenticated.provider;
+package acme.testing.authenticated.provider;
 
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
