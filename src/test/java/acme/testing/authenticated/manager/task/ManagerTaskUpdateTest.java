@@ -10,10 +10,10 @@ public class ManagerTaskUpdateTest extends DP2Test{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void createTaskNegative (final int recordIndex, final String title, final String description,
+	public void updateTaskNegative (final int recordIndex, final String title, final String description,
 		final String creation,final String finish,final String workload,final String link) {
 		super.signIn("manager1", "manager1");
-		super.clickOnLink("Manager tasks");
+		super.clickOnMenu("Manager","Manager tasks");
 		super.clickOnListingRecord(recordIndex);
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("description", description);
@@ -33,10 +33,10 @@ public class ManagerTaskUpdateTest extends DP2Test{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void createTaskPositive (final int recordIndex, final String title, final String description,
+	public void updateTaskPositive (final int recordIndex, final String title, final String description,
 		final String creation,final String finish,final String workload,final String link) {
 		super.signIn("manager1", "manager1");
-		super.clickOnLink("Manager tasks");
+		super.clickOnMenu("Manager","Manager tasks");
 		super.clickOnListingRecord(recordIndex);
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("description", description);
@@ -47,7 +47,7 @@ public class ManagerTaskUpdateTest extends DP2Test{
 		super.fillInputBoxIn("publico", "true");
 		super.clickOnSubmitButton("Update");
 		
-		super.clickOnLink("Manager tasks");
+		super.clickOnMenu("Manager","Manager tasks");
 		
 		super.checkColumnHasValue(recordIndex, 0, title);
 		super.checkColumnHasValue(recordIndex, 1, creation);
