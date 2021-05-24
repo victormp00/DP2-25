@@ -23,6 +23,7 @@
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="anonymous.shout.list.view" action="/anonymous/shout/list"/>
 			<acme:menu-suboption code="anonymous.shout.form.button.create" action="/anonymous/shout/create"/>
+			<acme:menu-suboption code="master.menu.anonymous.publictask" action="/anonymous/task/list" access="isAnonymous()"/>
 		</acme:menu-option>
 
 
@@ -41,6 +42,11 @@
 		</acme:menu-option>
 
 
+		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
+			<acme:menu-suboption code="master.menu.user-account.publictask" action="/authenticated/task/list" access="isAuthenticated()"/>
+		</acme:menu-option>
+		
+		
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
@@ -53,15 +59,16 @@
 		
 		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">
 			<acme:menu-suboption code="master.menu.manager.create-task" action="/manager/task/create"/>
+			<acme:menu-suboption code="master.menu.manager.task" action="/manager/task/list"/>
 		</acme:menu-option>
 		
 		
 		<!-- Parte de tasks -->
 		
-		<acme:menu-option code="master.menu.anonymous.publictask" action="/anonymous/task/list" access="isAnonymous()"/>
-		<acme:menu-option code="master.menu.user-account.publictask" action="/authenticated/task/list" access="isAuthenticated()"/>
 		
-		<acme:menu-option code="master.menu.manager.task" action="/manager/task/list" access="hasRole('Manager')"/>
+
+		
+		
 		
 	</acme:menu-left>
 	

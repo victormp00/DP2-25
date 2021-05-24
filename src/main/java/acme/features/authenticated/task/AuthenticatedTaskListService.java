@@ -1,6 +1,8 @@
 package acme.features.authenticated.task;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,11 +40,18 @@ public class AuthenticatedTaskListService implements AbstractListService<Authent
 		assert request !=null ;
 		
 		Collection<Task> result;
+		Collection<Task> result2;
+		final Set<Task> tareasFiltradas = new HashSet<>();
 		
 		result = this.repository.findAuthentificatedTasks();
+		result2 = this.repository.findAnonymousTasks();
 		
-		return result;
+		tareasFiltradas.addAll(result);
+		tareasFiltradas.addAll(result2);
+	
+		return tareasFiltradas;
 	}
+	
 
 
 }
