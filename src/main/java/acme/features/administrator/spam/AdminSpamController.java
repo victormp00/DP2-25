@@ -22,10 +22,7 @@ public class AdminSpamController  extends AbstractController<Administrator, Spam
 	
 	@Autowired
 	protected AdminSpamCreateService createService;
-	
-	@Autowired
-	protected AdminSpamDeleteService deleteService;
-	
+		
 	@Autowired
 	protected AdminSpamUpdateService updateService;
 	
@@ -33,7 +30,6 @@ public class AdminSpamController  extends AbstractController<Administrator, Spam
 	protected void initialise() {
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
-		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);	
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		

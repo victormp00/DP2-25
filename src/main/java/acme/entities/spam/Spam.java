@@ -1,6 +1,8 @@
+
 package acme.entities.spam;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotBlank;
 
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
@@ -14,10 +16,11 @@ public class Spam extends DomainEntity {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	
-	
-	protected String spamEn; 
-	
-	protected String spamEs; 
+	private static final long	serialVersionUID	= 1L;
+
+	@NotBlank
+	protected String			spamEn;
+
+	@NotBlank
+	protected String			spamEs;
 }
