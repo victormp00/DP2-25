@@ -92,11 +92,16 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
 		final Threshold threshold=this.thresholdRepository.findSpamEntity(35);
 		final Boolean censuraDescr = Threshold.censura(entity.getDescription(), spam, threshold.getThreshold());
 		final Boolean censuratitle = Threshold.censura(entity.getTitle(), spam, threshold.getThreshold());
+		final Boolean censuraLink = Threshold.censura(entity.getLink(), spam, threshold.getThreshold());
+		
 		if (Boolean.TRUE.equals(censuraDescr)) {
 			errors.add("description", "this description is spam");
 		}
 		if (Boolean.TRUE.equals(censuratitle)) {
 			errors.add("title", "this title is spam");
+		}
+		if (Boolean.TRUE.equals(censuraLink)) {
+			errors.add("link", "this URL is spam");
 		}
 		if (entity.getFinish() != null && entity.getCreation() != null 
 			&& Boolean.FALSE.equals(entity.datefit())) {

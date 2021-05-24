@@ -11,7 +11,7 @@ public class AuthenticatedTaskListTest extends DP2Test{
 @ParameterizedTest
 @CsvFileSource(resources = "/authenticated/task/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 @Order(10)
-public void anonymousListPositive (final int recordIndex, final String title, final String creation, 
+public void authenticatedListPositive (final int recordIndex, final String title, final String creation, 
 	final String finish, final String workload, final String description,final String link) {
 	super.signIn("normal1", "normal1");
 	super.clickOnLink("Public tasks");
@@ -38,7 +38,7 @@ public void anonymousListPositive (final int recordIndex, final String title, fi
 @ParameterizedTest
 @CsvFileSource(resources = "/authenticated/task/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 @Order(20)
-public void anonymousListPositiveManager (final int recordIndex, final String title, final String creation, 
+public void authenticatedListPositiveManager (final int recordIndex, final String title, final String creation, 
 	final String finish, final String workload, final String description,final String link) {
 	super.signIn("manager1", "manager1");
 	super.clickOnLink("Public tasks");
