@@ -14,7 +14,7 @@ public class AuthenticatedShoutCreateTest extends DP2Test {
 	public void positiveCreateShout(final int recordIndex,final String author, final String text, final String info) {
 		super.navigateHome();
 		super.signIn("normal1", "normal1");
-		super.clickOnMenu("Anonymous", "Shout!");
+		super.clickOnMenu("Authenticated", "Shout!");
 		super.fillInputBoxIn("author", author);
 		super.fillInputBoxIn("text", text);
 		super.fillInputBoxIn("info", info);
@@ -31,7 +31,7 @@ public class AuthenticatedShoutCreateTest extends DP2Test {
 	public void negativeCreateShout(final int recordIndex,final String author, final String text, final String info) {
 		super.navigateHome();
 		super.signIn("normal1", "normal1");
-		super.clickOnMenu("Anonymous", "Shout!");
+		super.clickOnMenu("Authenticated", "Shout!");
 		super.fillInputBoxIn("author", author);
 		super.fillInputBoxIn("text", text);
 		super.fillInputBoxIn("info", info);
@@ -47,7 +47,7 @@ public class AuthenticatedShoutCreateTest extends DP2Test {
 	public void positiveCreateShoutManager(final int recordIndex,final String author, final String text, final String info) {
 		super.navigateHome();
 		super.signIn("manager1", "manager1");
-		super.clickOnMenu("Anonymous", "Shout!");
+		super.clickOnMenu("Authenticated", "Shout!");
 		super.fillInputBoxIn("author", author);
 		super.fillInputBoxIn("text", text);
 		super.fillInputBoxIn("info", info);
@@ -64,7 +64,7 @@ public class AuthenticatedShoutCreateTest extends DP2Test {
 	public void negativeCreateShoutManager(final int recordIndex,final String author, final String text, final String info) {
 		super.navigateHome();
 		super.signIn("manager1", "manager1");
-		super.clickOnMenu("Anonymous", "Shout!");
+		super.clickOnMenu("Authenticated", "Shout!");
 		super.fillInputBoxIn("author", author);
 		super.fillInputBoxIn("text", text);
 		super.fillInputBoxIn("info", info);

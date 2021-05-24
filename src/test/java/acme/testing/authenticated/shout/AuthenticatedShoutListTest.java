@@ -16,7 +16,7 @@ public void authenticatedListPositive (final int recordIndex, final String momen
 	final String text) {
 	super.navigateHome();
 	super.signIn("normal1", "normal1");
-	super.clickOnMenu("Anonymous", "Shouts list");
+	super.clickOnMenu("Authenticated", "Shouts list");
 	
 
 	super.checkColumnHasValue(recordIndex, 0, moment);
@@ -33,7 +33,7 @@ public void authenticatedListPositiveManager (final int recordIndex, final Strin
 	final String text) {
 	super.navigateHome();
 	super.signIn("manager1", "manager1");
-	super.clickOnMenu("Anonymous", "Shouts list");
+	super.clickOnMenu("Authenticated", "Shouts list");
 
 	super.checkColumnHasValue(recordIndex, 0, moment);
 	super.checkColumnHasValue(recordIndex, 1, author);
