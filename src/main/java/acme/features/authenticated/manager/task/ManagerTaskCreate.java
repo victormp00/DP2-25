@@ -100,18 +100,18 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
 		if (Boolean.TRUE.equals(censuratitle)) {
 			errors.add("title", "this title is spam");
 		}
-		if (entity.getFinish() != null && entity.getCreation() != null) {
-			if (Boolean.FALSE.equals(entity.datefit())) {
+		if (entity.getFinish() != null && entity.getCreation() != null 
+			&& Boolean.FALSE.equals(entity.datefit())) {
 				errors.add("creation", "creation is after finish");
-			}
+			
 		}
-		if (entity.getWorkload() != null && entity.getCreation() != null && entity.getFinish() != null) {
-			if (Boolean.FALSE.equals(entity.isFit())) {
+		if (entity.getWorkload() != null && entity.getCreation() != null && entity.getFinish() 
+			!= null && Boolean.FALSE.equals(entity.isFit())) {
 				errors.add("workload", "workload does not fit");
 			}
 		}
 
-	}
+	
 
 	@Override
 	public void create(final Request<Task> request, final Task entity) {
