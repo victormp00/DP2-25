@@ -95,15 +95,13 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		if (Boolean.TRUE.equals(censuratitle)) {
 			errors.add("title", "this title is spam");
 		}
-		if (entity.getFinish() != null && entity.getCreation() != null) {
-			if (Boolean.FALSE.equals(entity.datefit())) {
+		if (entity.getFinish() != null && entity.getCreation() != null 
+			&& Boolean.FALSE.equals(entity.datefit())) {
 				errors.add("creation", "creation is after finish");
-			}
 		}
-		if (entity.getWorkload() != null && entity.getCreation() != null) {
-			if (Boolean.FALSE.equals(entity.isFit())) {
-				errors.add("workload", "workload does not fit");
-			}
+		if (entity.getWorkload() != null && entity.getCreation() != null 
+			&&Boolean.FALSE.equals(entity.isFit())) {		
+				errors.add("workload", "workload does not fit");	
 		}
 	}
 

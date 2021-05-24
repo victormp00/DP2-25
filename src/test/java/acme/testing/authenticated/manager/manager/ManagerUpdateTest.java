@@ -1,4 +1,4 @@
-package acme.testing.manager.manager;
+package acme.testing.authenticated.manager.manager;
 
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
