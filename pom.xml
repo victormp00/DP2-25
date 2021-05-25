@@ -82,7 +82,7 @@
 					<deployables>
 						<deployable>
 							<properties>
-								<context>/DP2-25/</context>
+								<context>/</context>
 							</properties>
 						</deployable>
 					</deployables>
