@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import acme.entities.shouts.Shout;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
-import acme.framework.entities.Anonymous;
 import acme.framework.entities.Authenticated;
 
 @Controller
