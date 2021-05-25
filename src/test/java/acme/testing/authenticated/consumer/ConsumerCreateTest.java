@@ -10,7 +10,7 @@ public class ConsumerCreateTest extends DP2Test{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/consumer/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void createManagerNegative (final int recordIndex, final String company, final String sector) {
+	public void createConsumerNegative (final int recordIndex, final String company, final String sector) {
 		super.signIn("normal1", "normal1");
 		super.clickOnMenu("Account", "Become a consumer");
 		super.fillInputBoxIn("company", company);
@@ -25,7 +25,7 @@ public class ConsumerCreateTest extends DP2Test{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/consumer/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
-	public void createManagerPositive (final int recordIndex, final String company, final String sector) {
+	public void createConsumerPositive (final int recordIndex, final String company, final String sector) {
 		super.signIn("normal1", "normal1");
 		super.clickOnMenu("Account", "Become a consumer");
 		super.fillInputBoxIn("company", company);

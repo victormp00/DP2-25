@@ -16,6 +16,7 @@ authenticated.manager.form.finish=Finalización
 authenticated.manager.form.workload=carga de trabajo(workload)
 authenticated.manager.task.form.link=link
 authenticated.manager.task.form.publico=¿Quieres que tu tarea sea pública?
+authenticated.manager.task.form.finished = ¿Quieres finalizar tu tarea?
 authenticated.manager.manager.task.form.button.finish=finalizar tarea
 manager.task.form.error.workloaderror=El workload no encaja con el periodo de ejecucion
 

@@ -28,6 +28,8 @@ public interface ManagerTaskRepository extends AbstractRepository{
 //	@Query("select c from Task c where c.manager.userAccount.id = ?1")
 //	Task findOneTaskByUserAccountId(int id);
 	
+	@Query("select m from Manager m where m.id =?1")
+	Manager findManyManagerById(int managerId);
 	
 
 }

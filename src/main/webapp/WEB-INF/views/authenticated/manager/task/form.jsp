@@ -14,14 +14,20 @@
     <jstl:if test="${command == 'update'}">
     <acme:form-moment code="authenticated.manager.form.creation" path="creation"/> 
     <acme:form-moment code="authenticated.manager.form.finish" path="finish"/>
+    <acme:form-checkbox code="authenticated.manager.task.form.finished" path="finished"/>
     </jstl:if>
     <jstl:if test="${command == 'create'}">
     <acme:form-moment code="authenticated.manager.form.creation" path="creation"/> 
     <acme:form-moment code="authenticated.manager.form.finish" path="finish"/>
     </jstl:if>
-   	<acme:form-moment code="authenticated.manager.form.workload" path="workload"/>
+   	<acme:form-textbox code="authenticated.manager.form.workload" path="workload"/>
     <acme:form-textbox code="authenticated.manager.task.form.link" path="link"/>
     <acme:form-checkbox code="authenticated.manager.task.form.publico" path="publico"/>
+    <jstl:if test="${command == 'show'}">
+    <acme:form-checkbox code="authenticated.manager.task.form.finished" path="finished"/>
+    </jstl:if>
+    
+   
 
 	<acme:form-submit test="${command == 'show'}" code="authenticated.manager.manager.task.form.button.update" action="/manager/task/update"/>
 	<acme:form-submit test="${command == 'show'}" code="authenticated.manager.manager.task.form.button.delete" action="/manager/task/delete"/>

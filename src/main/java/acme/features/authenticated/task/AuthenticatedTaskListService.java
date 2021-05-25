@@ -1,3 +1,4 @@
+
 package acme.features.authenticated.task;
 
 import java.util.Collection;
@@ -13,9 +14,10 @@ import acme.framework.services.AbstractListService;
 
 @Service
 public class AuthenticatedTaskListService implements AbstractListService<Authenticated, Task> {
-	
+
 	@Autowired
 	protected AuthenticatedTaskRepository repository;
+
 
 	@Override
 	public boolean authorise(final Request<Task> request) {
@@ -25,24 +27,23 @@ public class AuthenticatedTaskListService implements AbstractListService<Authent
 
 	@Override
 	public void unbind(final Request<Task> request, final Task entity, final Model model) {
-		assert request!=null;
-		assert entity!=null;
-		assert model!=null;
+		assert request != null;
+		assert entity != null;
+		assert model != null;
 		request.unbind(entity, model, "title", "creation", "finish", "workload", "description", "link", "publico");
-		
+
 	}
 
 	@Override
 	public Collection<Task> findMany(final Request<Task> request) {
 
-		assert request !=null ;
-		
+		assert request != null;
+
 		Collection<Task> result;
-		
+
 		result = this.repository.findAuthentificatedTasks();
-		
+
 		return result;
 	}
-
 
 }

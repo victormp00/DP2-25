@@ -73,4 +73,10 @@
 		<property name="userAccount" ref="administratorUserAccount" />
 	</bean>
 	
+	<!-- Treshold por defecto de spam -->
+	
+	<bean id="spamEntity" class = "acme.entities.spam.Threshold">
+		<property name="threshold" value="10"/>
+	</bean>
+	
 </beans>

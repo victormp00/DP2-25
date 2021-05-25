@@ -270,13 +270,6 @@
 			<property name="info"><null/></property>
 		</bean>
 
-
-	<!-- Treshold por defecto de spam -->
-	
-	<bean id="spamEntity" class = "acme.entities.spam.Threshold">
-		<property name="threshold" value="10"/>
-	</bean>
-
 		<bean id= "shout08" class="acme.entities.shouts.Shout">
 			<property name="moment" value="2021/02/20 11:39"/>
 			<property name="author" value="Princess Catalina"/>
@@ -339,5 +332,32 @@
 		<property name="userAccount" ref="provider1UserAccount"/>
 	</bean>
 	
+	  <!-- Consumer -->
+	<bean name="consumer1UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="consumer1"/>
+		<property name="password" value="consumer1"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Employer3"/>
+				<property name="surname" value="Three"/>
+				<property name="email" value="consumer1@mail.com"/>
+			</bean>
+		</property>
+		<property name="enabled" value="true"/>		
+		<property name="roles">
+			<list>
+				<ref bean="consumer1Consumer"/>
+				<ref bean="consumer1Authenticated"/>
+			</list>
+		</property>
+	</bean>
+	<bean name="consumer1Consumer" class="acme.entities.roles.Consumer">
+        <property name="company" value="consumer 1, Inc."/>
+        <property name="sector" value="Sector 1"/>
+        <property name="userAccount" ref="consumer1UserAccount"/>
+    </bean>
+	<bean name="consumer1Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="consumer1UserAccount"/>
+	</bean>
 
 </beans>
