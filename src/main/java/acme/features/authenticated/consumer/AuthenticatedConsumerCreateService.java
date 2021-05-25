@@ -68,7 +68,7 @@ public class AuthenticatedConsumerCreateService implements AbstractCreateService
 		assert errors != null;
 		
 		final List<Spam> spam= (List<Spam>) this.spamRepository.findSpam();
-		final Threshold threshold=this.thresholdRepository.findSpamEntity(35);
+		final Threshold threshold=this.thresholdRepository.findSpamEntity(6);
 		final boolean censuraCompany = Threshold.censura(entity.getCompany(), spam, threshold.getThreshold());
 		final boolean censuraSector = Threshold.censura(entity.getSector(), spam, threshold.getThreshold());
 		
