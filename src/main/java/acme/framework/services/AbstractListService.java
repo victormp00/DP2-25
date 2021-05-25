@@ -37,6 +37,7 @@ public interface AbstractListService<R extends UserRole, E> extends //
 
 	@Override
 	Collection<E> findMany(Request<E> request);
+	
 
 	@Override
 	default void onSuccess(final Request<E> request, final Response<E> response) {

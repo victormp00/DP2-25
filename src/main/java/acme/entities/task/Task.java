@@ -72,6 +72,7 @@ public class Task extends DomainEntity {
 	public Double getExecutionTime() {
 		return ((this.finish.getTime() - this.creation.getTime()) / (36 * (Math.pow(10, 5))));
 	}
+
     
 	public Boolean isFit() {
 		boolean resultado= true;
@@ -87,9 +88,22 @@ public class Task extends DomainEntity {
 		}
 		return resultado;
 	}
+	
+	
+	public static Boolean workloadOK(final Double workload) {
+		final double number =workload;
+		final long iPart = (long) number;
+		final Integer fPart =(int) ((number - iPart)*100);
+		boolean res= true;
+		if(fPart>=60) {
+			res= false;
+		}
+		return res;
+	}
+	
 	public Boolean datefit() {
 		boolean resultado= true;
-		if(this.creation.after(this.finish)) {
+		if(this.creation.after(this.finish)||this.creation.equals(this.finish)) {
 			resultado= false;
 		}
 		return resultado;

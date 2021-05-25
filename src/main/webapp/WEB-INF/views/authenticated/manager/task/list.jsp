@@ -13,4 +13,3 @@
 	<acme:list-column code="task.link" path="link" width="40%"/>		
 </acme:list>
 <acme:form-submit test="${command == 'create'}" code="authenticated.manager.manager.task.form.button.create" action="/manager/task/create"/>
--->

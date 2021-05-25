@@ -65,7 +65,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model,"title", "creation", "finish", "workload", "description", "link", "publico");
+		request.unbind(entity, model,"title", "creation", "finish", "workload", "description", "link", "publico", "finished");
 		
 	}
 
@@ -86,25 +86,33 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		assert entity != null;
 		assert errors != null;
 		final List<Spam> spam = (List<Spam>) this.spamRepository.findSpam();
-		final Threshold threshold=this.thresholdRepository.findSpamEntity(35);
+		final Threshold threshold=this.thresholdRepository.findSpamEntity(6);
 		final Boolean censuraDescr = Threshold.censura(entity.getDescription(), spam, threshold.getThreshold());
 		final Boolean censuratitle = Threshold.censura(entity.getTitle(), spam, threshold.getThreshold());
+		final Boolean censuraLink = Threshold.censura(entity.getLink(), spam, threshold.getThreshold());
+		
 		if (Boolean.TRUE.equals(censuraDescr)) {
 			errors.add("description", "this description is spam");
 		}
 		if (Boolean.TRUE.equals(censuratitle)) {
 			errors.add("title", "this title is spam");
 		}
-		if (entity.getFinish() != null && entity.getCreation() != null) {
-			if (Boolean.FALSE.equals(entity.datefit())) {
-				errors.add("creation", "creation is after finish");
-			}
+		if (Boolean.TRUE.equals(censuraLink)) {
+			errors.add("link", "this URL is spam");
 		}
-		if (entity.getWorkload() != null && entity.getCreation() != null) {
-			if (Boolean.FALSE.equals(entity.isFit())) {
+		if (entity.getFinish() != null && entity.getCreation() != null 
+			&& Boolean.FALSE.equals(entity.datefit())) {
+				errors.add("creation", "finish should be after creation");
+				errors.add("finish", "finish should be after creation");
+		}
+		if (entity.getWorkload() != null && entity.getCreation() != null && entity.getFinish() 
+			!= null && Boolean.FALSE.equals(entity.isFit())) {
 				errors.add("workload", "workload does not fit");
 			}
-		}
+		
+		if (entity.getWorkload() != null &&Boolean.FALSE.equals(Task.workloadOK(entity.getWorkload()))) {
+				errors.add("workload", "decimals in workload should not be higher than 60");
+			}
 	}
 
 	@Override

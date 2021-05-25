@@ -1,6 +1,6 @@
 task.title = Tarea
-task.creation = fecha de creaci\u00d3n
-task.finish= fecha de finalizaci\u00d3n
+task.creation = fecha de creación
+task.finish= fecha de finalización
 task.workload = Carga de trabajo (workload)
 task.description = Descripci\u00f3n
 task.link = Link

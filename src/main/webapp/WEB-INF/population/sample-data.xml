@@ -177,7 +177,7 @@
 			<property name="creation" value="2030/12/11 23:59" />
 			<property name="finish" value="2030/12/11 23:59" />
 			<property name="workload" value= "23.12"/>
-			<property name="description" value="1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"/>
+			<property name="description" value="esto es una descripción"/>
 			<property name="link" value="http://www.example.com"/>
 			<property name="publico" value="true"/>	
 			<property name="finished" value="true"/>	
@@ -270,20 +270,94 @@
 			<property name="info"><null/></property>
 		</bean>
 
-
-	<!-- Treshold por defecto de spam -->
-	
-	<bean id="spamEntity" class = "acme.entities.spam.Threshold">
-		<property name="threshold" value="10"/>
-	</bean>
-
 		<bean id= "shout08" class="acme.entities.shouts.Shout">
 			<property name="moment" value="2021/02/20 11:39"/>
 			<property name="author" value="Princess Catalina"/>
 			<property name="text" value="England"/>
 			<property name="info"><null/></property>
 		</bean>
+	<!-- ESCRIBIR SIEMPRE A PARTIR DE AQUI -->
+	
+	<!-- AuthenticatedNormalUser -->
+	
 
+<bean name="AuthenticatedNormalUser1" class="acme.framework.entities.UserAccount">
+        <property name="username" value="normal1"/>
+        <property name="password" value="normal1"/>
+        <property name="identity">
+            <bean class="acme.datatypes.UserIdentity">
+                <property name="name" value="normal"/>
+                <property name="surname" value="normal"/>
+                <property name="email" value="normal@mail.com"/>
+            </bean>
+        </property>
+        <property name="enabled" value="true"/>        
+        <property name="roles">
+            <list>
+                <ref bean="manager1Authenticated"/>
+            </list>
+        </property>
+    </bean>
+    
 
+    <bean name="AuthenticatedNormalUser1Authenticated" class="acme.framework.entities.Authenticated">
+        <property name="userAccount" ref="AuthenticatedNormalUser1"/>
+    </bean>
+    
+    <!-- Provider -->
+	<bean name="provider1UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="provider1"/>
+		<property name="password" value="provider1"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Employer2"/>
+				<property name="surname" value="Two"/>
+				<property name="email" value="provider1@mail.com"/>
+			</bean>
+		</property>
+		<property name="enabled" value="true"/>		
+		<property name="roles">
+			<list>
+				<ref bean="provider1Provider"/>
+				<ref bean="provider1Authenticated"/>
+			</list>
+		</property>
+	</bean>
+	<bean name="provider1Provider" class="acme.entities.roles.Provider">
+        <property name="company" value="provider 1, Inc."/>
+        <property name="sector" value="Sector 1"/>
+        <property name="userAccount" ref="provider1UserAccount"/>
+    </bean>
+	<bean name="provider1Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="provider1UserAccount"/>
+	</bean>
+	
+	  <!-- Consumer -->
+	<bean name="consumer1UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="consumer1"/>
+		<property name="password" value="consumer1"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Employer3"/>
+				<property name="surname" value="Three"/>
+				<property name="email" value="consumer1@mail.com"/>
+			</bean>
+		</property>
+		<property name="enabled" value="true"/>		
+		<property name="roles">
+			<list>
+				<ref bean="consumer1Consumer"/>
+				<ref bean="consumer1Authenticated"/>
+			</list>
+		</property>
+	</bean>
+	<bean name="consumer1Consumer" class="acme.entities.roles.Consumer">
+        <property name="company" value="consumer 1, Inc."/>
+        <property name="sector" value="Sector 1"/>
+        <property name="userAccount" ref="consumer1UserAccount"/>
+    </bean>
+	<bean name="consumer1Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="consumer1UserAccount"/>
+	</bean>
 
 </beans>

@@ -17,5 +17,8 @@ public interface AuthenticatedTaskRepository extends AbstractRepository{
 	//and where a.finish = null
 	@Query("select a from Task a where a.publico = TRUE and a.finished = true order by a.workload")
 	Collection<Task> findAuthentificatedTasks();
+	
+	@Query("select a from Task a where a.publico = TRUE and a.finished = false order by a.workload")
+	Collection<Task> findAnonymousTasks();
 
 }

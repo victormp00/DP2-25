@@ -90,9 +90,10 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert errors != null;
 		
 		final List<Spam> spam= (List<Spam>) this.spamRepository.findSpam();
-		final Threshold threshold=this.thresholdRepository.findSpamEntity(35);
+		final Threshold threshold=this.thresholdRepository.findSpamEntity(6);
 		final boolean censuraAuthor = Threshold.censura(entity.getAuthor(), spam, threshold.getThreshold());
 		final boolean censuraText = Threshold.censura(entity.getText(), spam, threshold.getThreshold());
+		final Boolean censuraLink = Threshold.censura(entity.getInfo(), spam, threshold.getThreshold());
 		
 		if(censuraAuthor) {
 			errors.add("author", "this author is spam ");
@@ -100,6 +101,9 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
 		if(censuraText) {
 			errors.add("text", "this text is spam ");
+		}
+		if (Boolean.TRUE.equals(censuraLink)) {
+			errors.add("info", "this URL is spam");
 		}
 
 	}
