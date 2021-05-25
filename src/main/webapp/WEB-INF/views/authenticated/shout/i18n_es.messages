@@ -17,7 +17,7 @@ authenticated.shout.form.button.create = Gritar
 authenticated.shout.form.button.return = Volver
 
 
-authenticated.shot.list.label.moment = Momento
+authenticated.shout.list.label.moment = Momento
 authenticated.shout.list.label.author = Autor
 authenticated.shout.list.label.text = Texto
 
