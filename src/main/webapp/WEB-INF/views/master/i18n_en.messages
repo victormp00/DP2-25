@@ -34,6 +34,7 @@ master.menu.anonymous.favourite-link = Favourite link
 # master.menu.authenticated ###################################################
 
 master.menu.authenticated = Authenticated
+master.menu.authenticated.anonymous = Anonymous
 master.menu.authenticated.list.anonymous = Anonymous Tasks
 
 # master.menu.administrator ###################################################

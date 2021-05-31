@@ -74,11 +74,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		
 		moment = new Date(System.currentTimeMillis() - 1);
 		
-		result = new Shout();
-		result.setAuthor("Jhon Doe");
-		result.setText("Lorem ipsum!");
-		result.setMoment(moment);
-		result.setInfo("http://example.org");
+		result = new Shout();		
+		result.setMoment(moment);		
 		
 		return result;
 	}
@@ -90,7 +87,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert errors != null;
 		
 		final List<Spam> spam= (List<Spam>) this.spamRepository.findSpam();
-		final Threshold threshold=this.thresholdRepository.findSpamEntity(6);
+		final Threshold threshold=this.thresholdRepository.findSpamEntity();
 		final boolean censuraAuthor = Threshold.censura(entity.getAuthor(), spam, threshold.getThreshold());
 		final boolean censuraText = Threshold.censura(entity.getText(), spam, threshold.getThreshold());
 		final Boolean censuraLink = Threshold.censura(entity.getInfo(), spam, threshold.getThreshold());

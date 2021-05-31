@@ -55,7 +55,7 @@ public class AuthenticatedManagerUpdateService implements AbstractUpdateService<
 		assert errors != null;
 		
 		final List<Spam> spam= (List<Spam>) this.spamRepository.findSpam();
-		final Threshold threshold=this.thresholdRepository.findSpamEntity(6);
+		final Threshold threshold=this.thresholdRepository.findSpamEntity();
 		final boolean censuraCompany = Threshold.censura(entity.getCompany(), spam, threshold.getThreshold());
 		final boolean censuraSector = Threshold.censura(entity.getSector(), spam, threshold.getThreshold());
 		

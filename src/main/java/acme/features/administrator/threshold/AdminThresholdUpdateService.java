@@ -59,9 +59,7 @@ public class AdminThresholdUpdateService implements AbstractUpdateService<Admini
 	public Threshold findOne(final Request<Threshold> request) {
 		assert request != null;
 		Threshold result;
-		int id;
-		id = request.getModel().getInteger("id");
-		result = this.repository.findSpamEntity(id);
+		result = this.repository.findSpamEntity();
 
 		return result;
 	}

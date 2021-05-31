@@ -33,7 +33,7 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.spam.list" action="/administrator/spam/list"/>
 			<acme:menu-suboption code="master.menu.administrator.spam.form" action="/administrator/spam/create"/>
-			<acme:menu-suboption code="master.menu.administrator.spam.show" action="/administrator/threshold/show?id=6"/>
+			<acme:menu-suboption code="master.menu.administrator.spam.show" action="/administrator/threshold/show"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/master/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/master/populate-sample"/>			
@@ -44,6 +44,9 @@
 
 		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
 			<acme:menu-suboption code="master.menu.user-account.publictask" action="/authenticated/task/list" access="isAuthenticated()"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.authenticated.anonymous" access="hasRole('Authenticated')">
 			<acme:menu-suboption code="master.menu.authenticated.list.anonymous" action="/authenticated/task/list-anon" access="isAuthenticated()"/>
 			<acme:menu-suboption code="authenticated.shout.list.view" action="/authenticated/shout/list"/>
 			<acme:menu-suboption code="authenticated.shout.form.button.create" action="/authenticated/shout/create"/>
