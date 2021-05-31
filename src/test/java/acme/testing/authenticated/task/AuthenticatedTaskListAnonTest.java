@@ -14,7 +14,7 @@ public class AuthenticatedTaskListAnonTest extends DP2Test{
 	public void authenticatedListingAnon (final int recordIndex, final String title, final String creation, 
 		final String finish, final String workload, final String description,final String link) {
 		super.signIn("normal1", "normal1");
-		super.clickOnMenu("Authenticated", "Anonymous Tasks");
+		super.clickOnMenu("Anonymous", "Anonymous Tasks");
 
 		super.checkColumnHasValue(recordIndex, 0, title);
 		super.checkColumnHasValue(recordIndex, 1, creation);

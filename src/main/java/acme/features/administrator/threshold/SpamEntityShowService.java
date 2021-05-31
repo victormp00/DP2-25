@@ -39,7 +39,7 @@ public class SpamEntityShowService implements AbstractShowService<Administrator,
 
 		Threshold result;
 
-		result = this.repository.findSpamEntity(38);
+		result = this.repository.findSpamEntity();
 		return result;
 	}
 

@@ -13,7 +13,7 @@ import acme.framework.repositories.AbstractRepository;
 public interface ThresholdRepository extends AbstractRepository {
 
 	@Query("select a from Threshold a")
-	Threshold findSpamEntity(int id);
+	Threshold findSpamEntity();
 
 	@Query("select a from Threshold a")
 	Collection<Threshold> findListEntity();
