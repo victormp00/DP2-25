@@ -7,7 +7,9 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import acme.testing.DP2Test;
 
 public class AuthenticatedTaskListTest extends DP2Test{
-
+//	En este se prueban los tests de tasks correspondientes a la lista de tasks públicas desde la perspectiva de un ususario autenticado
+//	los resultados para este test deben ser positivos dado que prueban si la lista de tasks que están en /anonymous/task/list-positive.csv
+//	se cumplen y así ocurre.
 @ParameterizedTest
 @CsvFileSource(resources = "/authenticated/task/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 @Order(10)
@@ -34,6 +36,9 @@ public void authenticatedListPositive (final int recordIndex, final String title
 	super.signOut();
 	
 	}
+//En este se prueban los tests de tasks correspondientes a la lista de tasks públicas desde la perspectiva de un ususario autenticado como mánager
+//los resultados para este test deben ser positivos dado que prueban si la lista de tasks que están en /anonymous/task/list-positive.csv
+//se cumplen y así ocurre.
 
 @ParameterizedTest
 @CsvFileSource(resources = "/authenticated/task/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)

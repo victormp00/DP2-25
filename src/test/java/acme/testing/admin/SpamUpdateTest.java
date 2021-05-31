@@ -7,7 +7,10 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.DP2Test;
 
-public class SpamListUpdateTest extends DP2Test {
+public class SpamUpdateTest extends DP2Test {
+//	  En este test se comprueba la actualización de una palabra de spam en español y en inglés desde la perspectiva de un administrador
+//	  Se considera exitoso si no se actualiza, dado que el test intenta probar la validación de que 
+//	  ningún campo debe estar en blanco
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/admin/spam/update-spam-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -23,7 +26,8 @@ public class SpamListUpdateTest extends DP2Test {
 		super.checkErrorsExist();
 
 	}
-
+//	  En este test comprueba la actualización de una palabra spam en inglés y español desde la perspectiva de un administrador
+//	  Se considera exitoso si se actualiza bien, y el test debería dar éxito.
 	@ParameterizedTest
 	@CsvFileSource(resources = "/admin/spam/update-spam-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)

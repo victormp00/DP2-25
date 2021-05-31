@@ -8,7 +8,9 @@ import acme.testing.DP2Test;
 
 public class AuthenticatedShoutListTest extends DP2Test{
 
-
+//	En este se prueban los tests de tasks correspondientes a la lista de shouts desde la perspectiva de un ususario autenticado
+//	los resultados para este test deben ser positivos dado que prueban si la lista de tasks que están en /authenticated/shout/list-positive.csv
+//	se cumplen y así ocurre.
 @ParameterizedTest
 @CsvFileSource(resources = "/authenticated/shout/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 @Order(10)
@@ -25,7 +27,9 @@ public void authenticatedListPositive (final int recordIndex, final String momen
 	super.signOut();
 	
 	}
-
+//En este se prueban los tests de tasks correspondientes a la lista de shouts desde la perspectiva de un ususario autenticado como manager
+//los resultados para este test deben ser positivos dado que prueban si la lista de tasks que están en /authenticated/shout/list-positive.csv
+//se cumplen y así ocurre.
 @ParameterizedTest
 @CsvFileSource(resources = "/authenticated/shout/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 @Order(20)
