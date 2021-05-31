@@ -18,7 +18,7 @@
 <acme:form>
 	<acme:form-textbox code="authenticated.shout.form.label.author" path="author"/>
 	<acme:form-textarea code="authenticated.shout.form.label.text" path="text"/>
-	<acme:form-textbox code="authenticated.shout.form.label.info" path="info"/>
+	<acme:form-textbox placeholder="http://example.com" code="authenticated.shout.form.label.info" path="info"/>
 	
 	<acme:form-submit code="authenticated.shout.form.button.create" action="/authenticated/shout/create"/>
 	<acme:form-return code="authenticated.shout.form.button.return"/>

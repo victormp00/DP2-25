@@ -54,8 +54,6 @@ public class AdminSpamCreateService implements AbstractCreateService<Administrat
 		Spam result;
 
 		result = new Spam();
-		result.setSpamEn("Spam en ");
-		result.setSpamEs("Spam es ");
 		return result;
 	}
 

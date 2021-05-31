@@ -75,8 +75,6 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
 		result.setManager(manager);
 		result.setCreation(creation);
 		result.setPublico(true);
-		result.setDescription("Escribe una descripcion ");
-		result.setTitle("Escribe un titulo");
 		result.setFinish(null);
 		result.setWorkload(null);
 		result.setFinished(false);

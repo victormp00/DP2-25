@@ -34,6 +34,7 @@ master.menu.anonymous.favourite-link = Enlace favorito
 # master.menu.authenticated ###################################################
 
 master.menu.authenticated = Autenticado
+master.menu.authenticated.anonymous = Anónimo
 master.menu.authenticated.list.anonymous = Tareas anónimas
 
 # master.menu.administrator ###################################################
