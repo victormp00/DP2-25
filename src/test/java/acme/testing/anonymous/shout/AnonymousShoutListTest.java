@@ -19,7 +19,8 @@ public class AnonymousShoutListTest extends DP2Test{
 	
 	
 	//Test cases ------------------------
-	
+	//Se prueba el listado de shouts desde el punto de vista de un anonimo,se prueban los paramtros : author,text,info de cada shout de la lista, 
+	//se considera exitoso si se listan los shout con exito, el test debe dar exito
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/shout/list-all.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
