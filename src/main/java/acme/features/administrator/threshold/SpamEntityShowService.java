@@ -38,10 +38,8 @@ public class SpamEntityShowService implements AbstractShowService<Administrator,
 		assert request != null;
 
 		Threshold result;
-		int id;
 
-		id = request.getModel().getInteger("id");
-		result = this.repository.findSpamEntity(id);
+		result = this.repository.findSpamEntity(38);
 		return result;
 	}
 

@@ -33,7 +33,7 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.spam.list" action="/administrator/spam/list"/>
 			<acme:menu-suboption code="master.menu.administrator.spam.form" action="/administrator/spam/create"/>
-			<acme:menu-suboption code="master.menu.administrator.spam.show" action="/administrator/threshold/show?id=6"/>
+			<acme:menu-suboption code="master.menu.administrator.spam.show" action="/administrator/threshold/show"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/master/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/master/populate-sample"/>			
