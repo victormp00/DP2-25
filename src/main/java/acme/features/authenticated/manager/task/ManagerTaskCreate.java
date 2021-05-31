@@ -75,8 +75,6 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
 		result.setManager(manager);
 		result.setCreation(creation);
 		result.setPublico(true);
-		result.setDescription("Escribe una descripcion ");
-		result.setTitle("Escribe un titulo");
 		result.setFinish(null);
 		result.setWorkload(null);
 		result.setFinished(false);
@@ -89,7 +87,7 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
 		assert entity != null;
 		assert errors != null;
 		final List<Spam> spam = (List<Spam>) this.spamRepository.findSpam();
-		final Threshold threshold=this.thresholdRepository.findSpamEntity(6);
+		final Threshold threshold=this.thresholdRepository.findSpamEntity();
 		final Boolean censuraDescr = Threshold.censura(entity.getDescription(), spam, threshold.getThreshold());
 		final Boolean censuratitle = Threshold.censura(entity.getTitle(), spam, threshold.getThreshold());
 		final Boolean censuraLink = Threshold.censura(entity.getLink(), spam, threshold.getThreshold());
