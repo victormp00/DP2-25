@@ -7,7 +7,11 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import acme.testing.DP2Test;
 
 public class AuthenticatedProviderUpdateTest extends DP2Test{
-	
+//	  En este test se comprueba la actualización de un provider desde la perspectiva de un usuario autenticado
+//	  Se considera exitoso si no se actualiza, dado que el test intenta probar las diferentes validaciones.
+//	  Las validaciones son:
+//		-Ningún campo debe estar en blanco
+//		-Ningún campo debe dar error por spam
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/provider/update-provider-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
@@ -21,6 +25,8 @@ public class AuthenticatedProviderUpdateTest extends DP2Test{
 		super.checkErrorsExist();
 
 	}
+//	  En este test se comprueba la actualización de un provider desde la perspectiva de un usuario autenticado
+//	  Se considera exitoso si se actualiza bien, y el test debería dar éxito.
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/provider/update-provider-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)

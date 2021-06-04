@@ -7,6 +7,11 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import acme.testing.DP2Test;
 
 public class ConsumerCreateTest extends DP2Test{
+//	  En este test se comprueba la creación de un consumer desde la perspectiva de un usuario autenticado
+//	  Se considera exitoso si no se crea, dado que el test intenta probar las diferentes validaciones.
+//	  Las validaciones son:
+//		-Ningún campo debe estar en blanco
+//		-Ningún campo debe dar error por spam
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/consumer/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
@@ -21,7 +26,8 @@ public class ConsumerCreateTest extends DP2Test{
 		
 
 	}
-	
+//	  En este test se comprueba la creación de un consumer desde la perspectiva de un usuario autenticado
+//	  Se considera exitoso si se crea bien, y el test debería dar éxito.
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/consumer/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
