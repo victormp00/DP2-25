@@ -13,6 +13,38 @@
 		<acme:message
 			code="administrator.dashboard.form.title.general-indicators" />
 	</caption>
+	<!-- principio control check -->
+	<tr>
+		<th scope="row"><acme:message
+				code="administrator.dashboard.xxxFlaggedRatio" /></th>
+		<td><acme:print value="${xxxFlaggedRatio}" /></td>
+	</tr>
+	<tr>
+		<th scope="row"><acme:message
+				code="administrator.dashboard.xxxratio2020" /></th>
+		<td><acme:print value="${xxxratio2020}" /></td>
+	</tr>
+	<tr>
+		<th scope="row"><acme:message
+				code="administrator.dashboard.xxxaverageGroupByCurrency" /></th>
+		<td><acme:print value="${xxxaverageGroupByCurrency1}" /></td>
+	</tr>
+	<tr>
+		<th scope="row"><acme:message
+				code="administrator.dashboard.xxxDeviationGroupByCurrency" /></th>
+		<td><acme:print value="${xxxDeviationGroupByCurrency1}" /></td>
+	</tr>
+	<tr>
+		<th scope="row"><acme:message
+				code="administrator.dashboard.xxxaverageGroupByCurrency" /></th>
+		<td><acme:print value="${xxxaverageGroupByCurrency2}" /></td>
+	</tr>
+	<tr>
+		<th scope="row"><acme:message
+				code="administrator.dashboard.xxxDeviationGroupByCurrency" /></th>
+		<td><acme:print value="${xxxDeviationGroupByCurrency2}" /></td>
+	</tr>
+	<!-- final control check  -->
 	<tr>
 		<th scope="row"><acme:message
 				code="administrator.dashboard.publicTasks" /></th>

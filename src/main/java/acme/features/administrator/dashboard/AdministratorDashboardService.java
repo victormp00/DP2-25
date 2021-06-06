@@ -36,7 +36,10 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 		request.unbind(entity, model, //
 			"publicTasks", "privateTasks", "ongoingTasks", "finishedTasks", "averageExecTime", //
 			"deviationExecTime", "maxExecTime", "minExecTime", "averageWorkload", "deviationWorkload",//
-			"maxWorkload", "minWorkload");
+			"maxWorkload", "minWorkload",
+			//control check
+			"xxxFlaggedRatio","xxxratio2020","xxxaverageGroupByCurrency1","xxxDeviationGroupByCurrency1",
+			"xxxaverageGroupByCurrency2","xxxDeviationGroupByCurrency2");
 	}
 
 	@Override
@@ -85,6 +88,24 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 		result.setDeviationWorkload(deviationWorkload);
 		result.setMaxWorkload(maxWorkload);
 		result.setMinWorkload(minWorkload);
+		
+		//control check
+		final Double xxxFlaggedRatio=this.repository.xxxFlaggedRatio();
+		final Double xxxratio2020=this.repository.xxxratio2020();
+		final List<Double> xxxaverageGroupByCurrency = this.repository.xxxaverageGroupByCurrency();
+		final List<Double> xxxDeviationGroupByCurrency=this.repository.xxxDeviationGroupByCurrency();
+		
+		final Double xxxaverageGroupByCurrency1=xxxaverageGroupByCurrency.get(0);
+		final Double xxxDeviationGroupByCurrency1=xxxDeviationGroupByCurrency.get(0);
+		final Double xxxaverageGroupByCurrency2=xxxaverageGroupByCurrency.get(1);
+		final Double xxxDeviationGroupByCurrency2=xxxDeviationGroupByCurrency.get(1);
+		
+		result.setXxxaverageGroupByCurrency1(xxxaverageGroupByCurrency1);
+		result.setXxxDeviationGroupByCurrency1(xxxDeviationGroupByCurrency1);
+		result.setXxxaverageGroupByCurrency2(xxxaverageGroupByCurrency2);
+		result.setXxxDeviationGroupByCurrency2(xxxDeviationGroupByCurrency2);
+		result.setXxxFlaggedRatio(xxxFlaggedRatio);
+		result.setXxxratio2020(xxxratio2020);
 		return result;
 	}
 

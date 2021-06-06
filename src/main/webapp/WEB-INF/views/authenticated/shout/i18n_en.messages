@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-anonymous.shout.list.view = Shouts list
+authenticated.shout.list.view = Shouts list
 
 
 authenticated.shout.form.label.author = Author

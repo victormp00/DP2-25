@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.shouts.Shout;
+import acme.entities.shouts.XXX;
 import acme.entities.spam.Spam;
 import acme.entities.spam.Threshold;
 import acme.features.administrator.spam.AdminSpamCreateService;
@@ -61,21 +62,24 @@ public class AuthenticatedShoutCreateService implements AbstractCreateService<Au
 		assert entity !=null;
 		assert model !=null;
 
-		request.unbind(entity,model,"author","text","info");
+		request.unbind(entity,model,"author","text","info","xxx.xxxdate","xxx.xxxamount","xxx.xxxboolean");
 	}
 	
 	
 	@Override
 	public Shout instantiate (final Request<Shout> request) {
-		assert request !=null;
+	assert request !=null;
 		
 		final Shout result;
 		final Date moment;
+		final XXX xxx;
 		
+		xxx= new XXX();
 		moment = new Date(System.currentTimeMillis() - 1);
 		
-		result = new Shout();
-		result.setMoment(moment);
+		result = new Shout();		
+		result.setMoment(moment);	
+		result.setXxx(xxx);
 		
 		return result;
 	}
@@ -115,6 +119,8 @@ public class AuthenticatedShoutCreateService implements AbstractCreateService<Au
 		
 		moment = new Date(System.currentTimeMillis() -1);
 		entity.setMoment(moment);
+		entity.getXxx().setXxxmoment(moment);
+		this.shoutRepository.save(entity.getXxx());
 		this.shoutRepository.save(entity);
 	}
 		

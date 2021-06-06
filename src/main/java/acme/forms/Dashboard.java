@@ -40,5 +40,14 @@ public class Dashboard implements Serializable {
 	Double						maxWorkload;
 
 	Double						minWorkload;
+	
+	//control check
+	Double xxxFlaggedRatio;
+	//este puede cambiar mucho
+	Double xxxratio2020;
+	Double xxxaverageGroupByCurrency1;
+	Double xxxDeviationGroupByCurrency1;
+	Double xxxaverageGroupByCurrency2;
+	Double xxxDeviationGroupByCurrency2;
 
 }

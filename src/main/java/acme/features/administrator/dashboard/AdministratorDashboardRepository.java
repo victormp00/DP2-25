@@ -38,5 +38,19 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 
 	@Query("select min(t.workload) from Task t")
 	Double minWorkload();
+	
+	//control check
+	@Query("select avg(t.xxxamount.amount) from XXX t group by t.xxxamount.currency")
+	List<Double> xxxaverageGroupByCurrency();
+	
+	@Query("select stddev(t.xxxamount.amount) from XXX t group by t.xxxamount.currency")
+	List<Double> xxxDeviationGroupByCurrency();
+	
+	@Query("select 1.0 * count(a) / (select count(b) from Shout b) from Shout a where a.xxx.xxxboolean = true")
+	Double xxxFlaggedRatio();
+	
+	@Query("select 1.0 * count(a) / (select count(b) from Shout b) from Shout a where year(a.xxx.xxxmoment) = 2021")
+	Double xxxratio2020();
+
 
 }
