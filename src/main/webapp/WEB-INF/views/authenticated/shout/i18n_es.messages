@@ -7,7 +7,6 @@
 # this software. It has been tested carefully, but it is not guaranteed for any particular
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
-
 authenticated.shout.list.view = Lista de gritos
 
 authenticated.shout.form.label.author = Autor
@@ -21,5 +20,10 @@ authenticated.shout.list.label.moment = Momento
 authenticated.shout.list.label.author = Autor
 authenticated.shout.list.label.text = Texto
 
+authenticated.xxx.xxxdate = xxxfecha
+authenticated.xxx.xxxamount.amount = xxxamount cantidad
+authenticated.xxx.xxxamount.currency = xxxamount tipo
+authenticated.xxx.xxxboolean = xxx boolean
+authenticated.xxx.xxxmoment= xxxmomento
 
 authenticated.shout.form.button.crea = Crear Grito

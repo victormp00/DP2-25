@@ -14,9 +14,13 @@ package acme.entities.shouts;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -56,9 +60,8 @@ public class Shout extends DomainEntity {
 	@URL
 	protected String info;
 	
-	// Derived attributes -------------------------------------
-	
-	
-	// Relationships ------------------------------------------
-		
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name = "xxx_id", referencedColumnName = "id")
+	@Valid
+	protected XXX xxx;	
 }

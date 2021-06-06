@@ -18,8 +18,13 @@
 <acme:form>
 	<acme:form-textbox code="authenticated.shout.form.label.author" path="author"/>
 	<acme:form-textarea code="authenticated.shout.form.label.text" path="text"/>
-	<acme:form-textbox placeholder="http://example.com" code="authenticated.shout.form.label.info" path="info"/>
+	<acme:form-textbox placeholder="http://example.com" code="anonymous.shout.form.label.info" path="info"/>
 	
-	<acme:form-submit code="authenticated.shout.form.button.create" action="/authenticated/shout/create"/>
+	<!-- parte xxx -->
+	<acme:form-textbox code="authenticated.xxx.xxxdate" path="xxx.xxxdate"/>
+	<acme:form-money code="authenticated.xxx.xxxamount" path="xxx.xxxamount"/>
+	<acme:form-checkbox code="authenticated.xxx.xxxboolean" path="xxx.xxxboolean"/>
+	
+	<acme:form-submit code="authenticated.shout.form.button.create" action="/anonymous/shout/create"/>
 	<acme:form-return code="authenticated.shout.form.button.return"/>
 </acme:form>

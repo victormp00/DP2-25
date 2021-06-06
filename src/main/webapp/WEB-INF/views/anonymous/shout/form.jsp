@@ -20,6 +20,11 @@
 	<acme:form-textarea code="anonymous.shout.form.label.text" path="text"/>
 	<acme:form-textbox placeholder="http://example.com" code="anonymous.shout.form.label.info" path="info"/>
 	
+	<!-- parte xxx -->
+	<acme:form-textbox code="anonymous.xxx.xxxdate" path="xxx.xxxdate"/>
+	<acme:form-money code="anonymous.xxx.xxxamount" path="xxx.xxxamount"/>
+	<acme:form-checkbox code="anonymous.xxx.xxxboolean" path="xxx.xxxboolean"/>
+	
 	<acme:form-submit code="anonymous.shout.form.button.create" action="/anonymous/shout/create"/>
 	<acme:form-return code="anonymous.shout.form.button.return"/>
 </acme:form>

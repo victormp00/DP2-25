@@ -21,5 +21,10 @@ anonymous.shout.list.label.moment = Momento
 anonymous.shout.list.label.author = Autor
 anonymous.shout.list.label.text = Texto
 
+anonymous.xxx.xxxdate = xxxfecha
+anonymous.xxx.xxxamount.amount = xxxamount cantidad
+anonymous.xxx.xxxamount.currency = xxxamount tipo
+anonymous.xxx.xxxboolean = xxx boolean
+anonymous.xxx.xxxmoment= xxxmomento
 
 anonymous.shout.form.button.crea = Crear Grito

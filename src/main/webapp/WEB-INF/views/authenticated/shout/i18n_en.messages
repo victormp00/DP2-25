@@ -8,8 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-
-authenticated.shout.list.view = Shouts list
+anonymous.shout.list.view = Shouts list
 
 
 authenticated.shout.form.label.author = Author
@@ -24,3 +23,9 @@ authenticated.shout.list.label.author = Author
 authenticated.shout.list.label.text = Text
 
 authenticated.shout.form.button.crea = Create a Shout!
+
+authenticated.xxx.xxxdate = xxxdate
+authenticated.xxx.xxxamount.amount = xxxamount amount
+authenticated.xxx.xxxamount.currency = xxxamount currency
+authenticated.xxx.xxxboolean = xxx boolean
+authenticated.xxx.xxxmoment= xxxmoment

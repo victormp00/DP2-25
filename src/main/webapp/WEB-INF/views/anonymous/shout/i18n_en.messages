@@ -24,3 +24,9 @@ anonymous.shout.list.label.author = Author
 anonymous.shout.list.label.text = Text
 
 anonymous.shout.form.button.crea = Create a Shout!
+
+anonymous.xxx.xxxdate = xxxdate
+anonymous.xxx.xxxamount.amount = xxxamount amount
+anonymous.xxx.xxxamount.currency = xxxamount currency
+anonymous.xxx.xxxboolean = xxx boolean
+anonymous.xxx.xxxmoment= xxxmoment
