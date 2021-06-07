@@ -17,3 +17,5 @@ authenticated.consumer.consumer.form.label.sector = Sector:
 authenticated.consumer.consumer.form.button.create = Registrar
 authenticated.consumer.consumer.form.button.update = Actualizar
 authenticated.consumer.consumer.form.button.return = Volver
+authenticated.consumer.spam.company= Esta compañia es Spam
+authenticated.consumer.spam.sector= Este sector es Spam
