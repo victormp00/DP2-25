@@ -25,8 +25,16 @@ anonymous.shout.list.label.text = Text
 
 anonymous.shout.form.button.crea = Create a Shout!
 
+anonymous.shout.spam.url.crea = this URL is spam
+anonymous.shout.spam.text.crea = this text is spam
+anonymous.shout.spam.author.crea = this author is spam
+
 anonymous.xxx.xxxdate = xxxdate
-anonymous.xxx.xxxamount.amount = xxxamount amount
+anonymous.xxx.xxxamount = xxxamount amount
 anonymous.xxx.xxxamount.currency = xxxamount currency
 anonymous.xxx.xxxboolean = xxx boolean
 anonymous.xxx.xxxmoment= xxxmoment
+anonymous.xxx.xxxamount.amount.error = the amount of money fails
+anonymous.xxx.xxxamount.currency.error = the currency of money fails
+anonymous.xxx.xxxdate.error= the date introduced in the pattern is not current
+

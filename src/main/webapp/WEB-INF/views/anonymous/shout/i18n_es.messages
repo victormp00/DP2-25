@@ -21,10 +21,19 @@ anonymous.shout.list.label.moment = Momento
 anonymous.shout.list.label.author = Autor
 anonymous.shout.list.label.text = Texto
 
+anonymous.shout.spam.url.crea = Esta URL es spam
+anonymous.shout.spam.text.crea = Este texto es spam
+anonymous.shout.spam.author.crea = Este autor es spam 
+
 anonymous.xxx.xxxdate = xxxfecha
-anonymous.xxx.xxxamount.amount = xxxamount cantidad
+anonymous.xxx.xxxamount = xxxamount cantidad
 anonymous.xxx.xxxamount.currency = xxxamount tipo
 anonymous.xxx.xxxboolean = xxx boolean
 anonymous.xxx.xxxmoment= xxxmomento
+anonymous.xxx.xxxamount.amount.error = la cantidad de dinero falla
+anonymous.xxx.xxxamount.currency.error = el tipo de dinero falla
+default.error.conversion= no sigue el formato especificado
 
 anonymous.shout.form.button.crea = Crear Grito
+
+anonymous.xxx.xxxdate.error= la fecha introducida no es actual
