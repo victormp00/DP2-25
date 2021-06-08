@@ -2,6 +2,7 @@ package acme.features.anonymous.shout;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -128,8 +129,17 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 			if(!(day.equals(currentDate.getDate()) && month.equals(currentDate.getMonth()+1) && year.equals(currentDate.getYear()+1900))) {
 				res = false;
 			}
+			
+			final List<Shout> shouts = this.repository.findMany().stream().collect(Collectors.toList());
+			Boolean unique= true;
+			for(final Shout s: shouts) {
+				if(s.getXxx()!=null&& s.getXxx().getXxxdate().equals(entity.getXxx().getXxxdate())) {
+					unique=false;
+				}
+			}
+			
 			errors.state(request, res,  "xxx.xxxdate", "anonymous.xxx.xxxdate.error");
-		
+			errors.state(request, unique,  "xxx.xxxdate", "anonymous.xxx.xxxdate.unique.error");
 		}
 		
 	}

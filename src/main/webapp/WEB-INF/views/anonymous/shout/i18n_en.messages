@@ -37,4 +37,6 @@ anonymous.xxx.xxxmoment= xxxmoment
 anonymous.xxx.xxxamount.amount.error = the amount of money fails
 anonymous.xxx.xxxamount.currency.error = the currency of money fails
 anonymous.xxx.xxxdate.error= the date introduced in the pattern is not current
+anonymous.xxx.xxxdate.unique.error= this attribute is not unique
+
 

@@ -106,6 +106,14 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 		result.setXxxDeviationGroupByCurrency2(xxxDeviationGroupByCurrency2);
 		result.setXxxFlaggedRatio(xxxFlaggedRatio);
 		result.setXxxratio2020(xxxratio2020);
+		
+		System.out.println(xxxaverageGroupByCurrency1);
+		System.out.println(xxxDeviationGroupByCurrency1);
+		System.out.println(xxxaverageGroupByCurrency2);
+		System.out.println(xxxDeviationGroupByCurrency2);
+		System.out.println(xxxFlaggedRatio);
+		System.out.println(xxxratio2020);
+		
 		return result;
 	}
 

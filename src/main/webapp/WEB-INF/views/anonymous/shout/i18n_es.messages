@@ -37,3 +37,4 @@ default.error.conversion= no sigue el formato especificado
 anonymous.shout.form.button.crea = Crear Grito
 
 anonymous.xxx.xxxdate.error= la fecha introducida no es actual
+anonymous.xxx.xxxdate.unique.error= este atributo no es único

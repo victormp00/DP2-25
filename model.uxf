@@ -429,7 +429,7 @@ made by ^</panel_attributes>
       <x>858</x>
       <y>0</y>
       <w>204</w>
-      <h>144</h>
+      <h>186</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 Dashboard
@@ -445,7 +445,11 @@ Dashboard
 + averageWorkload: double
 + deviationWorkload: double
 + maxWorkload: double
-+ minWorkload: double</panel_attributes>
++ minWorkload: double
++
++
++
++</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -511,7 +515,7 @@ made by ^</panel_attributes>
       <w>54</w>
       <h>192</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-&gt;
+    <panel_attributes>lt=-&gt;
 m1=1
 m2=1
 </panel_attributes>
@@ -531,7 +535,7 @@ XXX
 + xxxdate:string {Unique, Pattern}
 + xxxamount: Money {NotNull}
 + xxxmoment: Date {NotNull}
-+ xxxboolean
++ xxxboolean: Boolean
 
 
 
