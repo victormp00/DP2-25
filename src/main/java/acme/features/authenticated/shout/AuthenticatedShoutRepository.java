@@ -13,6 +13,7 @@
 package acme.features.authenticated.shout;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -25,4 +26,7 @@ public interface AuthenticatedShoutRepository extends AbstractRepository {
 
 	@Query("select s from Shout s ")
 	Collection<Shout> findMany();
+	
+	@Query ("select s from Shout s where s.moment BETWEEN ?2 AND ?1")
+	Collection<Shout> findByLastMonth (Date date, Date date2);
 }

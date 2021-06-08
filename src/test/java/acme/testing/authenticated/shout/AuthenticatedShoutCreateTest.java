@@ -7,7 +7,9 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import acme.testing.DP2Test;
 
 public class AuthenticatedShoutCreateTest extends DP2Test {
-
+//	En este test se prueba la creación de diferentes shouts de un usuario autenticado
+//	, los resultados de este test son exitosos, se crean diferentes shouts que deberían poder crearse
+	
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/shout/positiveShout.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
@@ -24,7 +26,15 @@ public class AuthenticatedShoutCreateTest extends DP2Test {
 		
 	
 	}
-
+//	En este test se prueban las validaciones en la creación de diferentes shouts de un usuario autenticado
+//	, los resultados de este test son exitosos, se cumplen las diferentes validaciones y no se crea ningún shout
+//	Las diferentes validaciones que se prueban son:
+//		-El texto no debe superar los 100 caracteres y no debe estar en blanco
+//		-El autor no debe estar vacío y debe tener un tamaño de entre 5 y 25
+//		-El link tiene que tener el formato de url
+//		-Nada debe contener spam
+	
+	
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/shout/negativeShout.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)

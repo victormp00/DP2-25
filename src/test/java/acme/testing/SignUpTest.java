@@ -18,19 +18,16 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 public class SignUpTest extends DP2Test {
 
-	// Lifecycle management ---------------------------------------------------
+    // Lifecycle management ---------------------------------------------------
 
-	// Test cases -------------------------------------------------------------
+    // Test cases -------------------------------------------------------------
 
-	@ParameterizedTest
-	@CsvFileSource(resources = "/sign-up/positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	@Order(10)
-	public void positiveSignUp(final String username, final String password, final String name, final String surname, final String email) {
-		super.signUp(username, password, name, surname, email);
-		super.signIn(username, password);
-		super.signOut();
-	}
-
-	// Ancillary methods ------------------------------------------------------
-	
+    @ParameterizedTest
+    @CsvFileSource(resources = "/sign-up/positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @Order(10)
+    public void positiveSignUp(final String username, final String password, final String name, final String surname, final String email) {
+        super.signUp(username, password, name, surname, email);
+        super.signIn(username, password);
+        super.signOut();
+    }
 }

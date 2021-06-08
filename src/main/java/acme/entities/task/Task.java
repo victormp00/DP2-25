@@ -92,13 +92,14 @@ public class Task extends DomainEntity {
 	
 	public static Boolean workloadOK(final Double workload) {
 		final double number =workload;
-		final long iPart = (long) number;
-		final Integer fPart =(int) ((number - iPart)*100);
+		final int iPart = (int) number;
+		final Integer fPart =(int) Math.round((number - iPart)*100);
 		boolean res= true;
-		if(fPart>=60) {
+		if(fPart>59) {
 			res= false;
 		}
 		return res;
+		
 	}
 	
 	public Boolean datefit() {

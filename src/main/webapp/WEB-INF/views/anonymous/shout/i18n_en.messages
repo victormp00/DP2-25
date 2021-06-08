@@ -23,4 +23,6 @@ anonymous.shout.list.label.moment = Moment
 anonymous.shout.list.label.author = Author
 anonymous.shout.list.label.text = Text
 
-anonymous.shout.form.button.crea = Create a Shout!
+anonymous.shout.spam.url.crea = this URL is spam
+anonymous.shout.spam.text.crea = this text is spam
+anonymous.shout.spam.author.crea = this author is spam 

@@ -17,3 +17,6 @@ authenticated.provider.form.label.sector = Sector:
 authenticated.provider.form.button.create = Registrar
 authenticated.provider.form.button.update = Actualizar
 authenticated.provider.form.button.return = Volver
+
+authenticated.provider.spam.company = Esta compañia es Spam
+authenticated.provider.spam.sector = Este sector es Spam

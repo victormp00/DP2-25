@@ -109,12 +109,12 @@ public class AuthenticatedProviderCreateService implements AbstractCreateService
 		final boolean censuraCompany = Threshold.censura(entity.getCompany(), spam, threshold.getThreshold());
 		final boolean censuraSector = Threshold.censura(entity.getSector(), spam, threshold.getThreshold());
 		
-		if(censuraCompany) {
-			errors.add("company", "this company is spam ");
+		if(!errors.hasErrors("company")) {
+			errors.state(request, !censuraCompany, "company", "authenticated.provider.spam.company");
 		}
 
-		if(censuraSector) {
-			errors.add("sector", "this sector is spam ");
+		if(!errors.hasErrors("sector")) {
+			errors.state(request, !censuraSector, "sector", "authenticated.provider.spam.sector");
 		}
 	}
 

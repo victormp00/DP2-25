@@ -23,3 +23,7 @@ authenticated.shout.list.label.text = Texto
 
 
 authenticated.shout.form.button.crea = Crear Grito
+
+authenticated.shout.spam.url.crea = Esta URL es spam
+authenticated.shout.spam.text.crea = Este texto es spam
+authenticated.shout.spam.author.crea = Este autor es spam 

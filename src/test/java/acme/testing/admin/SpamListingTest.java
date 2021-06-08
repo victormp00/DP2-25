@@ -8,7 +8,10 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import acme.testing.DP2Test;
 
 public class SpamListingTest extends DP2Test {
-
+//	En este se prueban los tests de tasks correspondientes a la lista de palabras de spam en inglés y español
+//	desde la perspectiva de un administrador los resultados para este test deben ser positivos dado que prueban
+//	si la lista de palabras que están en /admin/spam/list-all-spam.csv se cumplen y así ocurre.
+	
 	@ParameterizedTest
 	@CsvFileSource(resources = "/admin/spam/list-all-spam.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
