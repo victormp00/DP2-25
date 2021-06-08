@@ -93,14 +93,14 @@ public class AuthenticatedShoutCreateService implements AbstractCreateService<Au
 		final Boolean censuraLink = Threshold.censura(entity.getInfo(), spam, threshold.getThreshold());
 		
 		if(!errors.hasErrors("author")) {
-			errors.state(request, !censuraAuthor, "author","authenticated.shout.spam.author");
+			errors.state(request,!censuraAuthor, "author", "authenticated.shout.spam.author.crea");
 		}
 
 		if(!errors.hasErrors("text")) {
-			errors.state(request, !censuraText, "text","authenticated.shout.spam.text");
+			errors.state(request,!censuraText, "text", "authenticated.shout.spam.text.crea");
 		}
 		if (!errors.hasErrors("info")) {
-			errors.state(request, !censuraLink, "info","authenticated.shout.spam.info");
+			errors.state(request,!censuraLink, "info", "authenticated.shout.spam.url.crea");
 		}
 
 	}
