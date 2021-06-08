@@ -52,7 +52,7 @@ public class Task extends DomainEntity {
 	
 	@NotNull
 	@Min(0)
-	@Digits(fraction = 2, integer = 2)
+	@Digits(fraction = 2, integer = 5)
 	protected Double workload;
 	
 	@NotBlank
