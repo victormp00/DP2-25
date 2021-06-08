@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.shouts.XXX;
 import acme.entities.task.Task;
 import acme.framework.repositories.AbstractRepository;
 
@@ -52,5 +53,6 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select 1.0 * count(a) / (select count(b) from Shout b) from Shout a where year(a.xxx.xxxmoment) = 2021")
 	Double xxxratio2020();
 
-
+	@Query("SELECT x FROM XXX x")
+	List<XXX> findAllXXX();
 }

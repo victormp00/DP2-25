@@ -25,6 +25,6 @@
 	<acme:form-money code="anonymous.xxx.xxxamount" path="xxx.xxxamount"/>
 	<acme:form-checkbox code="anonymous.xxx.xxxboolean" path="xxx.xxxboolean"/>
 	
-	<acme:form-submit code="anonymous.shout.form.button.create" action="/anonymous/shout/create"/>
+	<acme:form-submit test="${command == 'create'}" code="anonymous.shout.form.button.create" action="/anonymous/shout/create"/>
 	<acme:form-return code="anonymous.shout.form.button.return"/>
 </acme:form>
