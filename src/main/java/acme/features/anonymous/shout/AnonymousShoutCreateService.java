@@ -95,10 +95,10 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		if(!errors.hasErrors("author")) {
 			errors.state(request,!censuraAuthor, "author", "anonymous.shout.spam.author.crea");
 		}
-		if(censuraText) {
+		if(!errors.hasErrors("text")) {
 			errors.state(request,!censuraText, "text", "anonymous.shout.spam.text.crea");
 		}
-		if (Boolean.TRUE.equals(censuraLink)) {
+		if (!errors.hasErrors("info")) {
 			errors.state(request,!censuraLink, "info", "anonymous.shout.spam.url.crea");
 		}
 
