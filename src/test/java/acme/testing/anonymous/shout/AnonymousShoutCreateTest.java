@@ -12,12 +12,14 @@ public class AnonymousShoutCreateTest extends DP2Test {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/shout/positiveShout.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveCreateShout(final int recordIndex,final String author, final String text, final String info) {
+	public void positiveCreateShout(final int recordIndex,final String author, final String text, final String info,final String xxxdate, final String xxxmoney) {
 		super.navigateHome();
 		super.clickOnMenu("Anonymous", "Shout!");
 		super.fillInputBoxIn("author", author);
 		super.fillInputBoxIn("text", text);
 		super.fillInputBoxIn("info", info);
+		super.fillInputBoxIn("xxx.xxxdate", xxxdate);
+		super.fillInputBoxIn("xxx.xxxamount", xxxmoney);
 		super.clickOnSubmitButton("Shout!");
 		
 		
@@ -30,12 +32,14 @@ public class AnonymousShoutCreateTest extends DP2Test {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/shout/negativeShout.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
-	public void negativeCreateShout(final int recordIndex,final String author, final String text, final String info) {
+	public void negativeCreateShout(final int recordIndex,final String author, final String text, final String info,final String xxxdate, final String xxxmoney) {
 		super.navigateHome();
 		super.clickOnMenu("Anonymous", "Shout!");
 		super.fillInputBoxIn("author", author);
 		super.fillInputBoxIn("text", text);
 		super.fillInputBoxIn("info", info);
+		super.fillInputBoxIn("xxx.xxxdate", xxxdate);
+		super.fillInputBoxIn("xxx.xxxamount", xxxmoney);
 		super.clickOnSubmitButton("Shout!");
 		
 		super.checkErrorsExist();

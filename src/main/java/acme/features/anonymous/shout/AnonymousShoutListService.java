@@ -48,6 +48,7 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 		Collection<Shout> result;
 		
 		result= this.repository.findByLastMonth(
+			// -- Añadir aqui: La coleccion devuelta tiene que estar compuesta por solo los Shouts que tienen <=1 meses de vida
 			Date.valueOf(LocalDate.now().plusDays(1)),
 			Date.valueOf(LocalDate.now().plusMonths(-1)));
 		

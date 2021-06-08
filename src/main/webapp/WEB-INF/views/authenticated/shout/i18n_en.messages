@@ -23,9 +23,14 @@ authenticated.shout.list.label.author = Author
 authenticated.shout.list.label.text = Text
 
 authenticated.shout.form.button.crea = Create a Shout!
-
+authenticated.shout.spam.url.crea = this URL is spam
+authenticated.shout.spam.text.crea = this text is spam
+authenticated.shout.spam.author.crea = this author is spam
 authenticated.xxx.xxxdate = xxxdate
 authenticated.xxx.xxxamount.amount = xxxamount amount
 authenticated.xxx.xxxamount.currency = xxxamount currency
 authenticated.xxx.xxxboolean = xxx boolean
 authenticated.xxx.xxxmoment= xxxmoment
+authenticated.xxx.xxxamount.amount.error = the amount of money fails
+authenticated.xxx.xxxamount.currency.error = the currency of money fails
+authenticated.xxx.xxxdate.error= the date introduced in the pattern is not current

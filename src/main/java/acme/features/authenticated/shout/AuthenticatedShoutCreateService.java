@@ -96,15 +96,36 @@ public class AuthenticatedShoutCreateService implements AbstractCreateService<Au
 		final boolean censuraText = Threshold.censura(entity.getText(), spam, threshold.getThreshold());
 		final Boolean censuraLink = Threshold.censura(entity.getInfo(), spam, threshold.getThreshold());
 		
-		if(censuraAuthor) {
-			errors.add("author", "this author is spam ");
+		if(!errors.hasErrors("author")) {
+			errors.state(request,!censuraAuthor, "author", "authenticated.shout.spam.author.crea");
 		}
-
-		if(censuraText) {
-			errors.add("text", "this text is spam ");
+		if(!errors.hasErrors("text")) {
+            errors.state(request,!censuraText, "text", "authenticated.shout.spam.text.crea");
+        }
+        if (!errors.hasErrors("info")) {
+            errors.state(request,!censuraLink, "info", "authenticated.shout.spam.url.crea");
+        }
+        if(!errors.hasErrors("xxx.xxxamount")) {
+			errors.state(request, entity.getXxx().getXxxamount().getAmount()>=0, "xxx.xxxamount", "authenticated.xxx.xxxamount.error");
+		
+			final String currency = entity.getXxx().getXxxamount().getCurrency();
+			
+			//Only $ and €
+			errors.state(request, (currency.equals("EUR") || currency.equals("USD")), "xxx.xxxamount", "authenticated.xxx.xxxamount.currency.error");	
 		}
-		if (Boolean.TRUE.equals(censuraLink)) {
-			errors.add("info", "this URL is spam");
+        if(!errors.hasErrors("xxx.xxxdate")){
+			Boolean res= true;
+			final Date currentDate= new Date();
+			final String[] e=entity.getXxx().getXxxdate().split("/");
+			final Integer day= Integer.valueOf(e[0]);
+			final Integer month= Integer.valueOf(e[1]);
+			final Integer year= Integer.valueOf(e[2]);
+			
+			if(!(day.equals(currentDate.getDate()) && month.equals(currentDate.getMonth()+1) && year.equals(currentDate.getYear()+1900))) {
+				res = false;
+			}
+			errors.state(request, res,  "xxx.xxxdate", "anonymous.xxx.xxxdate.error");
+		
 		}
 
 	}
