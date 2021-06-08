@@ -11,7 +11,7 @@ public class AuthenticatedShoutCreateTest extends DP2Test {
 //	, los resultados de este test son exitosos, se crean diferentes shouts que deberían poder crearse
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/controlCheck/authenticated/shout/positiveShout.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/authenticated/shout/positiveShout.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveCreateShout(final int recordIndex,final String author, final String text, final String info,final String xxxdate, final String xxxamount, final String xxxcurrency) {
 		super.navigateHome();
@@ -39,7 +39,7 @@ public class AuthenticatedShoutCreateTest extends DP2Test {
 	
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/controlCheck/authenticated/shout/negativeShout.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/authenticated/shout/negativeShout.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
 	public void negativeCreateShoutfinal( final int recordIndex,final String author, final String text, final String info,final String xxxdate, final String xxxamount, final String xxxcurrency) {
 		super.navigateHome();
@@ -62,7 +62,7 @@ public class AuthenticatedShoutCreateTest extends DP2Test {
 	}
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/controlCheck/authenticated/shout/positiveShout.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/authenticated/shout/positiveShout.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveCreateShoutManager( final int recordIndex,final String author, final String text, final String info,final String xxxdate, final String xxxamount, final String xxxcurrency) {
 		super.navigateHome();
@@ -82,7 +82,7 @@ public class AuthenticatedShoutCreateTest extends DP2Test {
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/controlCheck/authenticated/shout/negativeShout.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/authenticated/shout/negativeShout.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
 	public void negativeCreateShoutManager( final int recordIndex,final String author, final String text, final String info,final String xxxdate, final String xxxamount, final String xxxcurrency) {
 		super.navigateHome();
