@@ -37,7 +37,7 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
 	@Override
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
-
+		
 		return true;
 	}
 
