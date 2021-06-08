@@ -91,28 +91,30 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		final Boolean censuratitle = Threshold.censura(entity.getTitle(), spam, threshold.getThreshold());
 		final Boolean censuraLink = Threshold.censura(entity.getLink(), spam, threshold.getThreshold());
 		
-		if (Boolean.TRUE.equals(censuraDescr)) {
-			errors.add("description", "this description is spam");
+		if (!errors.hasErrors("title")) {
+			errors.state(request, !censuratitle, "title", "manager.task.spam.title");	
 		}
-		if (Boolean.TRUE.equals(censuratitle)) {
-			errors.add("title", "this title is spam");
+		if (!errors.hasErrors("description")) {
+			errors.state(request, !censuraDescr, "description", "manager.task.spam.description");
+			
 		}
-		if (Boolean.TRUE.equals(censuraLink)) {
-			errors.add("link", "this URL is spam");
+		if (!errors.hasErrors("link")) {
+			errors.state(request, !censuraLink, "link", "manager.task.spam.url");
+			
 		}
-		if (entity.getFinish() != null && entity.getCreation() != null 
-			&& Boolean.FALSE.equals(entity.datefit())) {
-				errors.add("creation", "finish should be after creation");
-				errors.add("finish", "finish should be after creation");
+		if (!errors.hasErrors("creation")) {
+			errors.state(request,Boolean.TRUE.equals(entity.datefit()), "creation", "manager.task.date");
+			
 		}
-		if (entity.getWorkload() != null && entity.getCreation() != null && entity.getFinish() 
-			!= null && Boolean.FALSE.equals(entity.isFit())) {
-				errors.add("workload", "workload does not fit");
-			}
+		if (!errors.hasErrors("finish")) {
+			errors.state(request,Boolean.TRUE.equals(entity.datefit()), "finish", "manager.task.date");
+			
+		}
 		
-		if (entity.getWorkload() != null &&Boolean.FALSE.equals(Task.workloadOK(entity.getWorkload()))) {
-				errors.add("workload", "decimals in workload should not be higher than 60");
-			}
+		if (!errors.hasErrors("workload")) {
+			errors.state(request,Boolean.TRUE.equals(entity.isFit()) , "workload", "manager.task.workload");
+			errors.state(request,Boolean.TRUE.equals(Task.workloadOK(entity.getWorkload())), "workload", "manager.task.workload.decimals");
+		}
 	}
 
 	@Override

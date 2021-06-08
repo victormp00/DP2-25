@@ -23,3 +23,11 @@ manager.task.form.error.workloaderror=workload does not fit in execution period
 
 master.menu.manager.list-task = Tasks list
 master.menu.manager.create-task = Create a task
+
+
+manager.task.spam.description = This description is spam
+manager.task.spam.title = This title is spam
+manager.task.spam.url = This URL is spam
+manager.task.date = Finish should be after creation
+manager.task.workload =workload does not fit
+manager.task.workload.decimals = Decimals in workload should not be higher than 60

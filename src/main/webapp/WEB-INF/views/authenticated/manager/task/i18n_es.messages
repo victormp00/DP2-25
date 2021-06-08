@@ -24,3 +24,10 @@ manager.task.form.error.workloaderror=El workload no encaja con el periodo de ej
 
 master.menu.manager.list-task= Lista tareas
 master.menu.manager.create-task = Crear tarea
+
+manager.task.spam.description = Esta descripción es spam
+manager.task.spam.title = Este título es spam
+manager.task.spam.url = Esta URL es spam
+manager.task.date = La fecha de fin debe ser después de la de creación
+manager.task.workload = La carga de trabajo no encaja
+manager.task.workload.decimals = Los decimales en la carga de trabajo no deben ser mayores a 60

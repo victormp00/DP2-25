@@ -9,3 +9,5 @@ authenticated.manager.manager.form.button.update = Update
 authenticated.manager.manager.form.button.return = Return
 
 authenticated.manager.manager.task.form.button.update= Update
+authenticated.manager.spam.company= this company is Spam
+authenticated.manager.spam.sector= this sector is Spam

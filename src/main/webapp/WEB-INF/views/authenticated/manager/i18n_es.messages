@@ -9,3 +9,5 @@ authenticated.manager.manager.form.button.update = Actualizar
 authenticated.manager.manager.form.button.return = Volver
 
 authenticated.manager.manager.task.form.button.update= Actualizar
+authenticated.manager.spam.company = Esta compañia es Spam
+authenticated.manager.spam.sector = Este sector es Spam
