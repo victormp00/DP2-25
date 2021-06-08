@@ -11,9 +11,9 @@ public class AuthenticatedShoutCreateTest extends DP2Test {
 //	, los resultados de este test son exitosos, se crean diferentes shouts que deberían poder crearse
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/authenticated/shout/positiveShout.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/controlCheck/authenticated/shout/positiveShout.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveCreateShout(final int recordIndex,final String author, final String text, final String info,final String xxxdate, final String xxxmoney) {
+	public void positiveCreateShout(final int recordIndex,final String author, final String text, final String info,final String xxxdate, final String xxxamount, final String xxxcurrency) {
 		super.navigateHome();
 		super.signIn("normal1", "normal1");
 		super.clickOnMenu("Anonymous", "Shout!");
@@ -21,8 +21,9 @@ public class AuthenticatedShoutCreateTest extends DP2Test {
 		super.fillInputBoxIn("text", text);
 		super.fillInputBoxIn("info", info);
 		super.fillInputBoxIn("xxx.xxxdate", xxxdate);
-		super.fillInputBoxIn("xxx.xxxamount", xxxmoney);
+		super.fillInputBoxIn("xxx.xxxamount", xxxamount+ xxxcurrency);
 		super.clickOnSubmitButton("Shout!");
+		super.checkErrorsExist();
 		
 		
 		
@@ -38,9 +39,9 @@ public class AuthenticatedShoutCreateTest extends DP2Test {
 	
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/authenticated/shout/negativeShout.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/controlCheck/authenticated/shout/negativeShout.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
-	public void negativeCreateShout(final int recordIndex,final String author, final String text, final String info,final String xxxdate, final String xxxmoney) {
+	public void negativeCreateShoutfinal( final int recordIndex,final String author, final String text, final String info,final String xxxdate, final String xxxamount, final String xxxcurrency) {
 		super.navigateHome();
 		super.signIn("normal1", "normal1");
 		super.clickOnMenu("Anonymous", "Shout!");
@@ -48,17 +49,22 @@ public class AuthenticatedShoutCreateTest extends DP2Test {
 		super.fillInputBoxIn("text", text);
 		super.fillInputBoxIn("info", info);
 		super.fillInputBoxIn("xxx.xxxdate", xxxdate);
-		super.fillInputBoxIn("xxx.xxxamount", xxxmoney);
+		super.fillInputBoxIn("xxx.xxxamount", xxxamount+ xxxcurrency);
 		super.clickOnSubmitButton("Shout!");
 		
-		super.checkErrorsExist();
+		super.clickOnMenu("Anonymous", "Shouts list");
+		super.checkColumnHasValue(recordIndex, 1, author);
+		super.checkColumnHasValue(recordIndex, 2, text);
+		super.checkColumnHasValue(recordIndex, 3, xxxdate);
+		super.checkColumnHasValue(recordIndex, 5, xxxamount);
+		super.checkColumnHasValue(recordIndex, 6, xxxcurrency);
 		
 	}
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/authenticated/shout/positiveShout.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/controlCheck/authenticated/shout/positiveShout.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveCreateShoutManager(final int recordIndex,final String author, final String text, final String info,final String xxxdate, final String xxxmoney) {
+	public void positiveCreateShoutManager( final int recordIndex,final String author, final String text, final String info,final String xxxdate, final String xxxamount, final String xxxcurrency) {
 		super.navigateHome();
 		super.signIn("manager1", "manager1");
 		super.clickOnMenu("Anonymous", "Shout!");
@@ -66,8 +72,9 @@ public class AuthenticatedShoutCreateTest extends DP2Test {
 		super.fillInputBoxIn("text", text);
 		super.fillInputBoxIn("info", info);
 		super.fillInputBoxIn("xxx.xxxdate", xxxdate);
-		super.fillInputBoxIn("xxx.xxxamount", xxxmoney);
+		super.fillInputBoxIn("xxx.xxxamount", xxxamount+ xxxcurrency);
 		super.clickOnSubmitButton("Shout!");
+		super.checkErrorsExist();
 		
 		
 		
@@ -75,9 +82,9 @@ public class AuthenticatedShoutCreateTest extends DP2Test {
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/authenticated/shout/negativeShout.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/controlCheck/authenticated/shout/negativeShout.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
-	public void negativeCreateShoutManager(final int recordIndex,final String author, final String text, final String info,final String xxxdate, final String xxxmoney) {
+	public void negativeCreateShoutManager( final int recordIndex,final String author, final String text, final String info,final String xxxdate, final String xxxamount, final String xxxcurrency) {
 		super.navigateHome();
 		super.signIn("manager1", "manager1");
 		super.clickOnMenu("Anonymous", "Shout!");
@@ -85,10 +92,15 @@ public class AuthenticatedShoutCreateTest extends DP2Test {
 		super.fillInputBoxIn("text", text);
 		super.fillInputBoxIn("info", info);
 		super.fillInputBoxIn("xxx.xxxdate", xxxdate);
-		super.fillInputBoxIn("xxx.xxxamount", xxxmoney);
+		super.fillInputBoxIn("xxx.xxxamount", xxxamount+ xxxcurrency);
 		super.clickOnSubmitButton("Shout!");
 		
-		super.checkErrorsExist();
+		super.clickOnMenu("Anonymous", "Shouts list");
+		super.checkColumnHasValue(recordIndex, 1, author);
+		super.checkColumnHasValue(recordIndex, 2, text);
+		super.checkColumnHasValue(recordIndex, 3, xxxdate);
+		super.checkColumnHasValue(recordIndex, 5, xxxamount);
+		super.checkColumnHasValue(recordIndex, 6, xxxcurrency);
 		
 	}
 }
