@@ -12,17 +12,24 @@ public class AnonymousShoutCreateTest extends DP2Test {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/shout/positiveShout.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveCreateShout(final int recordIndex,final String author, final String text, final String info,final String xxxdate, final String xxxmoney) {
+	public void positiveCreateShout(final int recordIndex,final String author, final String text, final String info,final String xxxdate, final String xxxamount, final String xxxcurrency) {
 		super.navigateHome();
 		super.clickOnMenu("Anonymous", "Shout!");
 		super.fillInputBoxIn("author", author);
 		super.fillInputBoxIn("text", text);
 		super.fillInputBoxIn("info", info);
 		super.fillInputBoxIn("xxx.xxxdate", xxxdate);
-		super.fillInputBoxIn("xxx.xxxamount", xxxmoney);
+		super.fillInputBoxIn("xxx.xxxamount", xxxamount+ xxxcurrency);
 		super.clickOnSubmitButton("Shout!");
 		
+		super.clickOnMenu("Anonymous", "Shouts list");
+		super.checkColumnHasValue(recordIndex, 1, author);
+		super.checkColumnHasValue(recordIndex, 2, text);
+		super.checkColumnHasValue(recordIndex, 3, xxxdate);
+		super.checkColumnHasValue(recordIndex, 5, xxxamount);
+		super.checkColumnHasValue(recordIndex, 6, xxxcurrency);
 		
+
 		
 	
 	}
