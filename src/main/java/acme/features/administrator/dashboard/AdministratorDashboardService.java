@@ -56,7 +56,12 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 		Double maxWorkload;
 		Double minWorkload;
 		List<Task> tasks;
-
+		tasks = this.repository.findAllTasks();
+		
+		if(!tasks.isEmpty()) {
+			
+		
+		
 		publicTasks = this.repository.publicTasks();
 		privateTasks = this.repository.privateTasks();
 		ongoingTasks = this.repository.ongoingTasks();
@@ -65,13 +70,12 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 		deviationWorkload = this.repository.deviationWorkload();
 		maxWorkload = this.repository.maxWorkload();
 		minWorkload = this.repository.minWorkload();
-		tasks = this.repository.findAllTasks();
+		
 		final Comparator<Task> cmp = Comparator.comparing(Task::getExecutionTime);
 		maxExecTime = tasks.stream().max(cmp).get().getExecutionTime();
 		minExecTime = tasks.stream().min(cmp).get().getExecutionTime();
 		averageExecTime = tasks.stream().mapToDouble(Task::getExecutionTime).average().getAsDouble();
 		deviationExecTime = Math.sqrt(tasks.stream().mapToDouble(Task::getExecutionTime).map(i -> (i - averageExecTime)).map(i -> i * i).average().getAsDouble());
-
 		result = new Dashboard();
 		result.setPublicTasks(publicTasks);
 		result.setPrivateTasks(privateTasks);
@@ -86,6 +90,23 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 		result.setMaxWorkload(maxWorkload);
 		result.setMinWorkload(minWorkload);
 		return result;
+		
+		}else {
+			result = new Dashboard();
+			result.setPublicTasks(0);
+			result.setPrivateTasks(0);
+			result.setOngoingTasks(0);
+			result.setFinishedTasks(0);
+			result.setAverageExecTime(0.0);
+			result.setDeviationExecTime(0.0);
+			result.setMaxExecTime(0.0);
+			result.setMinExecTime(0.0);
+			result.setAverageWorkload(0.0);
+			result.setDeviationWorkload(0.0);
+			result.setMaxWorkload(0.0);
+			result.setMinWorkload(0.0);
+			return result;
+		}
 	}
 
 }
