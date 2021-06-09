@@ -28,6 +28,9 @@ public class XXX extends DomainEntity{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@OneToOne(mappedBy = "xxx")
+	protected Shout shout;
+	
 	@NotBlank
 	//@Pattern(regexp = "([12]\\d{3}/(0[1-9]|1[0-2])/(0[1-9]|[12]\\d|3[01]))", message = "default.error.conversion")
 	//^([0-2][0-9]|3[0-1])(\\/|-)(0[1-9]|1[0-2])\\2(\\d{4})$
@@ -43,7 +46,5 @@ public class XXX extends DomainEntity{
 	protected Money xxxamount;
 	
 	protected Boolean xxxboolean;
-	
-	@OneToOne(mappedBy = "xxx")
-	protected Shout shout;
+		
 }

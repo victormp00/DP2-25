@@ -15,7 +15,7 @@
 <%@taglib prefix= "acme" tagdir="/WEB-INF/tags" %>
 
 
-<acme:list readonly="true">
+<acme:list>
 	<acme:list-column code="authenticated.shout.list.label.moment" path="moment" width="20%"/>
 	<acme:list-column code="authenticated.shout.list.label.author" path="author" width="20%"/>
 	<acme:list-column code="authenticated.shout.list.label.text" path="text" width="60%"/>

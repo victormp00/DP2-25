@@ -22,11 +22,15 @@ public class AuthenticatedShoutController extends AbstractController<Authenticat
 	@Autowired
 	private AuthenticatedShoutCreateService createService;
 	
+	@Autowired
+	private AuthenticatedShoutShowService showService;
+	
 	// Constructors --------------------------------------------------------
 	
 	@PostConstruct
 	private void inicialise() {
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
+		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
 }
