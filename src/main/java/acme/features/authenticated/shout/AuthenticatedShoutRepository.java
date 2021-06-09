@@ -29,4 +29,7 @@ public interface AuthenticatedShoutRepository extends AbstractRepository {
 	
 	@Query ("select s from Shout s where s.moment BETWEEN ?2 AND ?1")
 	Collection<Shout> findByLastMonth (Date date, Date date2);
+	
+	@Query("select a from Shout a where a.id = ?1")
+	Shout findOneShoutById(int id);
 }
