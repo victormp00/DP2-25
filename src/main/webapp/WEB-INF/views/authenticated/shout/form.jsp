@@ -21,7 +21,7 @@
 	<acme:form-textbox placeholder="http://example.com" code="authenticated.shout.form.label.info" path="info"/>
 	
 	<!-- parte xxx -->
-	<acme:form-textbox code="authenticated.xxx.xxxdate" path="xxx.xxxdate"/>
+	<acme:form-textbox placeholder="dd/mm/yyyy/example " code="authenticated.xxx.xxxdate" path="xxx.xxxdate"/>
 	<acme:form-money code="authenticated.xxx.xxxamount" path="xxx.xxxamount"/>
 	<acme:form-checkbox code="authenticated.xxx.xxxboolean" path="xxx.xxxboolean"/>
 	
