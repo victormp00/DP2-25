@@ -36,6 +36,7 @@ public class XXX extends DomainEntity{
 	protected String xxxdate;
 	
 	@Temporal (TemporalType.TIMESTAMP)
+	@NotNull
 	protected Date xxxmoment;
 	
 	@Valid
