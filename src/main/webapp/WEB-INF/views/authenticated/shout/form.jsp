@@ -22,7 +22,7 @@
 	
 	<!-- parte xxx -->
 	<acme:form-textbox placeholder="dd/mm/yyyy/example " code="authenticated.xxx.xxxdate" path="xxx.xxxdate"/>
-	<acme:form-money code="authenticated.xxx.xxxamount" path="xxx.xxxamount"/>
+	<acme:form-money code="authenticated.xxx.xxxamount.amount" path="xxx.xxxamount"/>
 	<acme:form-checkbox code="authenticated.xxx.xxxboolean" path="xxx.xxxboolean"/>
 	
 	<acme:form-submit test="${command == 'create'}" code="authenticated.shout.form.button.create" action="/authenticated/shout/create"/>

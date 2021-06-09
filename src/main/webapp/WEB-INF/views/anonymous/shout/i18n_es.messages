@@ -26,7 +26,7 @@ anonymous.shout.spam.text.crea = Este texto es spam
 anonymous.shout.spam.author.crea = Este autor es spam 
 
 anonymous.xxx.xxxdate = xxxfecha
-anonymous.xxx.xxxamount = xxxamount cantidad
+anonymous.xxx.xxxamount.amount = xxxamount cantidad
 anonymous.xxx.xxxamount.currency = xxxamount tipo
 anonymous.xxx.xxxboolean = xxx boolean
 anonymous.xxx.xxxmoment= xxxmomento
