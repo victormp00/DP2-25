@@ -63,7 +63,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert entity !=null;
 		assert model !=null;
 
-		request.unbind(entity,model,"author","text","info","xxx.xxxdate","xxx.xxxamount","xxx.xxxboolean");
+		request.unbind(entity,model,"author","text","info","xxx.xxxdate","xxx.xxxamount","xxx.xxxboolean","xxx.xxxmoment");
 	}
 	
 	
@@ -109,6 +109,19 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		
 		//control check
 		
+        if(!errors.hasErrors("xxx.xxxmoment")) {
+			
+        	final Date date = new Date();
+        	final Integer days= date.getDate()+7;
+        	date.setDate(days);
+    		Boolean okDate= true;
+        	if(entity.getXxx().getXxxmoment().before(date)) {
+        		okDate=false;
+        	}
+    		
+			errors.state(request, okDate, "xxx.xxxmoment", "anonymous.xxx.xxxmoment");	
+		}
+        
 		if(!errors.hasErrors("xxx.xxxamount")) {
 			errors.state(request, entity.getXxx().getXxxamount().getAmount()>=0, "xxx.xxxamount", "anonymous.xxx.xxxamount.error");
 		
