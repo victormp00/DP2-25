@@ -15,22 +15,19 @@ public class AuthenticatedShoutCreateTest extends DP2Test {
 	
 	@ParameterizedTest
 	@CsvFileSource(resources = "/controlCheck/authenticated/negativeShout.csv", encoding = "utf-8", numLinesToSkip = 1)
-	@Order(10)
-	public void negativeCreateShout(final int recordIndex,final String author, final String text, final String info,final String xxxdate, final String xxxamount, final String xxxcurrency) {
+	@Order(20)
+	public void negativeCreateShout(final int recordIndex,final String author, final String text, final String info, final String xxxamount, final String xxxcurrency) {
+		final String n=new SimpleDateFormat("dd/MM/yyyy").format(new Date())+"/test"+recordIndex;
 		super.navigateHome();
-		super.signIn("normal1", "normal1");
 		super.clickOnMenu("Anonymous", "Shout!");
 		super.fillInputBoxIn("author", author);
 		super.fillInputBoxIn("text", text);
 		super.fillInputBoxIn("info", info);
-		super.fillInputBoxIn("xxx.xxxdate", xxxdate);
+		super.fillInputBoxIn("xxx.xxxdate", n);
 		super.fillInputBoxIn("xxx.xxxamount", xxxamount+ xxxcurrency);
 		super.clickOnSubmitButton("Shout!");
 		super.checkErrorsExist();
 		
-		
-		
-	
 	}
 //	En este test se prueban las validaciones en la creación de diferentes shouts de un usuario autenticado
 //	, los resultados de este test son exitosos, se cumplen las diferentes validaciones y no se crea ningún shout
@@ -42,27 +39,27 @@ public class AuthenticatedShoutCreateTest extends DP2Test {
 	
 
 	
-	@ParameterizedTest
-	@CsvFileSource(resources = "/controlCheck/authenticated/negativeShout.csv", encoding = "utf-8", numLinesToSkip = 1)
-
-	@Order(10)
-	public void negativeCreateShoutManager( final int recordIndex,final String author, final String text, final String info,final String xxxdate, final String xxxamount, final String xxxcurrency) {
-		super.navigateHome();
-		super.signIn("manager1", "manager1");
-		super.clickOnMenu("Anonymous", "Shout!");
-		super.fillInputBoxIn("author", author);
-		super.fillInputBoxIn("text", text);
-		super.fillInputBoxIn("info", info);
-		super.fillInputBoxIn("xxx.xxxdate", xxxdate);
-		super.fillInputBoxIn("xxx.xxxamount", xxxamount+ xxxcurrency);
-		super.clickOnSubmitButton("Shout!");
-		super.checkErrorsExist();	
-	
-	}
+//	@ParameterizedTest
+//	@CsvFileSource(resources = "/controlCheck/authenticated/negativeShout.csv", encoding = "utf-8", numLinesToSkip = 1)
+//
+//	@Order(20)
+//	public void negativeCreateShout(final int recordIndex,final String author, final String text, final String info, final String xxxamount, final String xxxcurrency) {
+//		final String n=new SimpleDateFormat("dd/MM/yyyy").format(new Date())+"/test"+recordIndex;
+//		super.navigateHome();
+//		super.clickOnMenu("Anonymous", "Shout!");
+//		super.fillInputBoxIn("author", author);
+//		super.fillInputBoxIn("text", text);
+//		super.fillInputBoxIn("info", info);
+//		super.fillInputBoxIn("xxx.xxxdate", n);
+//		super.fillInputBoxIn("xxx.xxxamount", xxxamount+ xxxcurrency);
+//		super.clickOnSubmitButton("Shout!");
+//		super.checkErrorsExist();
+//		
+//	}
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/controlCheck/authenticated/positiveShout.csv", encoding = "utf-8", numLinesToSkip = 1)
-	@Order(20)
+	@Order(10)
 	public void positiveCreateShoutManager( final int recordIndex,final String author, final String text, final String info, final String xxxamount, final String xxxcurrency) {
 		final String n=new SimpleDateFormat("dd/MM/yyyy").format(new Date())+"/test"+recordIndex;
 		super.navigateHome();
