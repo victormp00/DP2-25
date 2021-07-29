@@ -105,7 +105,6 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
 
 			}
 			if (!errors.hasErrors("creation")) {
-				errors.state(request, Boolean.TRUE.equals(entity.datefit()), "creation", "manager.task.date");
 				errors.state(request, Boolean.TRUE.equals(entity.creationBeforeNow()), "creation", "manager.task.date2");
 
 			}
