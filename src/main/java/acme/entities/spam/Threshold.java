@@ -44,11 +44,13 @@ public class Threshold extends DomainEntity {
 	public static Integer getSpamInText(String txt, final List<Spam> spamWords) {
 		final String str = txt;
 		for (final Spam s : spamWords) {
-
-			if (txt.contains(s.getSpamEs())) {
+			System.out.println("AAAAAAAAAAAAAAAAAAAA" + s.getSpamEs().toLowerCase());
+			System.out.println("BBBBBBBBBBBBBBBBBBBB" + s.getSpamEn().toLowerCase());
+			System.out.println(txt.toLowerCase());
+			if (txt.toLowerCase().contains(s.getSpamEs().toLowerCase())) {
 				txt = txt.replaceAll(s.getSpamEs(), "");
 			}
-			if (txt.contains(s.getSpamEn())) {
+			if (txt.toLowerCase().contains(s.getSpamEn().toLowerCase())) {
 				txt = txt.replaceAll(s.getSpamEn(), "");
 			}
 

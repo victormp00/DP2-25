@@ -29,7 +29,7 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
 
 	@Autowired
 	protected AdminSpamRepository	spamRepository;
-	
+
 	@Autowired
 	protected ThresholdRepository	thresholdRepository;
 
@@ -37,7 +37,7 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
 	@Override
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
-		
+
 		return true;
 	}
 
@@ -87,34 +87,36 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
 		assert entity != null;
 		assert errors != null;
 		final List<Spam> spam = (List<Spam>) this.spamRepository.findSpam();
-		final Threshold threshold=this.thresholdRepository.findSpamEntity();
+		final Threshold threshold = this.thresholdRepository.findSpamEntity();
 		final Boolean censuraDescr = Threshold.censura(entity.getDescription(), spam, threshold.getThreshold());
 		final Boolean censuratitle = Threshold.censura(entity.getTitle(), spam, threshold.getThreshold());
 		final Boolean censuraLink = Threshold.censura(entity.getLink(), spam, threshold.getThreshold());
-		
-		if (!errors.hasErrors("title")) {
-			errors.state(request, !censuratitle, "title", "manager.task.spam.title");	
-		}
-		if (!errors.hasErrors("description")) {
-			errors.state(request, !censuraDescr, "description", "manager.task.spam.description");
-			
-		}
-		if (!errors.hasErrors("link")) {
-			errors.state(request, !censuraLink, "link", "manager.task.spam.url");
-			
-		}
-		if (!errors.hasErrors("creation")) {
-			errors.state(request,Boolean.TRUE.equals(entity.datefit()), "creation", "manager.task.date");
-			
-		}
-		if (!errors.hasErrors("finish")) {
-			errors.state(request,Boolean.TRUE.equals(entity.datefit()), "finish", "manager.task.date");
-			
-		}
-		
-		if (!errors.hasErrors("workload")) {
-			errors.state(request,Boolean.TRUE.equals(entity.isFit()) , "workload", "manager.task.workload");
-			errors.state(request,Boolean.TRUE.equals(Task.workloadOK(entity.getWorkload())), "workload", "manager.task.workload.decimals");
+
+		if ((entity.getCreation() != null) && (entity.getFinish() != null)) {
+			if (!errors.hasErrors("title")) {
+				errors.state(request, !censuratitle, "title", "manager.task.spam.title");
+			}
+			if (!errors.hasErrors("description")) {
+				errors.state(request, !censuraDescr, "description", "manager.task.spam.description");
+
+			}
+			if (!errors.hasErrors("link")) {
+				errors.state(request, !censuraLink, "link", "manager.task.spam.url");
+
+			}
+			if (!errors.hasErrors("creation")) {
+				errors.state(request, Boolean.TRUE.equals(entity.datefit()), "creation", "manager.task.date");
+
+			}
+			if (!errors.hasErrors("finish")) {
+				errors.state(request, Boolean.TRUE.equals(entity.datefit()), "finish", "manager.task.date");
+
+			}
+
+			if (!errors.hasErrors("workload")) {
+				errors.state(request, Boolean.TRUE.equals(entity.isFit()), "workload", "manager.task.workload");
+				errors.state(request, Boolean.TRUE.equals(Task.workloadOK(entity.getWorkload())), "workload", "manager.task.workload.decimals");
+			}
 		}
 	}
 	@Override

@@ -34,5 +34,7 @@
 	<acme:form-submit test="${command == 'create'}" code="administrator.spam.button.create" action="/administrator/spam/create"/>
   	</c:if>
   	
+  	<acme:form-submit test="${command == 'show'}" code="administrator.spam.button.delete" action="/administrator/spam/delete"/>
+  	<acme:form-submit test="${command == 'delete'}" code="administrator.spam.button.delete" action="/administrator/spam/delete"/>
   	<acme:form-return code="administrator.spam.button.return"/>
 </acme:form>

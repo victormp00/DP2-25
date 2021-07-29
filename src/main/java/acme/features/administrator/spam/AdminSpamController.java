@@ -1,3 +1,4 @@
+
 package acme.features.administrator.spam;
 
 import javax.annotation.PostConstruct;
@@ -13,26 +14,32 @@ import acme.framework.entities.Administrator;
 
 @Controller
 @RequestMapping("/administrator/spam/")
-public class AdminSpamController  extends AbstractController<Administrator, Spam>{
+public class AdminSpamController extends AbstractController<Administrator, Spam> {
+
 	@Autowired
-	protected AdminSpamListService listService;
-	
+	protected AdminSpamListService		listService;
+
 	@Autowired
-	protected AdminSpamShowService showService;
-	
+	protected AdminSpamShowService		showService;
+
 	@Autowired
-	protected AdminSpamCreateService createService;
-		
+	protected AdminSpamCreateService	createService;
+
 	@Autowired
-	protected AdminSpamUpdateService updateService;
-	
+	protected AdminSpamUpdateService	updateService;
+
+	@Autowired
+	protected AdminSpamDeleteService	deleteService;
+
+
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
-		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);	
+		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
-		
+		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
+
 	}
-	
+
 }
