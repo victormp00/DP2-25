@@ -52,7 +52,6 @@ public class Threshold extends DomainEntity {
 			}
 
 		}
-		System.out.println(str.length() - txt.toLowerCase().length());
 		return str.length() - txt.toLowerCase().length();
 	}
 

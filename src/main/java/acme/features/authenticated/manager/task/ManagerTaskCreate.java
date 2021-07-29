@@ -124,11 +124,6 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
 		assert request != null;
 		assert entity != null;
 
-		Date creation;
-
-		creation = new Date();
-
-		entity.setCreation(creation);
 		this.repository.save(entity);
 	}
 	@Override
