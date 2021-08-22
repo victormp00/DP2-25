@@ -114,8 +114,10 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
 			}
 
 			if (!errors.hasErrors("workload")) {
+				final Double doubl=100.00;
 				errors.state(request, Boolean.TRUE.equals(entity.isFit()), "workload", "manager.task.workload");
 				errors.state(request, Boolean.TRUE.equals(Task.workloadOK(entity.getWorkload())), "workload", "manager.task.workload.decimals");
+				errors.state(request, Boolean.TRUE.equals(!entity.getWorkload().equals(doubl)), "workload", "manager.task.workload.less");
 			}
 		}
 	}

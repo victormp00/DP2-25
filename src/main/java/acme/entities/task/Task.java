@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -52,6 +53,7 @@ public class Task extends DomainEntity {
 
 	@NotNull
 	@Min(0)
+	@Max(100)
 	@Digits(fraction = 2, integer = 5)
 	protected Double			workload;
 
