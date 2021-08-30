@@ -21,7 +21,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-public class XXX extends DomainEntity{
+public class Maolet extends DomainEntity{
 
 	/**
 	 * 
@@ -31,19 +31,19 @@ public class XXX extends DomainEntity{
 	@NotBlank
 	//@Pattern(regexp = "([12]\\d{3}/(0[1-9]|1[0-2])/(0[1-9]|[12]\\d|3[01]))", message = "default.error.conversion")
 	//^([0-2][0-9]|3[0-1])(\\/|-)(0[1-9]|1[0-2])\\2(\\d{4})$
-	@Pattern(regexp = "[0-9]{2}/[0-9]{2}/[0-9]{4}/[a-zA-Z0-9.>%<+]*")
+	@Pattern(regexp = "^\\w{2,4}:[0-9]{2}:[0-9]{2}[0-9]{2}$")
 	@Column(unique = true)
-	protected String xxxdate;
+	protected String tiplet;
 	
 	@Temporal (TemporalType.TIMESTAMP)
-	protected Date xxxmoment;
+	protected Date deadline;
 	
 	@Valid
 	@NotNull
-	protected Money xxxamount;
+	protected Money budget;
 	
-	protected Boolean xxxboolean;
+	protected Boolean important;
 	
-	@OneToOne(mappedBy = "xxx")
+	@OneToOne(mappedBy = "maolet")
 	protected Shout shout;
 }

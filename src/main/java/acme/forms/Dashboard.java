@@ -42,12 +42,12 @@ public class Dashboard implements Serializable {
 	Double						minWorkload;
 	
 	//control check
-	Double xxxFlaggedRatio;
+	Double ratioImportant;
 	//este puede cambiar mucho
-	Double xxxratio2020;
-	Double xxxaverageGroupByCurrency1;
-	Double xxxDeviationGroupByCurrency1;
-	Double xxxaverageGroupByCurrency2;
-	Double xxxDeviationGroupByCurrency2;
+	Double ratioZeroBudget;
+	Double eurAverageGroupByCurrency1;
+	Double eurDeviationGroupByCurrency1;
+	Double usdAverageGroupByCurrency2;
+	Double usdDeviationGroupByCurrency2;
 
 }

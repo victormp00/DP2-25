@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.shouts.Maolet;
 import acme.entities.shouts.Shout;
-import acme.entities.shouts.XXX;
 import acme.entities.spam.Spam;
 import acme.entities.spam.Threshold;
 import acme.features.administrator.spam.AdminSpamCreateService;
@@ -63,7 +63,7 @@ public class AuthenticatedShoutCreateService implements AbstractCreateService<Au
 		assert entity !=null;
 		assert model !=null;
 
-		request.unbind(entity,model,"author","text","info","xxx.xxxdate","xxx.xxxamount","xxx.xxxboolean");
+		request.unbind(entity,model,"author","text","info","maolet.tiplet", "maolet.budget", "maolet.important");
 	}
 	
 	
@@ -73,14 +73,14 @@ public class AuthenticatedShoutCreateService implements AbstractCreateService<Au
 		
 		final Shout result;
 		final Date moment;
-		final XXX xxx;
+		final Maolet maolet;
 		
-		xxx= new XXX();
+		maolet= new Maolet();
 		moment = new Date(System.currentTimeMillis() - 1);
 		
 		result = new Shout();		
 		result.setMoment(moment);	
-		result.setXxx(xxx);
+		result.setMaolet(maolet);
 		
 		return result;
 	}
@@ -106,21 +106,20 @@ public class AuthenticatedShoutCreateService implements AbstractCreateService<Au
         if (!errors.hasErrors("info")) {
             errors.state(request,!censuraLink, "info", "authenticated.shout.spam.url.crea");
         }
-        if(!errors.hasErrors("xxx.xxxamount")) {
-			errors.state(request, entity.getXxx().getXxxamount().getAmount()>=0, "xxx.xxxamount", "authenticated.xxx.xxxamount.error");
+        if(!errors.hasErrors("maolet.budget")) {
+			errors.state(request, entity.getMaolet().getBudget().getAmount()>=0, "maolet.budget", "authenticated.maolet.budget.error");
 		
-			final String currency = entity.getXxx().getXxxamount().getCurrency();
+			final String currency = entity.getMaolet().getBudget().getCurrency();
 			
 			//Only $ and €
-			errors.state(request, (currency.equals("EUR") || currency.equals("USD")), "xxx.xxxamount", "authenticated.xxx.xxxamount.currency.error");	
+			errors.state(request, (currency.equals("EUR") || currency.equals("USD")), "maolet.budget", "authenticated.maolet.budget.currency.error");	
 		}
-        if(!errors.hasErrors("xxx.xxxdate")){
+        if(!errors.hasErrors("maolet.deadline")){
 			Boolean res= true;
 			final Date currentDate= new Date();
-			final String[] e=entity.getXxx().getXxxdate().split("/");
-			final Integer day= Integer.valueOf(e[0]);
-			final Integer month= Integer.valueOf(e[1]);
-			final Integer year= Integer.valueOf(e[2]);
+			final Integer day = Integer.valueOf(entity.getMaolet().getTiplet().indexOf(-2,-3));
+			final Integer month = Integer.valueOf(entity.getMaolet().getTiplet().indexOf(-4,-5));
+			final Integer year = Integer.valueOf(entity.getMaolet().getTiplet().indexOf(-7,-8));
 			
 			if(!(day.equals(currentDate.getDate()) && month.equals(currentDate.getMonth()+1) && year.equals(currentDate.getYear()+1900))) {
 				res = false;
@@ -128,13 +127,13 @@ public class AuthenticatedShoutCreateService implements AbstractCreateService<Au
 			final List<Shout> shouts = this.shoutRepository.findMany().stream().collect(Collectors.toList());
 			Boolean unique= true;
 			for(final Shout s: shouts) {
-				if(s.getXxx()!=null&& s.getXxx().getXxxdate().equals(entity.getXxx().getXxxdate())) {
+				if(s.getMaolet()!=null&& s.getMaolet().getDeadline().equals(entity.getMaolet().getDeadline())) {
 					unique=false;
 				}
 			}
 			
-			errors.state(request, res,  "xxx.xxxdate", "anonymous.xxx.xxxdate.error");
-			errors.state(request, unique,  "xxx.xxxdate", "anonymous.xxx.xxxdate.unique.error");
+			errors.state(request, res,  "maolet.tiplet", "anonymous.maolet.tiplet.error");
+			errors.state(request, unique,  "maolet.tiplet", "anonymous.maolet.tiplet.unique.error");
 		}
 
 	}
@@ -146,11 +145,15 @@ public class AuthenticatedShoutCreateService implements AbstractCreateService<Au
 		assert entity !=null;
 		
 		Date moment;
-		
-		moment = new Date(System.currentTimeMillis() -1);
+		Date deadline;
+
+		moment = new Date(System.currentTimeMillis() - 1);
 		entity.setMoment(moment);
-		entity.getXxx().setXxxmoment(moment);
-		this.shoutRepository.save(entity.getXxx());
+		deadline = new Date((long) (System.currentTimeMillis() + 6.048e+8));
+		
+		entity.setMoment(moment);
+		entity.getMaolet().setDeadline(deadline);
+		this.shoutRepository.save(entity.getMaolet());
 		this.shoutRepository.save(entity);
 	}
 		

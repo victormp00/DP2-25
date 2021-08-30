@@ -446,10 +446,12 @@ Dashboard
 + deviationWorkload: double
 + maxWorkload: double
 + minWorkload: double
-+
-+
-+
-+</panel_attributes>
++ ratioImportant: double
++ ratioZeroBudget: double
++ 	eurAverageGroupByCurrency1: double
++	eurDeviationGroupByCurrency1: double
++ usdAverageGroupByCurrency2: double
++	usdDeviationGroupByCurrency2: double</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -530,12 +532,12 @@ m2=1
       <h>78</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
-XXX
+Maolet
 --
-+ xxxdate:string {Unique, Pattern}
-+ xxxamount: Money {NotNull}
-+ xxxmoment: Date {NotNull}
-+ xxxboolean: Boolean
++ tiplet:string {Unique, Pattern}
++ budget: Money {NotNull}
++ deadline: Date {NotNull}
++ important: Boolean
 
 
 

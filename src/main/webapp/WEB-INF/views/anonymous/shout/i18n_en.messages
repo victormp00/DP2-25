@@ -29,14 +29,16 @@ anonymous.shout.spam.url.crea = this URL is spam
 anonymous.shout.spam.text.crea = this text is spam
 anonymous.shout.spam.author.crea = this author is spam
 
-anonymous.xxx.xxxdate = xxxdate
-anonymous.xxx.xxxamount.amount = xxxamount amount
-anonymous.xxx.xxxamount.currency = xxxamount currency
-anonymous.xxx.xxxboolean = xxx boolean
-anonymous.xxx.xxxmoment= xxxmoment
-anonymous.xxx.xxxamount.amount.error = the amount of money fails
-anonymous.xxx.xxxamount.currency.error = the currency of money fails
-anonymous.xxx.xxxdate.error= the date introduced in the pattern is not current
-anonymous.xxx.xxxdate.unique.error= this attribute is not unique
+anonymous.maolet.tiplet = Tiplet
+anonymous.maolet.budget = Budget
+anonymous.maolet.budget.amount = Budget amount
+anonymous.maolet.budget.currency = Budget currency
+anonymous.maolet.important = Important
+anonymous.maolet.deadline= Deadline
+anonymous.maolet.budget.amount.error = Budget amount incorrect
+anonymous.maolet.budget.currency.error = Incorrect currency
+
+anonymous.maolet.tiplet.error= the tiplet introduced in the pattern is not correct
+anonymous.maolet.tiplet.unique.error= this attribute is not unique
 
 

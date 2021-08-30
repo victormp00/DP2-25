@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.shouts.XXX;
+import acme.entities.shouts.Maolet;
 import acme.entities.task.Task;
 import acme.forms.Dashboard;
 import acme.framework.components.Model;
@@ -39,7 +39,7 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 			"deviationExecTime", "maxExecTime", "minExecTime", "averageWorkload", "deviationWorkload",//
 			"maxWorkload", "minWorkload",
 			//control check
-			"xxxFlaggedRatio", "xxxratio2020", "xxxaverageGroupByCurrency1", "xxxDeviationGroupByCurrency1", "xxxaverageGroupByCurrency2", "xxxDeviationGroupByCurrency2");
+			"ratioImportant", "ratioZeroBudget", "eurAverageGroupByCurrency1", "eurDeviationGroupByCurrency1", "usdAverageGroupByCurrency2", "usdDeviationGroupByCurrency2");
 	}
 
 	@Override
@@ -60,11 +60,11 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 		Double minWorkload;
 
 		List<Task> tasks;
-		List<XXX> xxxList;
+		List<Maolet> maoletList;
 		tasks = this.repository.findAllTasks();
-		xxxList = this.repository.findAllXXX();
+		maoletList = this.repository.findAllMaolets();
 
-		if (!(tasks.isEmpty() && xxxList.isEmpty())) {
+		if (!(tasks.isEmpty() && maoletList.isEmpty())) {
 
 			publicTasks = this.repository.publicTasks();
 			privateTasks = this.repository.privateTasks();
@@ -76,10 +76,10 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 			minWorkload = this.repository.minWorkload();
 
 			//Control check
-			final Double xxxFlaggedRatio = this.repository.xxxFlaggedRatio();
-			final Double xxxratio2020 = this.repository.xxxratio2020();
-			final List<Double> xxxaverageGroupByCurrency = this.repository.xxxaverageGroupByCurrency();
-			final List<Double> xxxDeviationGroupByCurrency = this.repository.xxxDeviationGroupByCurrency();
+			final Double ratioImportant = this.repository.ratioImportant();
+			final Double ratioZeroBudget = this.repository.ratioZeroBudget();
+			final List<Double> averageGroupByCurrency = this.repository.averageGroupByCurrency();
+			final List<Double> deviationGroupByCurrency = this.repository.deviationGroupByCurrency();
 			// Control check
 
 			final Comparator<Task> cmp = Comparator.comparing(Task::getExecutionTime);
@@ -89,10 +89,10 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 			deviationExecTime = Math.sqrt(tasks.stream().mapToDouble(Task::getExecutionTime).map(i -> (i - averageExecTime)).map(i -> i * i).average().getAsDouble());
 
 			// Control check
-			final Double xxxaverageGroupByCurrency1 = xxxaverageGroupByCurrency.get(0);
-			final Double xxxDeviationGroupByCurrency1 = xxxDeviationGroupByCurrency.get(0);
-			final Double xxxaverageGroupByCurrency2 = xxxaverageGroupByCurrency.get(1);
-			final Double xxxDeviationGroupByCurrency2 = xxxDeviationGroupByCurrency.get(1);
+			final Double eurAverageGroupByCurrency1 = averageGroupByCurrency.get(0);
+			final Double eurDeviationGroupByCurrency1 = deviationGroupByCurrency.get(0);
+			final Double usdAverageGroupByCurrency2 = averageGroupByCurrency.get(1);
+			final Double usdDeviationGroupByCurrency2 = deviationGroupByCurrency.get(1);
 			// Control check
 
 			result = new Dashboard();
@@ -110,12 +110,12 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 			result.setMinWorkload(minWorkload);
 
 			//Control check
-			result.setXxxaverageGroupByCurrency1(xxxaverageGroupByCurrency1);
-			result.setXxxDeviationGroupByCurrency1(xxxDeviationGroupByCurrency1);
-			result.setXxxaverageGroupByCurrency2(xxxaverageGroupByCurrency2);
-			result.setXxxDeviationGroupByCurrency2(xxxDeviationGroupByCurrency2);
-			result.setXxxFlaggedRatio(xxxFlaggedRatio);
-			result.setXxxratio2020(xxxratio2020);
+			result.setEurAverageGroupByCurrency1(eurAverageGroupByCurrency1);
+			result.setEurDeviationGroupByCurrency1(eurDeviationGroupByCurrency1);
+			result.setUsdAverageGroupByCurrency2(usdAverageGroupByCurrency2);
+			result.setUsdDeviationGroupByCurrency2(usdDeviationGroupByCurrency2);
+			result.setRatioImportant(ratioImportant);
+			result.setRatioZeroBudget(ratioZeroBudget);
 			//Control check
 			return result;
 
@@ -133,12 +133,12 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 			result.setDeviationWorkload(0.0);
 			result.setMaxWorkload(0.0);
 			result.setMinWorkload(0.0);
-			result.setXxxaverageGroupByCurrency1(0.0);
-			result.setXxxDeviationGroupByCurrency1(0.0);
-			result.setXxxaverageGroupByCurrency2(0.0);
-			result.setXxxDeviationGroupByCurrency2(0.0);
-			result.setXxxFlaggedRatio(0.0);
-			result.setXxxratio2020(0.0);
+			result.setEurAverageGroupByCurrency1(0.0);
+			result.setEurDeviationGroupByCurrency1(0.0);
+			result.setUsdAverageGroupByCurrency2(0.0);
+			result.setUsdDeviationGroupByCurrency2(0.0);
+			result.setRatioImportant(0.0);
+			result.setRatioZeroBudget(0.0);
 			return result;
 		}
 

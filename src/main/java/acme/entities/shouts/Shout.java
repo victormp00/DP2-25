@@ -61,7 +61,7 @@ public class Shout extends DomainEntity {
 	protected String info;
 	
 	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name = "xxx_id", referencedColumnName = "id")
+	@JoinColumn(name = "maolet_id", referencedColumnName = "id")
 	@Valid
-	protected XXX xxx;	
+	protected Maolet maolet;	
 }

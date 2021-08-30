@@ -16,33 +16,33 @@
 	<!-- principio control check -->
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.xxxFlaggedRatio" /></th>
-		<td><acme:print value="${xxxFlaggedRatio}" /></td>
+				code="administrator.dashboard.ratioImportant" /></th>
+		<td><acme:print value="${ratioImportant}" /></td>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.xxxratio2020" /></th>
-		<td><acme:print value="${xxxratio2020}" /></td>
+				code="administrator.dashboard.ratioZeroBudget" /></th>
+		<td><acme:print value="${ratioZeroBudget}" /></td>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.xxxaverageGroupByCurrency" /></th>
-		<td><acme:print value="${xxxaverageGroupByCurrency1}" /></td>
+				code="administrator.dashboard.eurAverageGroupByCurrency1" /></th>
+		<td><acme:print value="${eurAverageGroupByCurrency1}" /></td>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.xxxDeviationGroupByCurrency" /></th>
-		<td><acme:print value="${xxxDeviationGroupByCurrency1}" /></td>
+				code="administrator.dashboard.eurDeviationGroupByCurrency1" /></th>
+		<td><acme:print value="${eurDeviationGroupByCurrency1}" /></td>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.xxxaverageGroupByCurrency" /></th>
-		<td><acme:print value="${xxxaverageGroupByCurrency2}" /></td>
+				code="administrator.dashboard.usdAverageGroupByCurrency2" /></th>
+		<td><acme:print value="${usdAverageGroupByCurrency2}" /></td>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.xxxDeviationGroupByCurrency" /></th>
-		<td><acme:print value="${xxxDeviationGroupByCurrency2}" /></td>
+				code="administrator.dashboard.usdDeviationGroupByCurrency2" /></th>
+		<td><acme:print value="${usdDeviationGroupByCurrency2}" /></td>
 	</tr>
 	<!-- final control check  -->
 	<tr>

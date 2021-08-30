@@ -38,7 +38,7 @@ public class AuthenticatedShoutListService implements AbstractListService<Authen
 		assert entity !=null;
 		assert model !=null;
 
-		request.unbind(entity,model,"author","text","moment","xxx.xxxdate","xxx.xxxmoment","xxx.xxxamount.currency","xxx.xxxamount.amount","xxx.xxxboolean");
+		request.unbind(entity,model,"author","text","moment","maolet.tiplet","maolet.deadline","maolet.budget.currency","maolet.budget.amount","maolet.important");
 	}
 	
 	@Override

@@ -16,7 +16,9 @@ administrator.dashboard.minWorkload= Minima carga de trabajo
 
 administrator.dashboard.form.title.application-statuses = Estados de la aplicacion
 
-administrator.dashboard.xxxFlaggedRatio = ratio de shouts donde xxx es verdadero
-administrator.dashboard.xxxratio2020 = ratio de shouts donde xxx es en 2020
-administrator.dashboard.xxxaverageGroupByCurrency = media de dinero agrupado por divisa
-administrator.dashboard.xxxDeviationGroupByCurrency = desviación de dinero agrupado por divisa
+administrator.dashboard.ratioImportant = ratio de shouts importantes
+administrator.dashboard.ratioZeroBudget = ratio de shouts donde el presupuesto es 0
+administrator.dashboard.eurAverageGroupByCurrency1 = media de EUR
+administrator.dashboard.eurDeviationGroupByCurrency1 = desviación de EUR
+administrator.dashboard.usdAverageGroupByCurrency2 = media de USD
+administrator.dashboard.usdDeviationGroupByCurrency2 = desviación USD

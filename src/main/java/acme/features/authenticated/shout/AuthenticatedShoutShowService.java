@@ -27,7 +27,7 @@ public class AuthenticatedShoutShowService implements AbstractShowService<Authen
 		assert request!=null;
 		assert entity!=null;
 		assert model!=null;
-		request.unbind(entity, model, "author","text","info","xxx.xxxdate","xxx.xxxamount","xxx.xxxboolean");
+		request.unbind(entity, model, "author","text","info","maolet.tiplet","maolet.budget","maolet.important");
 		
 		
 	}

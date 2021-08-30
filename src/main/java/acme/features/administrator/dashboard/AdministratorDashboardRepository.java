@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.shouts.XXX;
+import acme.entities.shouts.Maolet;
 import acme.entities.task.Task;
 import acme.framework.repositories.AbstractRepository;
 
@@ -41,18 +41,18 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	Double minWorkload();
 	
 	//control check
-	@Query("select avg(t.xxxamount.amount) from XXX t group by t.xxxamount.currency")
-	List<Double> xxxaverageGroupByCurrency();
+	@Query("select avg(t.budget.amount) from Maolet t group by t.budget.currency")
+	List<Double> averageGroupByCurrency();
 	
-	@Query("select stddev(t.xxxamount.amount) from XXX t group by t.xxxamount.currency")
-	List<Double> xxxDeviationGroupByCurrency();
+	@Query("select stddev(t.budget.amount) from Maolet t group by t.budget.currency")
+	List<Double> deviationGroupByCurrency();
 	
-	@Query("select 1.0 * count(a) / (select count(b) from Shout b) from Shout a where a.xxx.xxxboolean = true")
-	Double xxxFlaggedRatio();
+	@Query("select 1.0 * count(a) / (select count(b) from Shout b) from Shout a where a.maolet.important = true")
+	Double ratioImportant();
 	
-	@Query("select 1.0 * count(a) / (select count(b) from Shout b) from Shout a where year(a.xxx.xxxmoment) = 2021")
-	Double xxxratio2020();
+	@Query("select 1.0 * count(a) / (select count(b) from Shout b) from Shout a where a.maolet.budget.amount = 0")
+	Double ratioZeroBudget();
 
-	@Query("SELECT x FROM XXX x")
-	List<XXX> findAllXXX();
+	@Query("SELECT x FROM Maolet x")
+	List<Maolet> findAllMaolets();
 }

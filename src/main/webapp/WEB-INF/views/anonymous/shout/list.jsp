@@ -21,10 +21,10 @@
 	<acme:list-column code="anonymous.shout.list.label.author" path="author" width="20%"/>
 	<acme:list-column code="anonymous.shout.list.label.text" path="text" width="60%"/>
 	
-	<acme:list-column code="anonymous.xxx.xxxdate" path="xxx.xxxdate" width="15%"/>
-	<acme:list-column code="anonymous.xxx.xxxmoment" path="xxx.xxxmoment" width="10%"/>
-		<acme:list-column code="anonymous.xxx.xxxamount.amount" path="xxx.xxxamount.amount" width="10%"/>
-	<acme:list-column code="anonymous.xxx.xxxamount.currency" path="xxx.xxxamount.currency" width="10%"/>
-	<acme:list-column code="anonymous.xxx.xxxboolean" path="xxx.xxxboolean" width="5%"/>
+	<acme:list-column code="anonymous.maolet.tiplet" path="maolet.tiplet" width="15%"/>
+	<acme:list-column code="anonymous.maolet.deadline" path="maolet.deadline" width="10%"/>
+		<acme:list-column code="anonymous.maolet.budget.amount" path="maolet.budget.amount" width="10%"/>
+	<acme:list-column code="anonymous.maolet.budget.currency" path="maolet.budget.currency" width="10%"/>
+	<acme:list-column code="anonymous.maolet.important" path="maolet.important" width="5%"/>
 </acme:list>
 

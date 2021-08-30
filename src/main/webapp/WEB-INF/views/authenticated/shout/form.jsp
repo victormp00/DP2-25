@@ -20,10 +20,10 @@
 	<acme:form-textarea code="authenticated.shout.form.label.text" path="text"/>
 	<acme:form-textbox placeholder="http://example.com" code="authenticated.shout.form.label.info" path="info"/>
 	
-	<!-- parte xxx -->
-	<acme:form-textbox placeholder="dd/mm/yyyy/example " code="authenticated.xxx.xxxdate" path="xxx.xxxdate"/>
-	<acme:form-money code="authenticated.xxx.xxxamount.amount" path="xxx.xxxamount"/>
-	<acme:form-checkbox code="authenticated.xxx.xxxboolean" path="xxx.xxxboolean"/>
+	<!-- parte Maolet -->
+	<acme:form-textbox placeholder="^\w{2,4}:yy:mmdd$" code="authenticated.maolet.tiplet" path="maolet.tiplet"/>
+	<acme:form-money code="authenticated.maolet.budget" path="maolet.budget"/>
+	<acme:form-checkbox code="authenticated.maolet.important" path="maolet.important"/>
 	
 	<acme:form-submit test="${command == 'create'}" code="authenticated.shout.form.button.create" action="/authenticated/shout/create"/>
 	<acme:form-return code="authenticated.shout.form.button.return"/>

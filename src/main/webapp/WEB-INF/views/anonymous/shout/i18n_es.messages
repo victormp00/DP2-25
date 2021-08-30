@@ -25,16 +25,17 @@ anonymous.shout.spam.url.crea = Esta URL es spam
 anonymous.shout.spam.text.crea = Este texto es spam
 anonymous.shout.spam.author.crea = Este autor es spam 
 
-anonymous.xxx.xxxdate = xxxfecha
-anonymous.xxx.xxxamount.amount = xxxamount cantidad
-anonymous.xxx.xxxamount.currency = xxxamount tipo
-anonymous.xxx.xxxboolean = xxx boolean
-anonymous.xxx.xxxmoment= xxxmomento
-anonymous.xxx.xxxamount.amount.error = la cantidad de dinero falla
-anonymous.xxx.xxxamount.currency.error = el tipo de dinero falla
+anonymous.maolet.tiplet = Tiplet
+anonymous.maolet.budget = Presupuesto
+anonymous.maolet.budget.amount = Cantidad del presupuesto
+anonymous.maolet.budget.currency = Divisa del presupuesto
+anonymous.maolet.important = Importante
+anonymous.maolet.deadline= Fecha límite
+anonymous.maolet.budget.amount.error = la cantidad de presupuesto falla
+anonymous.maolet.budget.currency.error = el tipo de divisa falla
 default.error.conversion= no sigue el formato especificado
 
 anonymous.shout.form.button.crea = Crear Grito
 
-anonymous.xxx.xxxdate.error= la fecha introducida no es actual
-anonymous.xxx.xxxdate.unique.error= este atributo no es único
+anonymous.maolet.tiplet.error= el tiplet introducido es incorrecto
+anonymous.maolet.tiplet.unique.error= este atributo no es único
