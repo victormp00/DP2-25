@@ -39,7 +39,7 @@ public class Task extends DomainEntity {
 	protected Manager			manager;
 
 	@NotBlank
-	@Length(min = 5, max = 60)
+	@Length(min = 5, max = 80)
 	protected String			title;
 
 	//sino funciona, probar con localdatetieme
