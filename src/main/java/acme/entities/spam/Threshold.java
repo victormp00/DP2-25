@@ -42,18 +42,17 @@ public class Threshold extends DomainEntity {
 	}
 
 	public static Integer getSpamInText(String txt, final List<Spam> spamWords) {
-		final String str = txt;
+		final String str = txt.toLowerCase();
 		for (final Spam s : spamWords) {
-
-			if (txt.contains(s.getSpamEs())) {
-				txt = txt.replaceAll(s.getSpamEs(), "");
+			if (txt.toLowerCase().contains(s.getSpamEs().toLowerCase())) {
+				txt = txt.toLowerCase().replaceAll(s.getSpamEs().toLowerCase(), "");
 			}
-			if (txt.contains(s.getSpamEn())) {
-				txt = txt.replaceAll(s.getSpamEn(), "");
+			if (txt.toLowerCase().contains(s.getSpamEn().toLowerCase())) {
+				txt = txt.toLowerCase().replaceAll(s.getSpamEn().toLowerCase(), "");
 			}
 
 		}
-		return str.length() - txt.length();
+		return str.length() - txt.toLowerCase().length();
 	}
 
 }

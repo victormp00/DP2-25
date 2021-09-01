@@ -29,5 +29,7 @@ manager.task.spam.description = This description is spam
 manager.task.spam.title = This title is spam
 manager.task.spam.url = This URL is spam
 manager.task.date = Finish should be after creation
+manager.task.date2 = Date should be before now
 manager.task.workload =workload does not fit
 manager.task.workload.decimals = Decimals in workload should not be higher than 60
+manager.task.workload.less= it must be lower than 100

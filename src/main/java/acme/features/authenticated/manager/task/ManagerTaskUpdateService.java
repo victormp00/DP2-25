@@ -1,3 +1,4 @@
+
 package acme.features.authenticated.manager.task;
 
 import java.util.List;
@@ -22,16 +23,15 @@ import acme.framework.services.AbstractUpdateService;
 
 @Service
 public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, Task> {
-	
 
 	@Autowired
-	protected ManagerTaskRepository repository;
+	protected ManagerTaskRepository	repository;
 	@Autowired
-	private AdminSpamRepository spamRepository;
+	private AdminSpamRepository		spamRepository;
 	@Autowired
-	private ThresholdRepository thresholdRepository;
+	private ThresholdRepository		thresholdRepository;
 
-	
+
 	@Override
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
@@ -40,12 +40,12 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		int id;
 		Manager manager;
 		boolean puedeactualizar;
-		
+
 		principal = request.getPrincipal();
-		id =  request.getModel().getInteger("id");
-		result= this.repository.findOneTaskById(id);
-		manager= result.getManager();
-		puedeactualizar=manager.getUserAccount().getId() == principal.getAccountId();
+		id = request.getModel().getInteger("id");
+		result = this.repository.findOneTaskById(id);
+		manager = result.getManager();
+		puedeactualizar = manager.getUserAccount().getId() == principal.getAccountId();
 		return puedeactualizar;
 
 	}
@@ -65,8 +65,8 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model,"title", "creation", "finish", "workload", "description", "link", "publico", "finished");
-		
+		request.unbind(entity, model, "title", "creation", "finish", "workload", "description", "link", "publico", "finished");
+
 	}
 
 	@Override
@@ -74,8 +74,8 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		assert request != null;
 		Task result;
 		int id;
-		id=request.getModel().getInteger("id");
-		result= this.repository.findOneTaskById(id);
+		id = request.getModel().getInteger("id");
+		result = this.repository.findOneTaskById(id);
 
 		return result;
 	}
@@ -86,34 +86,36 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		assert entity != null;
 		assert errors != null;
 		final List<Spam> spam = (List<Spam>) this.spamRepository.findSpam();
-		final Threshold threshold=this.thresholdRepository.findSpamEntity();
+		final Threshold threshold = this.thresholdRepository.findSpamEntity();
 		final Boolean censuraDescr = Threshold.censura(entity.getDescription(), spam, threshold.getThreshold());
 		final Boolean censuratitle = Threshold.censura(entity.getTitle(), spam, threshold.getThreshold());
 		final Boolean censuraLink = Threshold.censura(entity.getLink(), spam, threshold.getThreshold());
-		
-		if (!errors.hasErrors("title")) {
-			errors.state(request, !censuratitle, "title", "manager.task.spam.title");	
-		}
-		if (!errors.hasErrors("description")) {
-			errors.state(request, !censuraDescr, "description", "manager.task.spam.description");
-			
-		}
-		if (!errors.hasErrors("link")) {
-			errors.state(request, !censuraLink, "link", "manager.task.spam.url");
-			
-		}
-		if (!errors.hasErrors("creation")) {
-			errors.state(request,Boolean.TRUE.equals(entity.datefit()), "creation", "manager.task.date");
-			
-		}
-		if (!errors.hasErrors("finish")) {
-			errors.state(request,Boolean.TRUE.equals(entity.datefit()), "finish", "manager.task.date");
-			
-		}
-		
-		if (!errors.hasErrors("workload")) {
-			errors.state(request,Boolean.TRUE.equals(entity.isFit()) , "workload", "manager.task.workload");
-			errors.state(request,Boolean.TRUE.equals(Task.workloadOK(entity.getWorkload())), "workload", "manager.task.workload.decimals");
+
+		if ((entity.getCreation() != null) && (entity.getFinish() != null)) {
+			if (!errors.hasErrors("title")) {
+				errors.state(request, !censuratitle, "title", "manager.task.spam.title");
+			}
+			if (!errors.hasErrors("description")) {
+				errors.state(request, !censuraDescr, "description", "manager.task.spam.description");
+
+			}
+			if (!errors.hasErrors("link")) {
+				errors.state(request, !censuraLink, "link", "manager.task.spam.url");
+
+			}
+			if (!errors.hasErrors("creation")) {
+				errors.state(request, Boolean.TRUE.equals(entity.creationBeforeNow()), "creation", "manager.task.date2");
+
+			}
+			if (!errors.hasErrors("finish")) {
+				errors.state(request, Boolean.TRUE.equals(entity.datefit()), "finish", "manager.task.date");
+
+			}
+
+			if (!errors.hasErrors("workload")) {
+				errors.state(request, Boolean.TRUE.equals(entity.isFit()), "workload", "manager.task.workload");
+				errors.state(request, Boolean.TRUE.equals(Task.workloadOK(entity.getWorkload())), "workload", "manager.task.workload.decimals");
+			}
 		}
 	}
 
@@ -121,7 +123,6 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 	public void update(final Request<Task> request, final Task entity) {
 		assert request != null;
 		assert entity != null;
-
 
 		this.repository.save(entity);
 	}
