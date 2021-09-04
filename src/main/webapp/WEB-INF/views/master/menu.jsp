@@ -48,8 +48,6 @@
 		
 		<acme:menu-option code="master.menu.authenticated.anonymous" access="hasRole('Authenticated')">
 			<acme:menu-suboption code="master.menu.authenticated.list.anonymous" action="/authenticated/task/list-anon" access="isAuthenticated()"/>
-			<acme:menu-suboption code="authenticated.shout.list.view" action="/authenticated/shout/list"/>
-			<acme:menu-suboption code="authenticated.shout.form.button.create" action="/authenticated/shout/create"/>
 		</acme:menu-option>
 		
 		

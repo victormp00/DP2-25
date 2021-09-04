@@ -13,6 +13,14 @@
 		<acme:message
 			code="administrator.dashboard.form.title.general-indicators" />
 	</caption>
+	
+	
+	
+	
+	
+	
+	
+	
 	<!-- principio control check -->
 	<tr>
 		<th scope="row"><acme:message
@@ -26,24 +34,47 @@
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.xxxaverageGroupByCurrency" /></th>
+				code="administrator.dashboard.xxxaverageGroupByCurrencyBGP" /></th>
 		<td><acme:print value="${xxxaverageGroupByCurrency1}" /></td>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.xxxDeviationGroupByCurrency" /></th>
+				code="administrator.dashboard.xxxDeviationGroupByCurrencyBGP" /></th>
 		<td><acme:print value="${xxxDeviationGroupByCurrency1}" /></td>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.xxxaverageGroupByCurrency" /></th>
+				code="administrator.dashboard.xxxaverageGroupByCurrencyEUR" /></th>
 		<td><acme:print value="${xxxaverageGroupByCurrency2}" /></td>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.xxxDeviationGroupByCurrency" /></th>
+				code="administrator.dashboard.xxxDeviationGroupByCurrencyEUR" /></th>
 		<td><acme:print value="${xxxDeviationGroupByCurrency2}" /></td>
 	</tr>
+	<tr>
+		<th scope="row"><acme:message
+				code="administrator.dashboard.xxxaverageGroupByCurrencyUSD" /></th>
+		<td><acme:print value="${xxxaverageGroupByCurrency3}" /></td>
+	</tr>
+	<tr>
+		<th scope="row"><acme:message
+				code="administrator.dashboard.xxxDeviationGroupByCurrencyUSD" /></th>
+		<td><acme:print value="${xxxDeviationGroupByCurrency3}" /></td>
+	</tr>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<!-- final control check  -->
 	<tr>
 		<th scope="row"><acme:message

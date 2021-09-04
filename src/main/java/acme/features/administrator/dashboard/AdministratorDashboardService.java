@@ -39,7 +39,8 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 			"deviationExecTime", "maxExecTime", "minExecTime", "averageWorkload", "deviationWorkload",//
 			"maxWorkload", "minWorkload",
 			//control check
-			"xxxFlaggedRatio", "xxxratio2020", "xxxaverageGroupByCurrency1", "xxxDeviationGroupByCurrency1", "xxxaverageGroupByCurrency2", "xxxDeviationGroupByCurrency2");
+			"xxxFlaggedRatio", "xxxratio2020", "xxxaverageGroupByCurrency1", "xxxDeviationGroupByCurrency1",
+			"xxxaverageGroupByCurrency2", "xxxDeviationGroupByCurrency2","xxxaverageGroupByCurrency3", "xxxDeviationGroupByCurrency3");
 	}
 
 	@Override
@@ -93,6 +94,8 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 			final Double xxxDeviationGroupByCurrency1 = xxxDeviationGroupByCurrency.get(0);
 			final Double xxxaverageGroupByCurrency2 = xxxaverageGroupByCurrency.get(1);
 			final Double xxxDeviationGroupByCurrency2 = xxxDeviationGroupByCurrency.get(1);
+			final Double xxxaverageGroupByCurrency3 = xxxaverageGroupByCurrency.get(2);
+			final Double xxxDeviationGroupByCurrency3 = xxxDeviationGroupByCurrency.get(2);
 			// Control check
 
 			result = new Dashboard();
@@ -114,6 +117,8 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 			result.setXxxDeviationGroupByCurrency1(xxxDeviationGroupByCurrency1);
 			result.setXxxaverageGroupByCurrency2(xxxaverageGroupByCurrency2);
 			result.setXxxDeviationGroupByCurrency2(xxxDeviationGroupByCurrency2);
+			result.setXxxaverageGroupByCurrency3(xxxaverageGroupByCurrency3);
+			result.setXxxDeviationGroupByCurrency3(xxxDeviationGroupByCurrency3);
 			result.setXxxFlaggedRatio(xxxFlaggedRatio);
 			result.setXxxratio2020(xxxratio2020);
 			//Control check
@@ -137,6 +142,8 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 			result.setXxxDeviationGroupByCurrency1(0.0);
 			result.setXxxaverageGroupByCurrency2(0.0);
 			result.setXxxDeviationGroupByCurrency2(0.0);
+			result.setXxxaverageGroupByCurrency3(0.0);
+			result.setXxxDeviationGroupByCurrency3(0.0);
 			result.setXxxFlaggedRatio(0.0);
 			result.setXxxratio2020(0.0);
 			return result;

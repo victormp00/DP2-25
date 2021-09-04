@@ -221,7 +221,7 @@
 	<!-- Shouts -->
 	
 	<bean id="shout01" class = "acme.entities.shouts.Shout">
-		<property name="moment" value="2021/06/01 19:39"/>
+		<property name="moment" value="2021/08/31 14:55"/>
 		<property name="author" value="Jhon Doe"/>
 		<property name="text" value="I'm depressed"/>
 		<property name="info"><null/></property>
@@ -229,61 +229,28 @@
 	</bean>
 	
 	<bean id="shout02" class = "acme.entities.shouts.Shout">
-		<property name="moment" value="2021/06/02 19:39"/>
+		<property name="moment" value="2021/08/31 14:55"/>
 		<property name="author" value="Jhon Doe"/>
 		<property name="text" value="Dios Ajusticia a los no natos"/>
 		<property name="info" value= "http://www.example.org"/>
 		<property name="xxx" ref="xxx02"></property>
 	</bean>
-
 	<bean id="shout03" class = "acme.entities.shouts.Shout">
-		<property name="moment" value="2020/09/06 00:00"/>
-		<property name="author" value="Foo Bar"/>
-		<property name="text" value="Just turning 50!"/>
-		<property name="info" value= "http://www.example.org"/>
+		<property name="moment" value="2021/08/31 14:55"/>
+		<property name="author" value="Jhon Doe"/>
+		<property name="text" value="I'm depressed"/>
+		<property name="info"><null/></property>
 		<property name="xxx" ref="xxx03"></property>
 	</bean>
 	
 	<bean id="shout04" class = "acme.entities.shouts.Shout">
-		<property name="moment" value="2001/02/13 19:39"/>
-		<property name="author" value="AAAAAAAAAAAAAAAAAAAAA"/>
-		<property name="text" value="Ardillas"/>
-		<property name="info"><null/></property>
+		<property name="moment" value="2021/08/31 14:55"/>
+		<property name="author" value="Jhon Doe"/>
+		<property name="text" value="Dios Ajusticia a los no natos"/>
+		<property name="info" value= "http://www.example.org"/>
 		<property name="xxx" ref="xxx04"></property>
 	</bean>
 	
-	<bean id="shout05" class = "acme.entities.shouts.Shout">
-		<property name="moment" value="2011/02/13 19:39"/>
-		<property name="author" value="Bortice Doe"/>
-		<property name="text" value="I'm depressed"/>
-		<property name="info"><null/></property>
-		<property name="xxx" ref="xxx05"></property>
-	</bean>
-
-
-	<bean id= "shout06" class="acme.entities.shouts.Shout">
-			<property name="moment" value="2021/02/11 19:39"/>
-			<property name="author" value="Mikanal"/>
-			<property name="text" value="National Singer"/>
-			<property name="info"><null/></property>
-			<property name="xxx" ref="xxx06"></property>
-		</bean>
-
-		<bean id= "shout07" class="acme.entities.shouts.Shout">
-			<property name="moment" value="2021/02/20 21:39"/>
-			<property name="author" value="Rajov"/>
-			<property name="text" value="President de Spain"/>
-			<property name="info"><null/></property>
-			<property name="xxx" ref="xxx07"></property>
-		</bean>
-
-		<bean id= "shout08" class="acme.entities.shouts.Shout">
-			<property name="moment" value="2021/02/20 11:39"/>
-			<property name="author" value="Princess Catalina"/>
-			<property name="text" value="England"/>
-			<property name="info"><null/></property>
-			<property name="xxx" ref="xxx08"></property>
-		</bean>
 	<!-- ESCRIBIR SIEMPRE A PARTIR DE AQUI -->
 	
 	<!-- XXX -->
@@ -291,59 +258,29 @@
 		<property name="xxxamount" value="2.00 EUR"/>
 		<property name="xxxboolean" value="true"/>
 		<property name="xxxdate" value="08/06/2021/kcccc"/>
-		<property name="xxxmoment" value="2021/06/08 17:17"/>
+		<property name="xxxmoment" value="2021/08/31 14:55"/>
 	</bean>
 	
 	<bean id="xxx02" class = "acme.entities.shouts.XXX">
 		<property name="xxxamount" value="3.00 USD"/>
 		<property name="xxxboolean" value="true"/>
 		<property name="xxxdate" value="08/06/2021/iiiii"/>
-		<property name="xxxmoment" value="2021/06/08 17:17"/>
+		<property name="xxxmoment" value="2021/08/31 14:55"/>
 	</bean>
-
 	<bean id="xxx03" class = "acme.entities.shouts.XXX">
-		<property name="xxxamount" value="12.98 EUR"/>
+		<property name="xxxamount" value="3.00 BGT"/>
 		<property name="xxxboolean" value="true"/>
-		<property name="xxxdate" value="08/06/2021/kk121212"/>
-		<property name="xxxmoment" value="2021/06/08 17:17"/>
+		<property name="xxxdate" value="08/06/2021/lll"/>
+		<property name="xxxmoment" value="2021/08/31 14:55"/>
 	</bean>
 	
 	<bean id="xxx04" class = "acme.entities.shouts.XXX">
-		<property name="xxxamount" value="67.80 USD"/>
-		<property name="xxxboolean" value="false"/>
-		<property name="xxxdate" value="08/06/2021/kk2222k"/>
-		<property name="xxxmoment" value="2021/06/08 17:17"/>
-	</bean>
-	
-	<bean id="xxx05" class = "acme.entities.shouts.XXX">
-		<property name="xxxamount" value="13.00 EUR"/>
-		<property name="xxxboolean" value="false"/>
-		<property name="xxxdate" value="08/06/2021/ksss"/>
-		<property name="xxxmoment" value="2021/06/08 17:17"/>
-	</bean>
-
-
-	<bean id= "xxx06" class="acme.entities.shouts.XXX">
-		<property name="xxxamount" value="11.11 USD"/>
+		<property name="xxxamount" value="3.00 EUR"/>
 		<property name="xxxboolean" value="true"/>
-		<property name="xxxdate" value="08/06/2021/1222"/>
-		<property name="xxxmoment" value="2021/06/08 17:17"/>
-		</bean>
+		<property name="xxxdate" value="08/06/2021/kkk"/>
+		<property name="xxxmoment" value="2021/08/31 14:55"/>
+	</bean>
 
-		<bean id= "xxx07" class="acme.entities.shouts.XXX">
-		<property name="xxxamount" value="9.99 EUR"/>
-		<property name="xxxboolean" value="false"/>
-		<property name="xxxdate" value="08/06/2021/aaa"/>
-		<property name="xxxmoment" value="2021/06/08 17:17"/>
-		</bean>
-
-		<bean id= "xxx08" class="acme.entities.shouts.XXX">
-		<property name="xxxamount" value="77.69 EUR"/>
-		<property name="xxxboolean" value="false"/>
-		<property name="xxxdate" value="08/06/2021/kkkkk"/>
-		<property name="xxxmoment" value="2021/06/08 17:17"/>
-		</bean>
-	
 	<!-- AuthenticatedNormalUser -->
 	
 

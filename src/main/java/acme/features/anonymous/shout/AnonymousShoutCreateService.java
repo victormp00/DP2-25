@@ -63,7 +63,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert entity !=null;
 		assert model !=null;
 
-		request.unbind(entity,model,"author","text","info","xxx.xxxdate","xxx.xxxamount","xxx.xxxboolean");
+		request.unbind(entity,model,"author","text","info","xxx.xxxdate","xxx.xxxmoment","xxx.xxxamount","xxx.xxxboolean");
 	}
 	
 	
@@ -108,14 +108,22 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         }
 		
 		//control check
+        
+        if (entity.getXxx().getXxxmoment()!=null&&!errors.hasErrors("xxx.xxxmoment")) {
+			final Date xxxmoment=entity.getXxx().getXxxmoment();
+			final Date actual= new Date();
+			actual.setDate(actual.getDate()+7);
+			errors.state(request, actual.before(xxxmoment), "xxx.xxxmoment", "error");
+			
+		}
 		
 		if(!errors.hasErrors("xxx.xxxamount")) {
 			errors.state(request, entity.getXxx().getXxxamount().getAmount()>=0, "xxx.xxxamount", "anonymous.xxx.xxxamount.error");
 		
 			final String currency = entity.getXxx().getXxxamount().getCurrency();
 			
-			//Only $ and €
-			errors.state(request, (currency.equals("EUR") || currency.equals("USD")), "xxx.xxxamount", "anonymous.xxx.xxxamount.currency.error");	
+			//Only $ and € and BGP
+			errors.state(request, (currency.equals("EUR") || currency.equals("USD") || currency.equals("BGP")), "xxx.xxxamount", "anonymous.xxx.xxxamount.currency.error");	
 		}
 		
 		if(!errors.hasErrors("xxx.xxxdate")){
@@ -155,7 +163,6 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		moment = new Date(System.currentTimeMillis() -1);
 		entity.setMoment(moment);
 		
-		entity.getXxx().setXxxmoment(moment);
 		this.repository.save(entity.getXxx());
 		this.repository.save(entity);
 	}

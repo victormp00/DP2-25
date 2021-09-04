@@ -29,7 +29,7 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
 
 	@Autowired
 	protected AdminSpamRepository	spamRepository;
-	
+
 	@Autowired
 	protected ThresholdRepository	thresholdRepository;
 
@@ -87,47 +87,45 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
 		assert entity != null;
 		assert errors != null;
 		final List<Spam> spam = (List<Spam>) this.spamRepository.findSpam();
-		final Threshold threshold=this.thresholdRepository.findSpamEntity();
+		final Threshold threshold = this.thresholdRepository.findSpamEntity();
 		final Boolean censuraDescr = Threshold.censura(entity.getDescription(), spam, threshold.getThreshold());
 		final Boolean censuratitle = Threshold.censura(entity.getTitle(), spam, threshold.getThreshold());
 		final Boolean censuraLink = Threshold.censura(entity.getLink(), spam, threshold.getThreshold());
-		
-		if (Boolean.TRUE.equals(censuraDescr)) {
-			errors.add("description", "this description is spam");
-		}
-		if (Boolean.TRUE.equals(censuratitle)) {
-			errors.add("title", "this title is spam");
-		}
-		if (Boolean.TRUE.equals(censuraLink)) {
-			errors.add("link", "this URL is spam");
-		}
-		if (entity.getFinish() != null && entity.getCreation() != null 
-			&& Boolean.FALSE.equals(entity.datefit())) {
-				errors.add("creation", "finish should be after creation");
-				errors.add("finish", "finish should be after creation");
-		}
-		if (entity.getWorkload() != null && entity.getCreation() != null && entity.getFinish() 
-			!= null && Boolean.FALSE.equals(entity.isFit())) {
-				errors.add("workload", "workload does not fit");
-			}
-		
-		if (entity.getWorkload() != null &&Boolean.FALSE.equals(Task.workloadOK(entity.getWorkload()))) {
-				errors.add("workload", "decimals in workload should not be higher than 60");
-			}
-		}
 
-	
+		if ((entity.getCreation() != null) && (entity.getFinish() != null)) {
+			if (!errors.hasErrors("title")) {
+				errors.state(request, !censuratitle, "title", "manager.task.spam.title");
+			}
+			if (!errors.hasErrors("description")) {
+				errors.state(request, !censuraDescr, "description", "manager.task.spam.description");
 
+			}
+			if (!errors.hasErrors("link")) {
+				errors.state(request, !censuraLink, "link", "manager.task.spam.url");
+
+			}
+			if (!errors.hasErrors("creation")) {
+				errors.state(request, Boolean.TRUE.equals(entity.creationBeforeNow()), "creation", "manager.task.date2");
+
+			}
+			if (!errors.hasErrors("finish")) {
+				errors.state(request, Boolean.TRUE.equals(entity.datefit()), "finish", "manager.task.date");
+
+			}
+
+			if (!errors.hasErrors("workload")) {
+				final Double doubl=100.00;
+				errors.state(request, Boolean.TRUE.equals(entity.isFit()), "workload", "manager.task.workload");
+				errors.state(request, Boolean.TRUE.equals(Task.workloadOK(entity.getWorkload())), "workload", "manager.task.workload.decimals");
+				errors.state(request, Boolean.TRUE.equals(!entity.getWorkload().equals(doubl)), "workload", "manager.task.workload.less");
+			}
+		}
+	}
 	@Override
 	public void create(final Request<Task> request, final Task entity) {
 		assert request != null;
 		assert entity != null;
 
-		Date creation;
-
-		creation = new Date();
-
-		entity.setCreation(creation);
 		this.repository.save(entity);
 	}
 	@Override

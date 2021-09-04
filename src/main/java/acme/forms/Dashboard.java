@@ -49,5 +49,7 @@ public class Dashboard implements Serializable {
 	Double xxxDeviationGroupByCurrency1;
 	Double xxxaverageGroupByCurrency2;
 	Double xxxDeviationGroupByCurrency2;
+	Double xxxaverageGroupByCurrency3;
+	Double xxxDeviationGroupByCurrency3;
 
 }

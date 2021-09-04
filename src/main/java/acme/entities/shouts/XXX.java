@@ -31,7 +31,7 @@ public class XXX extends DomainEntity{
 	@NotBlank
 	//@Pattern(regexp = "([12]\\d{3}/(0[1-9]|1[0-2])/(0[1-9]|[12]\\d|3[01]))", message = "default.error.conversion")
 	//^([0-2][0-9]|3[0-1])(\\/|-)(0[1-9]|1[0-2])\\2(\\d{4})$
-	@Pattern(regexp = "[0-9]{2}/[0-9]{2}/[0-9]{4}/[a-zA-Z0-9.>%<+]*")
+	@Pattern(regexp = "^[0-9]{2}/[0-9]{2}/[0-9]{4}/[a-zA-Z0-9.>%<+]*$")
 	@Column(unique = true)
 	protected String xxxdate;
 	
