@@ -6,7 +6,7 @@
    "deploy": {
         "container": "TOMCAT8",
         "war": [{
-            "file": "target/DP2-25-21.2.war",
+            "file": "./target/DP2-25-21.2.war",
             "context": "/DP2-25",
             "port": 443
         }]
