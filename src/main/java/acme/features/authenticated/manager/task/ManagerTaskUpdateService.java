@@ -91,7 +91,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		final Boolean censuratitle = Threshold.censura(entity.getTitle(), spam, threshold.getThreshold());
 		final Boolean censuraLink = Threshold.censura(entity.getLink(), spam, threshold.getThreshold());
 
-		if ((entity.getCreation() != null) && (entity.getFinish() != null)) {
+		
 			if (!errors.hasErrors("title")) {
 				errors.state(request, !censuratitle, "title", "manager.task.spam.title");
 			}
@@ -103,18 +103,22 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 				errors.state(request, !censuraLink, "link", "manager.task.spam.url");
 
 			}
-			if (!errors.hasErrors("creation")) {
-				errors.state(request, Boolean.TRUE.equals(entity.creationBeforeNow()), "creation", "manager.task.date2");
+			if ((entity.getCreation() != null) && (entity.getFinish() != null)) {
+				
+				if (!errors.hasErrors("creation")) {
+					errors.state(request, Boolean.FALSE.equals(entity.creationBeforeNow()), "creation", "manager.task.date2");
 
-			}
-			if (!errors.hasErrors("finish")) {
-				errors.state(request, Boolean.TRUE.equals(entity.datefit()), "finish", "manager.task.date");
+				}
+				if (!errors.hasErrors("finish")) {
+					errors.state(request, Boolean.TRUE.equals(entity.datefit()), "finish", "manager.task.date");
 
-			}
+				}
 
-			if (!errors.hasErrors("workload")) {
-				errors.state(request, Boolean.TRUE.equals(entity.isFit()), "workload", "manager.task.workload");
-				errors.state(request, Boolean.TRUE.equals(Task.workloadOK(entity.getWorkload())), "workload", "manager.task.workload.decimals");
+				if (!errors.hasErrors("workload")) {
+					final Double doubl=100.00;
+					errors.state(request, Boolean.TRUE.equals(entity.isFit()), "workload", "manager.task.workload");
+					errors.state(request, Boolean.TRUE.equals(Task.workloadOK(entity.getWorkload())), "workload", "manager.task.workload.decimals");
+					errors.state(request, Boolean.TRUE.equals(!entity.getWorkload().equals(doubl)), "workload", "manager.task.workload.less");
 			}
 		}
 	}

@@ -92,20 +92,21 @@ public class ManagerTaskCreate implements AbstractCreateService<Manager, Task> {
 		final Boolean censuratitle = Threshold.censura(entity.getTitle(), spam, threshold.getThreshold());
 		final Boolean censuraLink = Threshold.censura(entity.getLink(), spam, threshold.getThreshold());
 
+		if (!errors.hasErrors("title")) {
+			errors.state(request, !censuratitle, "title", "manager.task.spam.title");
+		}
+		if (!errors.hasErrors("description")) {
+			errors.state(request, !censuraDescr, "description", "manager.task.spam.description");
+
+		}
+		if (!errors.hasErrors("link")) {
+			errors.state(request, !censuraLink, "link", "manager.task.spam.url");
+
+		}
 		if ((entity.getCreation() != null) && (entity.getFinish() != null)) {
-			if (!errors.hasErrors("title")) {
-				errors.state(request, !censuratitle, "title", "manager.task.spam.title");
-			}
-			if (!errors.hasErrors("description")) {
-				errors.state(request, !censuraDescr, "description", "manager.task.spam.description");
-
-			}
-			if (!errors.hasErrors("link")) {
-				errors.state(request, !censuraLink, "link", "manager.task.spam.url");
-
-			}
+			
 			if (!errors.hasErrors("creation")) {
-				errors.state(request, Boolean.TRUE.equals(entity.creationBeforeNow()), "creation", "manager.task.date2");
+				errors.state(request, Boolean.FALSE.equals(entity.creationBeforeNow()), "creation", "manager.task.date2");
 
 			}
 			if (!errors.hasErrors("finish")) {

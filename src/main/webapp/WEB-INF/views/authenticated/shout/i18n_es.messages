@@ -20,7 +20,7 @@ authenticated.shout.form.button.return = Volver
 authenticated.shout.list.label.moment = Momento
 authenticated.shout.list.label.author = Autor
 authenticated.shout.list.label.text = Texto
-
+authenticated.shout.list.label.info = info
 
 authenticated.shout.form.button.crea = Crear Grito
 

@@ -1,12 +1,9 @@
 
 package acme.features.administrator.threshold;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.spam.Spam;
 import acme.entities.spam.Threshold;
 import acme.features.administrator.spam.AdminSpamRepository;
 import acme.framework.components.Errors;
@@ -75,8 +72,6 @@ public class AdminThresholdUpdateService implements AbstractUpdateService<Admini
 	public void update(final Request<Threshold> request, final Threshold entity) {
 		assert request != null;
 		assert entity != null;
-		final List<Spam> spamWords = (List<Spam>) this.spamWordRepository.findSpam();
-		entity.setSpamWords(spamWords);
 		this.repository.save(entity);
 	}
 	@Override

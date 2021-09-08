@@ -1,4 +1,3 @@
-
 package acme.features.administrator.spam;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,26 +8,19 @@ import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Administrator;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractDeleteService;
 
 @Service
 public class AdminSpamDeleteService implements AbstractDeleteService<Administrator, Spam> {
-
+	
 	@Autowired
 	protected AdminSpamRepository repository;
-
 
 	@Override
 	public boolean authorise(final Request<Spam> request) {
 		assert request != null;
-
-		Principal principal;
-		boolean puedeborrar;
-
-		principal = request.getPrincipal();
-		puedeborrar = principal.getAuthorities().stream().anyMatch(x -> x.getAuthority().equals("AUTH_Administrator"));
-		return puedeborrar;
+		
+		return true;
 	}
 
 	@Override
@@ -36,7 +28,7 @@ public class AdminSpamDeleteService implements AbstractDeleteService<Administrat
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
+		
 		request.bind(entity, errors);
 	}
 
@@ -46,18 +38,19 @@ public class AdminSpamDeleteService implements AbstractDeleteService<Administrat
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "spamEn", "spamEs");
-		model.setAttribute("spamId", entity.getId());
+		request.unbind(entity, model, "wordEn", "wordEs");
 	}
 
 	@Override
 	public Spam findOne(final Request<Spam> request) {
 		assert request != null;
+		
 		Spam result;
 		int id;
+		
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneSpamWordById(id);
-
+		
 		return result;
 	}
 

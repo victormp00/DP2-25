@@ -27,6 +27,6 @@ public interface AnonymousShoutRepository extends AbstractRepository {
 	@Query("select s from Shout s ")
 	Collection<Shout> findMany();
 	
-	@Query ("select s from Shout s where s.moment BETWEEN ?2 AND ?1")
+	@Query ("select s from Shout s where s.moment BETWEEN ?2 AND ?1 ORDER BY s.moment")
 	Collection<Shout> findByLastMonth (Date date, Date date2);
 }

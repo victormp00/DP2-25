@@ -22,6 +22,8 @@ authenticated.shout.form.button.return = Return
 authenticated.shout.list.label.moment = Moment
 authenticated.shout.list.label.author = Author
 authenticated.shout.list.label.text = Text
+authenticated.shout.list.label.info = info
+
 authenticated.shout.spam.url.crea = this URL is spam
 authenticated.shout.spam.text.crea = this text is spam
 authenticated.shout.spam.author.crea = this author is spam 
