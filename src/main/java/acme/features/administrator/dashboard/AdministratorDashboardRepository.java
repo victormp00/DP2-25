@@ -50,7 +50,7 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select 1.0 * count(a) / (select count(b) from Shout b) from Shout a where a.xxx.xxxboolean = true")
 	Double xxxFlaggedRatio();
 	
-	@Query("select 1.0 * count(a) / (select count(b) from Shout b) from Shout a where year(a.xxx.xxxmoment) = 2021")
+	@Query("select 1.0 * count(a) / (select count(b) from Shout b) from Shout a where year(a.xxx.xxxamount.amount) = 0.")
 	Double xxxratio2020();
 
 	@Query("SELECT x FROM XXX x")
