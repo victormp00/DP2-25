@@ -44,7 +44,7 @@ public class Dashboard implements Serializable {
 	//control check
 	Double xxxFlaggedRatio;
 	//este puede cambiar mucho
-	Double xxxratio2020;
+	Double xxxratioBudgetZero;
 	Double xxxaverageGroupByCurrency1;
 	Double xxxDeviationGroupByCurrency1;
 	Double xxxaverageGroupByCurrency2;

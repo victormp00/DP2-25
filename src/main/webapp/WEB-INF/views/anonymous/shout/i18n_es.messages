@@ -32,9 +32,12 @@ anonymous.xxx.xxxboolean = xxx boolean
 anonymous.xxx.xxxmoment= xxxmomento
 anonymous.xxx.xxxamount.amount.error = la cantidad de dinero falla
 anonymous.xxx.xxxamount.currency.error = el tipo de dinero falla
+anonymous.xxx.xxxamount.amount = xxxamount cantidad
 default.error.conversion= no sigue el formato especificado
 
 anonymous.shout.form.button.crea = Crear Grito
 
 anonymous.xxx.xxxdate.error= la fecha introducida no es actual
 anonymous.xxx.xxxdate.unique.error= este atributo no es único
+
+xxx.xxxmoment.error =la fecha debe ser al menos una semana después de ahora

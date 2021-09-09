@@ -113,7 +113,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 			final Date xxxmoment=entity.getXxx().getXxxmoment();
 			final Date actual= new Date();
 			actual.setDate(actual.getDate()+7);
-			errors.state(request, actual.before(xxxmoment), "xxx.xxxmoment", "error");
+			errors.state(request, actual.before(xxxmoment), "xxx.xxxmoment", "xxx.xxxmoment.error");
 			
 		}
 		

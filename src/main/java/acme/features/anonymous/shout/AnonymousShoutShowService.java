@@ -27,7 +27,7 @@ public class AnonymousShoutShowService implements AbstractShowService<Anonymous,
 		assert request!=null;
 		assert entity!=null;
 		assert model!=null;
-		request.unbind(entity, model, "author","text","info","xxx.xxxdate","xxx.xxxamount","xxx.xxxboolean","xxxmoment");
+		request.unbind(entity, model, "author","text","info","xxx.xxxdate","xxx.xxxamount","xxx.xxxboolean","xxx.xxxmoment");
 		
 		
 	}

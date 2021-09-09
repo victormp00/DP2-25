@@ -18,7 +18,7 @@ administrator.dashboard.form.title.application-statuses = Application statuses
 
 
 administrator.dashboard.xxxFlaggedRatio = ratio of shouts where xxx is true
-administrator.dashboard.xxxratio2020 = ratio of shouts where xxx is in 2020
+administrator.dashboard.xxxratioBudgetZero = ratio of xxx of shouts whose budgets have zero
 administrator.dashboard.xxxaverageGroupByCurrency = average of money group by currency
 administrator.dashboard.xxxDeviationGroupByCurrency = deviation of money group by currency
 administrator.dashboard.xxxaverageGroupByCurrencyEUR = average of money group by eur

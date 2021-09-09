@@ -39,7 +39,7 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 			"deviationExecTime", "maxExecTime", "minExecTime", "averageWorkload", "deviationWorkload",//
 			"maxWorkload", "minWorkload",
 			//control check
-			"xxxFlaggedRatio", "xxxratio2020", "xxxaverageGroupByCurrency1", "xxxDeviationGroupByCurrency1",
+			"xxxFlaggedRatio", "xxxratioBudgetZero", "xxxaverageGroupByCurrency1", "xxxDeviationGroupByCurrency1",
 			"xxxaverageGroupByCurrency2", "xxxDeviationGroupByCurrency2","xxxaverageGroupByCurrency3", "xxxDeviationGroupByCurrency3");
 	}
 
@@ -78,7 +78,7 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 
 			//Control check
 			final Double xxxFlaggedRatio = this.repository.xxxFlaggedRatio();
-			final Double xxxratio2020 = this.repository.xxxratio2020();
+			final Double xxxratioBudgetZero = this.repository.xxxratioBudgetZero();
 			final List<Double> xxxaverageGroupByCurrency = this.repository.xxxaverageGroupByCurrency();
 			final List<Double> xxxDeviationGroupByCurrency = this.repository.xxxDeviationGroupByCurrency();
 			// Control check
@@ -120,7 +120,7 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 			result.setXxxaverageGroupByCurrency3(xxxaverageGroupByCurrency3);
 			result.setXxxDeviationGroupByCurrency3(xxxDeviationGroupByCurrency3);
 			result.setXxxFlaggedRatio(xxxFlaggedRatio);
-			result.setXxxratio2020(xxxratio2020);
+			result.setXxxratioBudgetZero(xxxratioBudgetZero);
 			//Control check
 			return result;
 
@@ -145,7 +145,7 @@ public class AdministratorDashboardService implements AbstractShowService<Admini
 			result.setXxxaverageGroupByCurrency3(0.0);
 			result.setXxxDeviationGroupByCurrency3(0.0);
 			result.setXxxFlaggedRatio(0.0);
-			result.setXxxratio2020(0.0);
+			result.setXxxratioBudgetZero(0.0);
 			return result;
 		}
 

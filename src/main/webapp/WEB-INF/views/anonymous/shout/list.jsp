@@ -23,7 +23,7 @@
 	
 	<acme:list-column code="anonymous.xxx.xxxdate" path="xxx.xxxdate" width="15%"/>
 	<acme:list-column code="anonymous.xxx.xxxmoment" path="xxx.xxxmoment" width="10%"/>
-		<acme:list-column code="anonymous.xxx.xxxamount.amount" path="xxx.xxxamount.amount" width="10%"/>
+	<acme:list-column code="anonymous.xxx.xxxamount.amount" path="xxx.xxxamount.amount" width="10%"/>
 	<acme:list-column code="anonymous.xxx.xxxamount.currency" path="xxx.xxxamount.currency" width="10%"/>
 	<acme:list-column code="anonymous.xxx.xxxboolean" path="xxx.xxxboolean" width="5%"/>
 </acme:list>

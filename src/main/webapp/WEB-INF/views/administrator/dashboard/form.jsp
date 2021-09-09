@@ -29,8 +29,8 @@
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.xxxratio2020" /></th>
-		<td><acme:print value="${xxxratio2020}" /></td>
+				code="administrator.dashboard.xxxratioBudgetZero" /></th>
+		<td><acme:print value="${xxxratioBudgetZero}" /></td>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
