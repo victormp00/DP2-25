@@ -429,7 +429,7 @@ made by ^</panel_attributes>
       <x>858</x>
       <y>0</y>
       <w>204</w>
-      <h>186</h>
+      <h>222</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 Dashboard
@@ -446,10 +446,14 @@ Dashboard
 + deviationWorkload: double
 + maxWorkload: double
 + minWorkload: double
-+
-+
-+
-+</panel_attributes>
++ xxxFlaggedRatio: double
++ xxxratioBudgetZero: double
++ xxxaverageGroupByCurrency1: double
++ xxxDeviationGroupByCurrency1: double
++ xxxaverageGroupByCurrency2: double
++ xxxDeviationGroupByCurrency2: double
++ xxxaverageGroupByCurrency3: double
++ xxxDeviationGroupByCurrency3: double</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

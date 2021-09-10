@@ -16,13 +16,13 @@ administrator.dashboard.minWorkload= Minima carga de trabajo
 
 administrator.dashboard.form.title.application-statuses = Estados de la aplicacion
 
-administrator.dashboard.xxxFlaggedRatio = ratio de shouts donde xxx es verdadero
-administrator.dashboard.xxxratioBudgetZero = ratio de shouts donde el budget de su xxx es 0
-administrator.dashboard.xxxaverageGroupByCurrency = media de dinero agrupado por divisa
-administrator.dashboard.xxxDeviationGroupByCurrency = desviación de dinero agrupado por divisa
-administrator.dashboard.xxxaverageGroupByCurrencyEUR = media de dinero agrupado por divisa eur
-administrator.dashboard.xxxDeviationGroupByCurrencyEUR = desviación de dinero agrupado por eur
-administrator.dashboard.xxxaverageGroupByCurrencyUSD = media de dinero agrupado por divisa usd
-administrator.dashboard.xxxDeviationGroupByCurrencyUSD = desviación de dinero agrupado por usd
-administrator.dashboard.xxxaverageGroupByCurrencyBGP = media de dinero agrupado por divisa bgp
-administrator.dashboard.xxxDeviationGroupByCurrencyBGP = desviación de dinero agrupado por bgp
+administrator.dashboard.xxxFlaggedRatio = Proporción de gritos cuyas zomelas están marcadas como importantes
+administrator.dashboard.xxxratioBudgetZero = Relación de gritos cuyas zomelas tienen presupuesto cero
+administrator.dashboard.xxxaverageGroupByCurrency = Media del presupuesto agrupado por moneda
+administrator.dashboard.xxxDeviationGroupByCurrency = Desviación del presupuesto agrupado por moneda
+administrator.dashboard.xxxaverageGroupByCurrencyEUR = Media del grupo presupuestario por EUR
+administrator.dashboard.xxxDeviationGroupByCurrencyEUR = Desviación del grupo presupuestario por EUR
+administrator.dashboard.xxxaverageGroupByCurrencyUSD = Media del grupo presupuestario por USD
+administrator.dashboard.xxxDeviationGroupByCurrencyUSD = Desviación del grupo presupuestario por EUR
+administrator.dashboard.xxxaverageGroupByCurrencyBGP = Media del grupo presupuestario por GBP
+administrator.dashboard.xxxDeviationGroupByCurrencyBGP = Desviación del grupo presupuestario por GBP

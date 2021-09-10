@@ -1,8 +1,5 @@
 package acme.testing.controlCheck;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -18,8 +15,8 @@ public class AnonymousShoutCreateTest extends DP2Test {
 		@CsvFileSource(resources = "/controlCheck/anonymous/negativeShout.csv", encoding = "utf-8", numLinesToSkip = 1)
 		@Order(20)
 		public void negativeCreateShout(final int recordIndex,final String author, final String text,
-			final String info, final String xxxamount, final String xxxcurrency, final String xxxmoment) {
-			final String n=new SimpleDateFormat("dd/MM/yyyy").format(new Date())+"/test";
+			final String info, final String xxxamount, final String xxxcurrency, final String xxxmoment, final String xxxdate) {
+//			final String n=new SimpleDateFormat("dd/MM/yyyy").format(new Date())+"/test";
 			
 			
 			
@@ -28,7 +25,7 @@ public class AnonymousShoutCreateTest extends DP2Test {
 			super.fillInputBoxIn("author", author);
 			super.fillInputBoxIn("text", text);
 			super.fillInputBoxIn("info", info);
-			super.fillInputBoxIn("xxx.xxxdate", n);
+			super.fillInputBoxIn("xxx.xxxdate", xxxdate);
 			super.fillInputBoxIn("xxx.xxxmoment", xxxmoment);
 			super.fillInputBoxIn("xxx.xxxamount", xxxamount+ xxxcurrency);
 			super.clickOnSubmitButton("Shout!");
@@ -41,40 +38,40 @@ public class AnonymousShoutCreateTest extends DP2Test {
 	@CsvFileSource(resources = "/controlCheck/anonymous/positiveShout.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveCreateShout(final int recordIndex,final String author, final String text,
-		final String info,final String xxxamount, final String xxxcurrency) {
+		final String info,final String xxxamount, final String xxxcurrency, final String xxxmoment, final String xxxdate) {
 		
-		final Date actual= new Date();
-		final Integer d= actual.getDate();
-		final Integer m=actual.getMonth()+1;
-		final Integer y=actual.getYear()+1900;
-		String month= m.toString();
-		String day= d.toString();
-		if(m<10) {
-			month="0"+month;
-		}
-		if(d<10) {
-			day="0"+day;
-		}
-		final String n = day+"/"+month+"/"+y.toString()+"/test"+recordIndex;
-		
-		
-		actual.setDate(actual.getDate()+8);
-		final String actualre=new SimpleDateFormat("yyyy/MM/dd HH:mm").format(actual);
+//		final Date actual= new Date();
+//		final Integer d= actual.getDate();
+//		final Integer m=actual.getMonth()+1;
+//		final Integer y=actual.getYear()+1900;
+//		String month= m.toString();
+//		String day= d.toString();
+//		if(m<10) {
+//			month="0"+month;
+//		}
+//		if(d<10) {
+//			day="0"+day;
+//		}
+//		final String n = day+"/"+month+"/"+y.toString()+"/test"+recordIndex;
+//		
+//		
+//		actual.setDate(actual.getDate()+8);
+//		final String actualre=new SimpleDateFormat("yyyy/MM/dd HH:mm").format(actual);
 		
 		super.navigateHome();
 		super.clickOnMenu("Anonymous", "Shout!");
 		super.fillInputBoxIn("author", author);
 		super.fillInputBoxIn("text", text);
 		super.fillInputBoxIn("info", info);
-		super.fillInputBoxIn("xxx.xxxdate", n);
-		super.fillInputBoxIn("xxx.xxxmoment", actualre);
+		super.fillInputBoxIn("xxx.xxxdate", xxxdate);
+		super.fillInputBoxIn("xxx.xxxmoment", xxxmoment);
 		super.fillInputBoxIn("xxx.xxxamount", xxxamount+ xxxcurrency);
 		super.clickOnSubmitButton("Shout!");
 		
 		super.clickOnMenu("Anonymous", "Shouts list");
 		super.checkColumnHasValue(recordIndex, 1, author);
 		super.checkColumnHasValue(recordIndex, 2, text);
-		super.checkColumnHasValue(recordIndex, 3, n);
+		super.checkColumnHasValue(recordIndex, 3, xxxdate);
 		super.checkColumnHasValue(recordIndex, 5, xxxamount);
 		super.checkColumnHasValue(recordIndex, 6, xxxcurrency);
 		

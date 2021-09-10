@@ -257,28 +257,28 @@
 	<bean id="xxx01" class = "acme.entities.shouts.XXX">
 		<property name="xxxamount" value="2.00 EUR"/>
 		<property name="xxxboolean" value="true"/>
-		<property name="xxxdate" value="08/06/2021/kcccc"/>
-		<property name="xxxmoment" value="2021/08/31 14:55"/>
+		<property name="xxxdate" value="123459:210910"/>
+		<property name="xxxmoment" value="2021/10/31 14:55"/>
 	</bean>
 	
 	<bean id="xxx02" class = "acme.entities.shouts.XXX">
 		<property name="xxxamount" value="3.00 USD"/>
 		<property name="xxxboolean" value="true"/>
-		<property name="xxxdate" value="08/06/2021/iiiii"/>
-		<property name="xxxmoment" value="2021/08/31 14:55"/>
+		<property name="xxxdate" value="123456:210910"/>
+		<property name="xxxmoment" value="2021/10/31 14:55"/>
 	</bean>
 	<bean id="xxx03" class = "acme.entities.shouts.XXX">
-		<property name="xxxamount" value="3.00 BGT"/>
+		<property name="xxxamount" value="3.00 GBP"/>
 		<property name="xxxboolean" value="true"/>
-		<property name="xxxdate" value="08/06/2021/lll"/>
-		<property name="xxxmoment" value="2021/08/31 14:55"/>
+		<property name="xxxdate" value="123457:210910"/>
+		<property name="xxxmoment" value="2021/10/31 14:55"/>
 	</bean>
 	
 	<bean id="xxx04" class = "acme.entities.shouts.XXX">
 		<property name="xxxamount" value="3.00 EUR"/>
 		<property name="xxxboolean" value="true"/>
-		<property name="xxxdate" value="08/06/2021/kkk"/>
-		<property name="xxxmoment" value="2021/08/31 14:55"/>
+		<property name="xxxdate" value="123458:210910"/>
+		<property name="xxxmoment" value="2021/10/31 14:55"/>
 	</bean>
 
 	<!-- AuthenticatedNormalUser -->

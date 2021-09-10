@@ -129,12 +129,14 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		if(!errors.hasErrors("xxx.xxxdate")){
 			Boolean res= true;
 			final Date currentDate= new Date();
-			final String[] e=entity.getXxx().getXxxdate().split("/");
-			final Integer day= Integer.valueOf(e[0]);
-			final Integer month= Integer.valueOf(e[1]);
-			final Integer year= Integer.valueOf(e[2]);
+			final String[] e=entity.getXxx().getXxxdate().split(":");
+			final String f = e[1];
+			final String[] p = f.split("");
+			final Integer day= Integer.valueOf(p[4]+p[5]);
+			final Integer month= Integer.valueOf(p[2]+p[3]);
+			final Integer year= Integer.valueOf(p[0]+p[1]);
 			
-			if(!(day.equals(currentDate.getDate()) && month.equals(currentDate.getMonth()+1) && year.equals(currentDate.getYear()+1900))) {
+			if(!(day.equals(currentDate.getDate()) && month.equals(currentDate.getMonth()+1) && year.equals(currentDate.getYear()+1900-2000))) {
 				res = false;
 			}
 			

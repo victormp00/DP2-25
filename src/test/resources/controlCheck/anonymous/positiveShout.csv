@@ -1,4 +1,4 @@
-recordIndex,author,text,info,xxxamount,xxxcurrency
-4,Noel Doe,I'm handsome,http://www.example.com,121.00, EUR
-5,Noel Doe,I'm handsome,http://www.example.com,121.00, EUR
-6,Noel Doe,I'm handsome,http://www.example.com,121.00, EUR
+recordIndex,author,text,info,xxxamount,xxxcurrency,xxxmoment,xxxdate
+4,Noel Doe,I'm handsome,http://www.example.com,121.00, EUR,2021/10/31 14:55,043457:210910
+5,Noel Doe,I'm handsome,http://www.example.com,121.00, EUR,2021/10/31 14:55,693457:210910
+6,Noel Doe,I'm handsome,http://www.example.com,121.00, EUR,2021/10/31 14:55,283457:210910
